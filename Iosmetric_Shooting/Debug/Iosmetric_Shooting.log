@@ -1,0 +1,25 @@
+﻿  main.cpp
+c:\users\arkad\documents\deadshot files\c++ programs\sfml\tests\iosmetric_shooting\iosmetric_shooting\main.cpp(10): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\arkad\documents\deadshot files\c++ programs\sfml\tests\iosmetric_shooting\iosmetric_shooting\main.cpp(43): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+c:\users\arkad\documents\deadshot files\c++ programs\sfml\tests\iosmetric_shooting\iosmetric_shooting\main.cpp(44): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+  Iosmetric_Shooting.vcxproj -> C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Debug\Iosmetric_Shooting.exe
