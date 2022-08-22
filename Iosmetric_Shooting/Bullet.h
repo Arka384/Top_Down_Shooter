@@ -6,7 +6,7 @@
 class Bullet : public Entity {
 private:
 	float bulletSize = 8.f;
-	float speed = 1000.f;
+	float speed = 800.f;
 	float fireAngle = 0.f;
 	
 public:

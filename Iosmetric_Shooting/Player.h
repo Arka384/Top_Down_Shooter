@@ -8,6 +8,8 @@ private:
 	sf::Vector2i playerTile;
 	sf::Vector2f movementDir;
 	sf::Vector2f windowSize;
+	float updateDelay = 0.03f;
+	float updateDealyTimer = 0.f;
 	float moveSpeed = 500.f;
 	int health = 100;
 

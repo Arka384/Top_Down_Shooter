@@ -32,7 +32,7 @@ void Weapons::update(float dt, TileMap tileMapObj)
 	for (int j = 0; j < tileMapObj.tiles.size(); j++) {
 		i = bullets.begin();
 		while (i != bullets.end()) {
-			if (tileMapObj.tiles[j].type != 169 && 
+			if (tileMapObj.tiles[j].type != tileMapObj.allowedTile && 
 				tileMapObj.tiles[j].sprite.getGlobalBounds().intersects(i->getGlobalBounds())) {
 				i = bullets.erase(i);
 			}

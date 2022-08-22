@@ -11,6 +11,12 @@ Player::Player(sf::Vector2i tilePos, sf::Vector2f size, sf::Vector2f windowSize)
 
 void Player::update(float dt, std::list<Bullet> &enemyBullets, TileMap tileMapObj)
 {
+	updateDealyTimer += dt;
+	if (updateDealyTimer < updateDelay)
+		return;
+	else
+		updateDealyTimer = 0.f;
+
 	//keyboard movement
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
 		//position.x -= moveSpeed * dt;
@@ -18,7 +24,7 @@ void Player::update(float dt, std::list<Bullet> &enemyBullets, TileMap tileMapOb
 			int newTx = playerTile.x - 1;
 			int newTy = playerTile.y;
 			int tileVal = tileMapObj.tiles[newTx + newTy * tileMapObj.mapDimension.x].type;
-			if (tileVal == 169) {
+			if (tileVal == tileMapObj.allowedTile) {
 				playerTile.x = newTx;
 				playerTile.y = newTy;
 			}
@@ -30,7 +36,7 @@ void Player::update(float dt, std::list<Bullet> &enemyBullets, TileMap tileMapOb
 			int newTx = playerTile.x + 1;
 			int newTy = playerTile.y;
 			int tileVal = tileMapObj.tiles[newTx + newTy * tileMapObj.mapDimension.x].type;
-			if (tileVal == 169) {
+			if (tileVal == tileMapObj.allowedTile) {
 				playerTile.x = newTx;
 				playerTile.y = newTy;
 			}
@@ -43,7 +49,7 @@ void Player::update(float dt, std::list<Bullet> &enemyBullets, TileMap tileMapOb
 			int newTx = playerTile.x;
 			int newTy = playerTile.y - 1;
 			int tileVal = tileMapObj.tiles[newTx + newTy * tileMapObj.mapDimension.x].type;
-			if (tileVal == 169) {
+			if (tileVal == tileMapObj.allowedTile) {
 				playerTile.x = newTx;
 				playerTile.y = newTy;
 			}
@@ -55,7 +61,7 @@ void Player::update(float dt, std::list<Bullet> &enemyBullets, TileMap tileMapOb
 			int newTx = playerTile.x;
 			int newTy = playerTile.y + 1;
 			int tileVal = tileMapObj.tiles[newTx + newTy * tileMapObj.mapDimension.x].type;
-			if (tileVal == 169) {
+			if (tileVal == tileMapObj.allowedTile) {
 				playerTile.x = newTx;
 				playerTile.y = newTy;
 			}

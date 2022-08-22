@@ -7,7 +7,7 @@ TileMap::TileMap()
 
 void TileMap::loadSubTextures(void)
 {
-	std::ifstream subTex("TileMap/Map1/subTextures.txt");
+	std::ifstream subTex("TileMap/Map2/subTextures.txt");
 	int num = 0;
 
 	while (subTex >> num) {
@@ -28,14 +28,15 @@ void TileMap::loadSubTextures(void)
 
 void TileMap::generateTileMap(void)
 {
-	std::ifstream maptxt("TileMap/Map1/map1.txt");
+	fflush(stdin);
+	std::ifstream maptxt("TileMap/Map2/map2.txt");
 	int tileValue = 0;
 	
 	for (int i = 0; i < mapDimension.y; i++) {
 		for (int j = 0; j < mapDimension.x; j++) {
 
-			int tileX = j * 32;
-			int tileY = i * 32;
+			int tileX = j * tileSize;
+			int tileY = i * tileSize;
 
 			maptxt >> tileValue;
 			std::pair<int, int> tileCoords = subTextureCoords[tileValue];
@@ -46,6 +47,7 @@ void TileMap::generateTileMap(void)
 			tile.sprite.setTexture(completeTileSheet);
 			tile.sprite.setTextureRect(sf::IntRect(tileCoords.first, tileCoords.second, tileSize, tileSize));
 			tile.sprite.setPosition(tileX, tileY);
+			//tile.sprite.setScale(0.5, 0.5);
 
 			tiles.push_back(tile);
 		}

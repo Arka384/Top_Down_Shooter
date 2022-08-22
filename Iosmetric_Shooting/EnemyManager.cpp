@@ -58,7 +58,7 @@ void EnemyManager::update(float dt, Weapons & w, sf::Vector2f playerPos, TileMap
 	for (int j = 0; j < tileMapObj.tiles.size(); j++) {
 		enBullet = enemyBullets.begin();
 		while (enBullet != enemyBullets.end()) {
-			if (tileMapObj.tiles[j].type != 169 &&
+			if (tileMapObj.tiles[j].type != tileMapObj.allowedTile &&
 				tileMapObj.tiles[j].sprite.getGlobalBounds().intersects(enBullet->getGlobalBounds())) {
 				enBullet = enemyBullets.erase(enBullet);
 			}
