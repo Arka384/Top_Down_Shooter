@@ -22,7 +22,6 @@ int main()
 	Weapons weapon(windowSize);
 	TileMap tileMap;
 
-	tileMap.loadSubTextures();
 	tileMap.generateTileMap();
 
 	while (window.isOpen()) {
@@ -45,8 +44,6 @@ int main()
 
 		tempMousePos = sf::Mouse::getPosition(window);
 		mousePos = window.mapPixelToCoords(tempMousePos);
-		//mousePos.x = sf::Mouse::getPosition(window).x;
-		//mousePos.y = sf::Mouse::getPosition(window).y;
 
 		player.update(dt, enemyManager.enemyBullets, tileMap);
 		weapon.update(dt, tileMap);

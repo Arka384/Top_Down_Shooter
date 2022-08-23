@@ -18,19 +18,12 @@ void Weapons::fire(sf::Vector2f mousePos, sf::Vector2f playerPos)
 
 void Weapons::update(float dt, TileMap tileMapObj)
 {
-	auto i = bullets.begin();
-	while (i != bullets.end()) {
+	for (auto i = bullets.begin(); i != bullets.end(); i++)
 		i->update(dt);
 
-		if (i->getPosition().x < 0 || i->getPosition().x > windowSize.x ||
-			i->getPosition().y < 0 || i->getPosition().y > windowSize.y)
-			i = bullets.erase(i);
-		else
-			i++;
-	}
 	//destory bullets on tile map collision
 	for (int j = 0; j < tileMapObj.tiles.size(); j++) {
-		i = bullets.begin();
+		auto i = bullets.begin();
 		while (i != bullets.end()) {
 			if (tileMapObj.tiles[j].type != tileMapObj.allowedTile && 
 				tileMapObj.tiles[j].sprite.getGlobalBounds().intersects(i->getGlobalBounds())) {

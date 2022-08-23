@@ -15,17 +15,16 @@ class TileMap
 {
 private:
 	sf::Texture completeTileSheet;
-	std::map<int, std::pair<int, int>> subTextureCoords;
+	sf::Vector2i tileSheetMax = sf::Vector2i(54, 40);
 
 public:
 	int tileSize = 32;	//all tiles are 32x32
 	//sf::Vector2i mapDimension = sf::Vector2i(40, 22); //for map1
 	sf::Vector2i mapDimension = sf::Vector2i(80, 60); //for map2
-	int allowedTile = 111;
+	int allowedTile = 111 - 1;	//-1 for offset adjustment
 	std::vector<Tile> tiles;	//the whole tile map actually
 
 	TileMap();
-	void loadSubTextures(void);
 	void generateTileMap(void);
 	void drawTileMap(sf::RenderWindow &window);
 };
