@@ -1,4 +1,4 @@
-#include "Player.h"
+#include "Camera.h"
 #include <ctime>
 #include <cstdlib>
 
@@ -8,19 +8,20 @@ int main()
 
 	sf::Vector2f windowSize = sf::Vector2f(1920, 1080);
 	sf::RenderWindow window(sf::VideoMode(windowSize.x, windowSize.y), "Boii", sf::Style::Close);
-	sf::View playerView;
-	playerView.setSize(windowSize);
+
 	window.setFramerateLimit(60);
 	sf::Time tm;
 	sf::Clock clk;
 	float dt = 0.f;
 	sf::Vector2f mousePos;
 	sf::Vector2i tempMousePos;
+	bool keyPressed = false;
 
 	Player player(sf::Vector2i(3, 3), sf::Vector2f(32, 32), windowSize);
 	EnemyManager enemyManager(windowSize);
 	Weapons weapon(windowSize);
 	TileMap tileMap;
+	Camera playerCam(windowSize);
 
 	tileMap.generateTileMap();
 
@@ -37,6 +38,11 @@ int main()
 			case sf::Event::MouseButtonPressed:
 				weapon.fire(mousePos, player.getPosition());
 				break;
+			case sf::Event::KeyPressed:
+				keyPressed = true;
+				break;
+			case sf::Event::KeyReleased:
+				keyPressed = false;
 			default:
 				break;
 			}
@@ -45,11 +51,10 @@ int main()
 		tempMousePos = sf::Mouse::getPosition(window);
 		mousePos = window.mapPixelToCoords(tempMousePos);
 
-		player.update(dt, enemyManager.enemyBullets, tileMap);
+		player.update(dt, keyPressed, mousePos, enemyManager.enemyBullets, tileMap);
 		weapon.update(dt, tileMap);
 		enemyManager.update(dt, weapon, player.getPosition(), tileMap);
-		playerView.setCenter(player.getPosition());
-		window.setView(playerView);
+		playerCam.update(player, window, dt);
 
 
 		window.clear();

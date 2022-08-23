@@ -2,13 +2,13 @@
 
 TileMap::TileMap()
 {
-	completeTileSheet.loadFromFile("TileMap/tilesheet_complete.png");
+	completeTileSheet.loadFromFile("Assets/TileMap/tilesheet_complete.png");
 }
 
 void TileMap::generateTileMap(void)
 {
 	fflush(stdin);
-	std::ifstream maptxt("TileMap/Map2/map2.txt");
+	std::ifstream maptxt("Assets/TileMap/Map2/map2.txt");
 	int tileValue = 0;
 	
 	for (int i = 0; i < mapDimension.y; i++) {

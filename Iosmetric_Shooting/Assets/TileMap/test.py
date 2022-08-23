@@ -1,10 +1,9 @@
-fp = open('test_map.txt','r')
+fp = open('test_3.txt','r')
 content = fp.read()
 
 content = content.replace(","," ")
-print(content)
 
-fp = open("map2.txt", "w")
+fp = open("map3_3.txt", "w")
 fp.write(content)
 
 fp.close()

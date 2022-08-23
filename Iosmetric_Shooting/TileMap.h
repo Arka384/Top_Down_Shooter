@@ -21,6 +21,7 @@ public:
 	int tileSize = 32;	//all tiles are 32x32
 	//sf::Vector2i mapDimension = sf::Vector2i(40, 22); //for map1
 	sf::Vector2i mapDimension = sf::Vector2i(80, 60); //for map2
+	//sf::Vector2i mapDimension = sf::Vector2i(150, 100); //for map2
 	int allowedTile = 111 - 1;	//-1 for offset adjustment
 	std::vector<Tile> tiles;	//the whole tile map actually
 

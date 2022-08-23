@@ -2,14 +2,27 @@
 
 Player::Player(sf::Vector2i tilePos, sf::Vector2f size, sf::Vector2f windowSize)
 {
+	playerTexture.loadFromFile("Assets/Player/handGun.png");
+	handGunSprite.setTexture(playerTexture);
+	//handGunSprite.setScale(0.5, 0.5);
+	std::string imageName = "Assets/Player/feet/walk/survivor-walk_";
+	for (int i = 0; i < 20; i++) {
+		std::string imageNumber = std::to_string(i) + ".png";
+		feetWalkTextures[i].loadFromFile(imageName + imageNumber);
+	}
+
 	this->playerTile = tilePos;
 	this->setSize(size);
+	this->setOrigin(this->getSize().x / 2, this->getSize().y / 2);
 	this->position = sf::Vector2f(playerTile.x*size.x, playerTile.y*size.y);
 	this->setPosition(position);
+	handGunSprite.setOrigin(handGunSprite.getGlobalBounds().width/2, handGunSprite.getGlobalBounds().height / 2);
+	handGunSprite.setPosition(position);
+	
 	this->windowSize = windowSize;
 }
 
-void Player::update(float dt, std::list<Bullet> &enemyBullets, TileMap tileMapObj)
+void Player::update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<Bullet> &enemyBullets, TileMap tileMapObj)
 {
 	updateDealyTimer += dt;
 	if (updateDealyTimer < updateDelay)
@@ -17,6 +30,7 @@ void Player::update(float dt, std::list<Bullet> &enemyBullets, TileMap tileMapOb
 	else
 		updateDealyTimer = 0.f;
 
+	sf::Vector2f oldPos = position;
 	//keyboard movement
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
 		//position.x -= moveSpeed * dt;
@@ -68,9 +82,29 @@ void Player::update(float dt, std::list<Bullet> &enemyBullets, TileMap tileMapOb
 		}
 	}
 
-
 	position = sf::Vector2f(playerTile.x*this->getSize().x, playerTile.y*this->getSize().y);
 	this->setPosition(position);
+	handGunSprite.setPosition(position);
+
+	float dx = mousePos.x - position.x;
+	float dy = mousePos.y - position.y;
+	float angle = std::atan2(dy, dx);
+	angle = angle * (180 / 3.1415);
+	this->setRotation(angle + 180);
+	handGunSprite.setRotation(angle);
+	feetWalkSprite.setRotation(angle);
+
+	if (oldPos != position) {
+		feetWalkSpriteIndex += 1;
+		if (feetWalkSpriteIndex > 19)
+			feetWalkSpriteIndex = 0;
+		feetWalkSprite.setTexture(feetWalkTextures[feetWalkSpriteIndex]);
+		feetWalkSprite.setScale(0.4, 0.4);
+		feetWalkSprite.setOrigin(feetWalkSprite.getGlobalBounds().width / 2, feetWalkSprite.getGlobalBounds().height / 2);
+		feetWalkSprite.setPosition(position);
+	}
+	
+
 
 	//collision with enemy bullets
 	auto i = enemyBullets.begin();
@@ -89,4 +123,6 @@ void Player::update(float dt, std::list<Bullet> &enemyBullets, TileMap tileMapOb
 void Player::draw(sf::RenderWindow &window)
 {
 	window.draw(*this);
+	window.draw(feetWalkSprite);
+	window.draw(handGunSprite);
 }
