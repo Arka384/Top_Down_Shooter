@@ -16,23 +16,10 @@ void Weapons::fire(sf::Vector2f mousePos, sf::Vector2f playerPos)
 	bullets.push_back(b);
 }
 
-void Weapons::update(float dt, TileMap tileMapObj)
+void Weapons::update(float dt)
 {
 	for (auto i = bullets.begin(); i != bullets.end(); i++)
 		i->update(dt);
-
-	//destory bullets on tile map collision
-	for (int j = 0; j < tileMapObj.tiles.size(); j++) {
-		auto i = bullets.begin();
-		while (i != bullets.end()) {
-			if (tileMapObj.tiles[j].type != tileMapObj.allowedTile && 
-				tileMapObj.tiles[j].sprite.getGlobalBounds().intersects(i->getGlobalBounds())) {
-				i = bullets.erase(i);
-			}
-			else
-				i++;
-		}
-	}
 	
 }
 

@@ -17,13 +17,11 @@ int main()
 	sf::Vector2i tempMousePos;
 	bool keyPressed = false;
 
-	Player player(sf::Vector2i(3, 3), sf::Vector2f(32, 32), windowSize);
+	Player player(sf::Vector2f(100, 100), sf::Vector2f(32, 32), windowSize);
 	EnemyManager enemyManager(windowSize);
 	Weapons weapon(windowSize);
-	TileMap tileMap;
 	Camera playerCam(windowSize);
 
-	tileMap.generateTileMap();
 
 	while (window.isOpen()) {
 		tm = clk.restart();
@@ -51,14 +49,13 @@ int main()
 		tempMousePos = sf::Mouse::getPosition(window);
 		mousePos = window.mapPixelToCoords(tempMousePos);
 
-		player.update(dt, keyPressed, mousePos, enemyManager.enemyBullets, tileMap);
-		weapon.update(dt, tileMap);
-		enemyManager.update(dt, weapon, player.getPosition(), tileMap);
+		player.update(dt, keyPressed, mousePos, enemyManager.enemyBullets);
+		weapon.update(dt);
+		enemyManager.update(dt, weapon, player.getPosition());
 		playerCam.update(player, window, dt);
 
 
 		window.clear();
-		tileMap.drawTileMap(window);
 		weapon.draw(window);
 		player.draw(window);
 		enemyManager.drawEnemies(window);

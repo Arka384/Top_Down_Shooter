@@ -23,7 +23,7 @@ public:
 	EnemyManager(sf::Vector2f windowSize);
 	void shoot(sf::Vector2f playerPos, Enemy enemy, float dt);
 	void spawnEnemies(void);
-	void update(float dt, Weapons &w, sf::Vector2f playerPos, TileMap tileMapObj);
+	void update(float dt, Weapons &w, sf::Vector2f playerPos);
 	void drawEnemies(sf::RenderWindow &window);
 };
 

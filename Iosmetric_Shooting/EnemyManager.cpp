@@ -21,7 +21,7 @@ void EnemyManager::spawnEnemies(void)
 		maxEnemySpawnd = true;
 }
 
-void EnemyManager::update(float dt, Weapons & w, sf::Vector2f playerPos, TileMap tileMapObj)
+void EnemyManager::update(float dt, Weapons & w, sf::Vector2f playerPos)
 {
 	//spawn enemies
 	spawnnigTimer += dt;
@@ -54,18 +54,7 @@ void EnemyManager::update(float dt, Weapons & w, sf::Vector2f playerPos, TileMap
 		else
 			enBullet++;
 	}
-	//destory bullets on tile map collision
-	for (int j = 0; j < tileMapObj.tiles.size(); j++) {
-		enBullet = enemyBullets.begin();
-		while (enBullet != enemyBullets.end()) {
-			if (tileMapObj.tiles[j].type != tileMapObj.allowedTile &&
-				tileMapObj.tiles[j].sprite.getGlobalBounds().intersects(enBullet->getGlobalBounds())) {
-				enBullet = enemyBullets.erase(enBullet);
-			}
-			else
-				enBullet++;
-		}
-	}
+	
 
 }
 

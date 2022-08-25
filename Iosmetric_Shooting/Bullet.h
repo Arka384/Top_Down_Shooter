@@ -1,6 +1,5 @@
 #pragma once
 #include "Entity.h"
-#include "TileMap.h"
 #include <cmath>
 
 class Bullet : public Entity {
