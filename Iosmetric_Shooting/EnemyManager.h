@@ -23,7 +23,8 @@ public:
 	EnemyManager(sf::Vector2f windowSize);
 	void shoot(sf::Vector2f playerPos, Enemy enemy, float dt);
 	void spawnEnemies(void);
-	void update(float dt, Weapons &w, sf::Vector2f playerPos);
+	void update(float dt, Weapons &w, sf::Vector2f playerPos, Camera view);
+	bool ifOutsizeView(Bullet b, Camera view);
 	void drawEnemies(sf::RenderWindow &window);
 };
 

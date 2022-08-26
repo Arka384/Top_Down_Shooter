@@ -1,4 +1,4 @@
-#include "Camera.h"
+#include "Player.h"
 #include <ctime>
 #include <cstdlib>
 
@@ -9,7 +9,7 @@ int main()
 	sf::Vector2f windowSize = sf::Vector2f(1920, 1080);
 	sf::RenderWindow window(sf::VideoMode(windowSize.x, windowSize.y), "Boii", sf::Style::Close);
 
-	window.setFramerateLimit(60);
+	window.setFramerateLimit(120);
 	sf::Time tm;
 	sf::Clock clk;
 	float dt = 0.f;
@@ -17,7 +17,7 @@ int main()
 	sf::Vector2i tempMousePos;
 	bool keyPressed = false;
 
-	Player player(sf::Vector2f(100, 100), sf::Vector2f(32, 32), windowSize);
+	Player player(sf::Vector2f(100, 100), windowSize);
 	EnemyManager enemyManager(windowSize);
 	Weapons weapon(windowSize);
 	Camera playerCam(windowSize);
@@ -45,17 +45,17 @@ int main()
 				break;
 			}
 		}
-
+		
 		tempMousePos = sf::Mouse::getPosition(window);
 		mousePos = window.mapPixelToCoords(tempMousePos);
 
 		player.update(dt, keyPressed, mousePos, enemyManager.enemyBullets);
-		weapon.update(dt);
-		enemyManager.update(dt, weapon, player.getPosition());
-		playerCam.update(player, window, dt);
+		weapon.update(dt, playerCam);
+		enemyManager.update(dt, weapon, player.getPosition(), playerCam);
+		playerCam.update(player.getPosition(), window, dt);
 
 
-		window.clear();
+		window.clear(sf::Color(92,92,92,255));
 		weapon.draw(window);
 		player.draw(window);
 		enemyManager.drawEnemies(window);

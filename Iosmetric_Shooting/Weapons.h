@@ -1,6 +1,7 @@
 #pragma once
-#include "Bullet.h"
+#include "Camera.h"
 #include <list>
+#include <iostream>
 
 class Weapons
 {
@@ -12,7 +13,8 @@ public:
 
 	Weapons(sf::Vector2f windowSize);
 	void fire(sf::Vector2f mousePos, sf::Vector2f playerPos);
-	void update(float dt);
+	void update(float dt, Camera view);
+	bool ifOutsideView(Bullet b, Camera view);
 	void draw(sf::RenderWindow &window);
 };
 

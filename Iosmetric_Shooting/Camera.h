@@ -1,6 +1,5 @@
 #pragma once
-#include "Player.h"
-
+#include "Bullet.h"
 class Camera
 {
 private:
@@ -11,6 +10,6 @@ public:
 	sf::View playerView;
 
 	Camera(sf::Vector2f windowSize);
-	void update(Player player, sf::RenderWindow &window, float dt);
+	void update(sf::Vector2f playerPos, sf::RenderWindow &window, float dt);
 };
 

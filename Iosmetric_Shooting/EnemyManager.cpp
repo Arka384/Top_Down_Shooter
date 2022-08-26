@@ -21,7 +21,7 @@ void EnemyManager::spawnEnemies(void)
 		maxEnemySpawnd = true;
 }
 
-void EnemyManager::update(float dt, Weapons & w, sf::Vector2f playerPos)
+void EnemyManager::update(float dt, Weapons & w, sf::Vector2f playerPos, Camera view)
 {
 	//spawn enemies
 	spawnnigTimer += dt;
@@ -47,15 +47,25 @@ void EnemyManager::update(float dt, Weapons & w, sf::Vector2f playerPos)
 	auto enBullet = enemyBullets.begin();
 	while (enBullet != enemyBullets.end()) {
 		enBullet->update(dt);
-
-		if (enBullet->getPosition().x < 0 || enBullet->getPosition().x > windowSize.x ||
-			enBullet->getPosition().y < 0 || enBullet->getPosition().y > windowSize.y)
+		if (ifOutsizeView(*enBullet, view))
 			enBullet = enemyBullets.erase(enBullet);
 		else
 			enBullet++;
 	}
-	
+}
 
+bool EnemyManager::ifOutsizeView(Bullet b, Camera view)
+{
+	int viewLeft = view.playerView.getCenter().x - view.playerView.getSize().x / 2;
+	int viewRight = view.playerView.getCenter().x + view.playerView.getSize().x / 2;
+	int viewUp = view.playerView.getCenter().y - view.playerView.getSize().y / 2;
+	int viewDown = view.playerView.getCenter().y + view.playerView.getSize().y / 2;
+
+	if (b.getPosition().x < viewLeft || b.getPosition().x > viewRight ||
+		b.getPosition().y < viewUp || b.getPosition().y > viewDown)
+		return true;
+	else
+		return false;
 }
 
 void EnemyManager::shoot(sf::Vector2f playerPos, Enemy enemy, float dt)
