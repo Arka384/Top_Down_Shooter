@@ -166,6 +166,6 @@ void Player::animateDeath(float dt)
 
 void Player::draw(sf::RenderWindow &window)
 {
-	window.draw(*this);
+	//window.draw(*this);
 	window.draw(playerSprite);
 }

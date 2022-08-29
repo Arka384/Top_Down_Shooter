@@ -7,9 +7,15 @@ private:
 	int health = 100;
 
 public:
-	Enemy(sf::Vector2f pos, sf::Vector2f size);
+	sf::Sprite sprite;
+	int currWalkTex = 0, maxWalkTex = 8;
+	float walkAnimTime = 0.08f, walkAnimTimer = 0.f;
+	bool flipped = false;
+	bool inNearestPoint = false;
+
+	Enemy(sf::Vector2f pos, sf::Vector2f size, sf::Sprite sprite);
 	int getHealth(void);
-	void update(float dt, Weapons &w);
+	void update(float dt, sf::Vector2f playerPos, Weapons &w);
 	void draw(sf::RenderWindow &window);
 };
 

@@ -3,22 +3,27 @@
 EnemyManager::EnemyManager(sf::Vector2f windowSize)
 {
 	this->windowSize = windowSize;
+	
+	//loading textures
+	type1WalkTexture.loadFromFile("Assets/characters/Enemy_1/walk.png");
+	type1WalkSprite.setTexture(type1WalkTexture);
+	type1WalkSprite.setTextureRect(sf::IntRect(sf::IntRect(0*subTexRectSize, 0, subTexRectSize, subTexRectSize)));
+	type1WalkSprite.setOrigin(subTexRectSize / 2, subTexRectSize / 2);
+	type1WalkSprite.setScale(scaleSize);
+
+	enemySprite = type1WalkSprite;
 }
 
 void EnemyManager::spawnEnemies(void)
 {
-	//say it's level 1
-	//so adding 4 static enemies
-	int enemySize = 40;		//for now
+	int x = std::rand() % static_cast<int>(windowSize.x*1.25f);
+	int y = std::rand() % static_cast<int>(windowSize.y*1.25f);
 
-	int x = std::rand() % static_cast<int>(windowSize.x - enemySize);
-	int y = std::rand() % static_cast<int>(windowSize.y - enemySize);
-
-	Enemy e(sf::Vector2f(x, y), sf::Vector2f(enemySize, enemySize));
+	Enemy e(sf::Vector2f(x, y), colRectSize, enemySprite);
 	enemies.push_back(e);
 	numberOfEnemy++;
-	if (numberOfEnemy == maxNumberOfEnemy)
-		maxEnemySpawnd = true;
+
+	maxEnemySpawnd = (numberOfEnemy == maxNumberOfEnemy) ? true : false;
 }
 
 void EnemyManager::update(float dt, Weapons & w, sf::Vector2f playerPos, Camera view)
@@ -34,7 +39,12 @@ void EnemyManager::update(float dt, Weapons & w, sf::Vector2f playerPos, Camera 
 	//update enemies
 	auto i = enemies.begin();
 	while (i != enemies.end()) {
-		i->update(dt, w);
+		i->update(dt, playerPos, w);
+
+		moveEnemy(dt, playerPos, *i);
+		animateWalk(dt, *i);
+		i->sprite.setPosition(i->getPosition() - spritePosOffset);
+
 		shoot(playerPos, *i, dt);
 
 		if (i->getHealth() <= 0)
@@ -42,6 +52,9 @@ void EnemyManager::update(float dt, Weapons & w, sf::Vector2f playerPos, Camera 
 		else
 			i++;
 	}
+	numberOfEnemy = enemies.size();
+	maxEnemySpawnd = (numberOfEnemy == maxNumberOfEnemy) ? true : false;
+	
 
 	//update enemy bullets
 	auto enBullet = enemyBullets.begin();
@@ -52,6 +65,52 @@ void EnemyManager::update(float dt, Weapons & w, sf::Vector2f playerPos, Camera 
 		else
 			enBullet++;
 	}
+}
+
+void EnemyManager::moveEnemy(float dt, sf::Vector2f playerPos, Enemy & e)
+{
+	float dx = playerPos.x - e.getPosition().x;
+	float dy = playerPos.y - e.getPosition().y;
+	float value = std::sqrt(std::pow(dx, 2) + std::pow(dy, 2));
+	if (value <= minDistBtPlayerEnemy) {
+		e.inNearestPoint = true;
+		return;
+	}
+	e.inNearestPoint = false;
+	sf::Vector2f normDir = sf::Vector2f((dx / value), (dy / value));
+	e.move(normDir*moveSpeed*dt);
+}
+
+void EnemyManager::animateWalk(float dt, Enemy &e)
+{
+	if (e.inNearestPoint) {
+		e.currWalkTex = 0;
+		e.sprite.setTextureRect(sf::IntRect(e.currWalkTex*subTexRectSize, 0, subTexRectSize, subTexRectSize));
+		e.sprite.setOrigin(subTexRectSize / 2, subTexRectSize / 2);
+		if (e.flipped)
+			e.sprite.setScale(-scaleSize.x, scaleSize.y);
+		else
+			e.sprite.setScale(scaleSize);
+		return;
+	}
+		
+
+	e.walkAnimTimer += dt;
+	if (e.walkAnimTimer >= e.walkAnimTime) {
+		e.walkAnimTimer = 0;
+
+		e.currWalkTex++;
+		if (e.currWalkTex == e.maxWalkTex - 1)
+			e.currWalkTex = 0;
+		e.sprite.setTextureRect(sf::IntRect(e.currWalkTex*subTexRectSize, 0, subTexRectSize, subTexRectSize));
+		e.sprite.setOrigin(subTexRectSize / 2, subTexRectSize / 2);
+		if (e.flipped)
+			e.sprite.setScale(-scaleSize.x, scaleSize.y);
+		else
+			e.sprite.setScale(scaleSize);
+	}
+	//type1WalkSprite.setPosition(position - spritePosOffset);
+	
 }
 
 bool EnemyManager::ifOutsizeView(Bullet b, Camera view)
@@ -87,7 +146,8 @@ void EnemyManager::shoot(sf::Vector2f playerPos, Enemy enemy, float dt)
 void EnemyManager::drawEnemies(sf::RenderWindow & window)
 {
 	for (auto i = enemies.begin(); i != enemies.end(); i++) {
-		window.draw(*i);
+		//window.draw(*i);
+		window.draw(i->sprite);
 	}
 	for (auto i = enemyBullets.begin(); i != enemyBullets.end(); i++) {
 		window.draw(*i);
