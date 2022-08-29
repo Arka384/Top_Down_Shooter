@@ -30,7 +30,7 @@ Player::Player(sf::Vector2f startingPos, sf::Vector2f windowSize)
 	deathSprite.setScale(scaleSize);
 }
 
-void Player::update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<Bullet> &enemyBullets)
+void Player::update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<Bullet> &enemyBullets, Weapons &weapon)
 {
 	//keyboard movement
 	sf::Vector2f oldPos = position;
@@ -48,9 +48,25 @@ void Player::update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<
 		position.y += moveSpeed * dt;	
 	}
 
+	float dx = mousePos.x - position.x;
+	float dy = mousePos.y - position.y;
+	float angle = std::atan2(dy, dx);
+	angle = angle * (180 / 3.1415);
+	weapon.gunSprite.setRotation(angle);
+
 	//flipping the player
 	flipped = (mousePos.x < position.x) ? true : false;
+
+	if (flipped) {
+		weapon.gunSprite.setScale(weapon.scaleSize.x, -weapon.scaleSize.y);
+	}
+	else {
+		weapon.gunSprite.setScale(weapon.scaleSize);
+	}
+		
+
 	this->setPosition(position);
+	weapon.gunSprite.setPosition(this->getPosition() + weapon.spritePosOffset);
 
 	//animations
 	if (isDead && !deathAnimEnd) {
@@ -68,14 +84,6 @@ void Player::update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<
 			animateWalk(dt);
 		}
 	}
-	
-
-	/*float dx = mousePos.x - position.x;
-	float dy = mousePos.y - position.y;
-	float angle = std::atan2(dy, dx);
-	angle = angle * (180 / 3.1415);
-	this->setRotation(angle + 180);*/
-
 
 	//collision with enemy bullets
 	auto i = enemyBullets.begin();

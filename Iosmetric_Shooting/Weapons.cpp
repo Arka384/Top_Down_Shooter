@@ -3,6 +3,23 @@
 Weapons::Weapons(sf::Vector2f windowSize)
 {
 	this->windowSize = windowSize;
+
+	//loading pistol textures
+	pistolTex.loadFromFile("Assets/Weapons/weaponR2.png");
+	pistol.setTexture(pistolTex);
+	pistol.setOrigin(pistol.getGlobalBounds().width / 2 - 80, pistol.getGlobalBounds().height / 2 + 20);
+	pistol.setScale(scaleSize);
+	gunSprite = pistol;
+	////loading rifel textures
+	//rifelTex.loadFromFile("Assets/Weapons/weaponR1.png");
+	//rifel.setTexture(rifelTex);
+	//rifel.setOrigin(rifel.getGlobalBounds().width / 2, rifel.getGlobalBounds().height / 2);
+	//rifel.setScale(scaleSize);
+	////loading shotgun tuxtures
+	//shotgunTex.loadFromFile("Assets/Weapons/weaponR3.png");
+	//shotgun.setTexture(shotgunTex);
+	//shotgun.setOrigin(shotgun.getGlobalBounds().width / 2, shotgun.getGlobalBounds().height / 2);
+	//shotgun.setScale(scaleSize);
 }
 
 void Weapons::fire(sf::Vector2f mousePos, sf::Vector2f playerPos)
@@ -16,7 +33,7 @@ void Weapons::fire(sf::Vector2f mousePos, sf::Vector2f playerPos)
 	bullets.push_back(b);
 }
 
-void Weapons::update(float dt, Camera view)
+void Weapons::update(sf::Vector2f mousePos, sf::Vector2f playerPos, float dt, Camera view)
 {
 	auto i = bullets.begin();
 	while (i != bullets.end()) {
@@ -47,4 +64,5 @@ void Weapons::draw(sf::RenderWindow & window)
 	for (auto i = bullets.begin(); i != bullets.end(); i++) {
 		window.draw(*i);
 	}
+	window.draw(gunSprite);
 }

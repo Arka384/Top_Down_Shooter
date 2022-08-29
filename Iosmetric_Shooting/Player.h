@@ -21,7 +21,7 @@ private:
 	int currWalkTex = 0, maxWalkTex = 8;
 	int currDeathTex = 0, maxDeathTex = 8;
 
-	sf::Vector2f scaleSize = sf::Vector2f(0.15, 0.15), spritePosOffset = sf::Vector2f(0, 60), colRectSize = sf::Vector2f(50, 80);
+	sf::Vector2f scaleSize = sf::Vector2f(0.18, 0.18), spritePosOffset = sf::Vector2f(0, 80), colRectSize = sf::Vector2f(60, 100);
 
 	//animations
 	bool playerIdle = true, flipped = false, deathAnimEnd = false, hitAnimated = true;
@@ -32,7 +32,7 @@ private:
 public:
 	float isDead = false;
 	Player(sf::Vector2f startingPos, sf::Vector2f windowSize);
-	void update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<Bullet> &enemyBullets);
+	void update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<Bullet> &enemyBullets, Weapons &weapon);
 
 	void animateIdle(float dt);
 	void animateWalk(float dt);

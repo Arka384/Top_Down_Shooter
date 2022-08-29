@@ -49,15 +49,16 @@ int main()
 		tempMousePos = sf::Mouse::getPosition(window);
 		mousePos = window.mapPixelToCoords(tempMousePos);
 
-		player.update(dt, keyPressed, mousePos, enemyManager.enemyBullets);
-		weapon.update(dt, playerCam);
+		player.update(dt, keyPressed, mousePos, enemyManager.enemyBullets, weapon);
+		weapon.update(mousePos, player.getPosition(), dt, playerCam);
 		enemyManager.update(dt, weapon, player.getPosition(), playerCam);
 		playerCam.update(player.getPosition(), window, dt);
 
 
 		window.clear(sf::Color(92,92,92,255));
-		weapon.draw(window);
 		player.draw(window);
+		if(!player.isDead)
+			weapon.draw(window);
 		enemyManager.drawEnemies(window);
 
 		window.display();
