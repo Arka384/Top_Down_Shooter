@@ -33,7 +33,7 @@ void EnemyManager::update(float dt, Weapons & w, sf::Vector2f playerPos, Camera 
 	if (spawnnigTimer >= spawnTime && maxEnemySpawnd == false) {
 		spawnnigTimer = 0;
 		spawnEnemies();
-		spawnTime = 0.2 + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (1.0 - 0.2)));
+		spawnTime = 0.5 + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (2.0 - 0.5)));
 	}
 
 	//update enemies
@@ -132,7 +132,7 @@ void EnemyManager::shoot(sf::Vector2f playerPos, Enemy enemy, float dt)
 	reloadingTimer += dt;
 	if (reloadingTimer >= enemyReloadTime) {
 		reloadingTimer = 0;
-		enemyReloadTime = 1.0 + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (2 - 1.0)));
+		enemyReloadTime = 1.5 + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (2.5 - 1.5)));
 		//bullet fire for particular enemy
 		Bullet b(enemy.getPosition());
 		float dx = playerPos.x - enemy.getPosition().x;

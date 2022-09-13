@@ -10,17 +10,17 @@ private:
 	float spawnnigTimer = 0.f;
 	float reloadingTimer = 0.f;
 	float moveSpeed = 200.f;
-	int maxNumberOfEnemy = 8;
+	int maxNumberOfEnemy = 5;
 	int numberOfEnemy = 0;
 	bool maxEnemySpawnd = false;
 
 	//sprite and textures
 	sf::Texture type1WalkTexture;
 	sf::Sprite type1WalkSprite;
-	sf::Vector2f scaleSize = sf::Vector2f(0.18, 0.18), spritePosOffset = sf::Vector2f(0, 80), colRectSize = sf::Vector2f(60, 100);
+	sf::Vector2f scaleSize = sf::Vector2f(0.15, 0.15), spritePosOffset = sf::Vector2f(0, 60), colRectSize = sf::Vector2f(40, 80);
 	
 	int subTexRectSize = 2048;
-	int minDistBtPlayerEnemy = 350;	//least distance between player and enemy
+	int minDistBtPlayerEnemy = 450;	//least distance between player and enemy
 
 public:
 	std::list<Enemy> enemies;

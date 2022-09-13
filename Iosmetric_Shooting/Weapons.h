@@ -13,8 +13,8 @@ private:
 public:
 	std::list<Bullet> bullets;
 	sf::Sprite gunSprite;
-	sf::Vector2f spritePosOffset = sf::Vector2f(0, 28);
-	sf::Vector2f scaleSize = sf::Vector2f(0.08, 0.08);
+	sf::Vector2f spritePosOffset = sf::Vector2f(0, 25);
+	sf::Vector2f scaleSize = sf::Vector2f(0.1, 0.1);
 
 	Weapons(sf::Vector2f windowSize);
 	void fire(sf::Vector2f mousePos, sf::Vector2f playerPos);

@@ -21,10 +21,10 @@ private:
 	int currWalkTex = 0, maxWalkTex = 8;
 	int currDeathTex = 0, maxDeathTex = 8;
 
-	sf::Vector2f scaleSize = sf::Vector2f(0.18, 0.18), spritePosOffset = sf::Vector2f(0, 80), colRectSize = sf::Vector2f(60, 100);
+	sf::Vector2f scaleSize = sf::Vector2f(0.15, 0.15), spritePosOffset = sf::Vector2f(0, 65), colRectSize = sf::Vector2f(40, 80);
 
 	//animations
-	bool playerIdle = true, flipped = false, deathAnimEnd = false, hitAnimated = true;
+	bool playerIdle = true, flipped = false, gunBehindPlayer = false, deathAnimEnd = false, hitAnimated = true;
 	float idleAnimTime = 0.2f, idleAnimTimer = 0.f;
 	float walkAnimTime = 0.07f, walkAnimTimer = 0.f;
 	float deathAnimTime = 0.08f, deathAnimTimer = 0.f;
@@ -38,7 +38,7 @@ public:
 	void animateWalk(float dt);
 	void animateDeath(float dt);
 
-	void draw(sf::RenderWindow &window);
+	void draw(sf::RenderWindow &window, Weapons wp);
 
 };
 

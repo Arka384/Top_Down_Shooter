@@ -54,7 +54,7 @@ void Player::update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<
 	angle = angle * (180 / 3.1415);
 	weapon.gunSprite.setRotation(angle);
 
-	//flipping the player
+	//flipping the gun
 	flipped = (mousePos.x < position.x) ? true : false;
 
 	if (flipped) {
@@ -63,10 +63,20 @@ void Player::update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<
 	else {
 		weapon.gunSprite.setScale(weapon.scaleSize);
 	}
+	//if gun points upwords
+	if (mousePos.y < position.y)
+		gunBehindPlayer = true;
+	else
+		gunBehindPlayer = false;
 		
 
 	this->setPosition(position);
 	weapon.gunSprite.setPosition(this->getPosition() + weapon.spritePosOffset);
+
+	if (flipped)
+		weapon.gunSprite.setPosition(weapon.gunSprite.getPosition().x - 20, weapon.gunSprite.getPosition().y);
+	else
+		weapon.gunSprite.setPosition(weapon.gunSprite.getPosition().x + 20, weapon.gunSprite.getPosition().y);
 
 	//animations
 	if (isDead && !deathAnimEnd) {
@@ -164,8 +174,18 @@ void Player::animateDeath(float dt)
 	playerSprite = deathSprite;
 }
 
-void Player::draw(sf::RenderWindow &window)
+void Player::draw(sf::RenderWindow &window, Weapons wp)
 {
 	//window.draw(*this);
-	window.draw(playerSprite);
+	if (gunBehindPlayer) {
+		if (!isDead)
+			window.draw(wp.gunSprite);
+		window.draw(playerSprite);
+	}
+	else {
+		window.draw(playerSprite);
+		if (!isDead)
+			window.draw(wp.gunSprite);
+	}
+	
 }

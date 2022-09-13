@@ -12,9 +12,8 @@ class Map
 {
 private:
 	sf::Vector2f windowSize;
-	sf::Texture rockTex[3];
-	sf::Sprite rockSprite;
-	sf::Vector2f scaleSize = sf::Vector2f(0.1, 0.1);
+	sf::Texture mapObjects[5];
+	//sf::Vector2f scaleSize = sf::Vector2f(0.1, 0.1);
 	sf::Vector2i oldViewIndex = sf::Vector2i(0, 0);
 
 	std::list<quad> quads;

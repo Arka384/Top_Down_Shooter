@@ -64,5 +64,4 @@ void Weapons::draw(sf::RenderWindow & window)
 	for (auto i = bullets.begin(); i != bullets.end(); i++) {
 		window.draw(*i);
 	}
-	window.draw(gunSprite);
 }
