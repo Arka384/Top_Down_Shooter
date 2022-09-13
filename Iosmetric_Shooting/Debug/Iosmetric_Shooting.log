@@ -1,27 +1,72 @@
-﻿  Player.cpp
-  main.cpp
-c:\users\arkad\documents\deadshot files\c++ programs\sfml\tests\iosmetric_shooting\iosmetric_shooting\main.cpp(10): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+﻿  Map.cpp
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Weapons.h(17,25): warning C4305: 'argument': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-c:\users\arkad\documents\deadshot files\c++ programs\sfml\tests\iosmetric_shooting\iosmetric_shooting\main.cpp(45): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.h(20,25): warning C4305: 'argument': truncation from 'double' to 'T'
           with
           [
-              T=int
+              T=float
+          ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Player.h(24,25): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Map.h(17,25): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Map.cpp(41,15): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Map.cpp(42,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Map.cpp(50,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Map.cpp(50,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Map.cpp(69,84): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=float
           ]
           and
           [
-              T=float
+              T=int
           ]
-c:\users\arkad\documents\deadshot files\c++ programs\sfml\tests\iosmetric_shooting\iosmetric_shooting\main.cpp(46): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Map.cpp(69,56): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
-              T=int
+              T=float
           ]
           and
           [
+              T=int
+          ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Map.cpp(153,15): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
               T=float
           ]
-  Generating Code...
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Map.cpp(154,16): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Map.cpp(155,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Map.cpp(156,15): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
   Iosmetric_Shooting.vcxproj -> C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Debug\Iosmetric_Shooting.exe

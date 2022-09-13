@@ -1,8 +1,8 @@
-#include "Player.h"
+#include "Map.h"
 #include <ctime>
 #include <cstdlib>
 
-int main() 
+int main()
 {
 	srand(static_cast<unsigned>(std::time(0)));
 
@@ -17,10 +17,13 @@ int main()
 	sf::Vector2i tempMousePos;
 	bool keyPressed = false;
 
-	Player player(sf::Vector2f(100, 100), windowSize);
+	Map map(windowSize);
+	Player player(sf::Vector2f(windowSize.x/2, windowSize.y/2), windowSize);
 	EnemyManager enemyManager(windowSize);
 	Weapons weapon(windowSize);
 	Camera playerCam(windowSize);
+
+	map.initMap(playerCam);
 
 
 	while (window.isOpen()) {
@@ -28,7 +31,7 @@ int main()
 		dt = tm.asSeconds();
 
 		sf::Event e;
-		while (window.pollEvent(e)){
+		while (window.pollEvent(e)) {
 			switch (e.type)
 			{
 			case sf::Event::Closed:
@@ -45,19 +48,21 @@ int main()
 				break;
 			}
 		}
-		
+
 		tempMousePos = sf::Mouse::getPosition(window);
 		mousePos = window.mapPixelToCoords(tempMousePos);
 
 		player.update(dt, keyPressed, mousePos, enemyManager.enemyBullets, weapon);
 		weapon.update(mousePos, player.getPosition(), dt, playerCam);
-		enemyManager.update(dt, weapon, player.getPosition(), playerCam);
+		//enemyManager.update(dt, weapon, player.getPosition(), playerCam);
 		playerCam.update(player.getPosition(), window, dt);
+		map.update(playerCam, keyPressed, player.getPosition());
 
+		window.clear(sf::Color(92, 92, 92, 255));
 
-		window.clear(sf::Color(92,92,92,255));
+		map.draw(window);
 		player.draw(window);
-		if(!player.isDead)
+		if (!player.isDead)
 			weapon.draw(window);
 		enemyManager.drawEnemies(window);
 
