@@ -55,6 +55,7 @@ void Player::update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<
 	float angle = std::atan2(dy, dx);
 	angle = angle * (180 / 3.1415);
 	weapon.gunSprite.setRotation(angle);
+	weapon.muzzleFlash.setRotation(angle);
 
 	//flipping the gun
 	flipped = (mousePos.x < position.x) ? true : false;
@@ -189,5 +190,6 @@ void Player::draw(sf::RenderWindow &window, Weapons wp)
 		if (!isDead)
 			window.draw(wp.gunSprite);
 	}
-	
+	if (wp.renderFlash)
+		window.draw(wp.muzzleFlash);
 }

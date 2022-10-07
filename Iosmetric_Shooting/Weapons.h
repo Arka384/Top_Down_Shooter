@@ -7,16 +7,17 @@ class Weapons
 {
 private:
 	sf::Vector2f windowSize;
-	sf::Texture pistolTex, rifelTex, shotgunTex;
+	sf::Texture pistolTex, rifelTex, shotgunTex, muzzleFlashTex;
 	sf::Sprite pistol, rifel, shotgun;
+	float muzzleFlashTime = 0.1f;
+	float flashTimer = 0.f;
 
 public:
 	std::list<Bullet> bullets;
-	sf::Sprite gunSprite;
+	sf::Sprite gunSprite, muzzleFlash;
 	sf::Vector2f spritePosOffset = sf::Vector2f(0, 25);
 	sf::Vector2f scaleSize = sf::Vector2f(0.1, 0.1);
-
-	sf::Vector2f firePos;
+	bool renderFlash = false;
 
 	Weapons(sf::Vector2f windowSize);
 	void fire(sf::Vector2f mousePos, sf::Vector2f playerPos);
