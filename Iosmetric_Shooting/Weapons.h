@@ -16,9 +16,12 @@ public:
 	sf::Vector2f spritePosOffset = sf::Vector2f(0, 25);
 	sf::Vector2f scaleSize = sf::Vector2f(0.1, 0.1);
 
+	sf::Vector2f firePos;
+
 	Weapons(sf::Vector2f windowSize);
 	void fire(sf::Vector2f mousePos, sf::Vector2f playerPos);
 	void update(sf::Vector2f mousePos, sf::Vector2f playerPos, float dt, Camera view);
+	void changeWeapon(int type);
 	bool ifOutsideView(Bullet b, Camera view);
 	void draw(sf::RenderWindow &window);
 };

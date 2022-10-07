@@ -48,8 +48,10 @@ void Player::update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<
 		position.y += moveSpeed * dt;	
 	}
 
-	float dx = mousePos.x - position.x;
-	float dy = mousePos.y - position.y;
+	/*float dx = mousePos.x - position.x;
+	float dy = mousePos.y - position.y;*/
+	float dx = mousePos.x - weapon.gunSprite.getPosition().x;
+	float dy = mousePos.y - weapon.gunSprite.getPosition().y;
 	float angle = std::atan2(dy, dx);
 	angle = angle * (180 / 3.1415);
 	weapon.gunSprite.setRotation(angle);

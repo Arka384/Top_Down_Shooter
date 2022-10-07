@@ -10,27 +10,47 @@ Weapons::Weapons(sf::Vector2f windowSize)
 	pistol.setOrigin(pistol.getGlobalBounds().width / 2 - 80, pistol.getGlobalBounds().height / 2 + 20);
 	pistol.setScale(scaleSize);
 	gunSprite = pistol;
-	////loading rifel textures
-	//rifelTex.loadFromFile("Assets/Weapons/weaponR1.png");
-	//rifel.setTexture(rifelTex);
-	//rifel.setOrigin(rifel.getGlobalBounds().width / 2, rifel.getGlobalBounds().height / 2);
-	//rifel.setScale(scaleSize);
-	////loading shotgun tuxtures
-	//shotgunTex.loadFromFile("Assets/Weapons/weaponR3.png");
-	//shotgun.setTexture(shotgunTex);
-	//shotgun.setOrigin(shotgun.getGlobalBounds().width / 2, shotgun.getGlobalBounds().height / 2);
-	//shotgun.setScale(scaleSize);
+
+	//loading rifel textures
+	rifelTex.loadFromFile("Assets/Weapons/weaponR1.png");
+	rifel.setTexture(rifelTex);
+	rifel.setOrigin(rifel.getGlobalBounds().width / 2, rifel.getGlobalBounds().height / 2);
+	rifel.setScale(scaleSize);
+	//gunSprite = rifel;
+
+	//loading shotgun tuxtures
+	shotgunTex.loadFromFile("Assets/Weapons/weaponR3.png");
+	shotgun.setTexture(shotgunTex);
+	shotgun.setOrigin(shotgun.getGlobalBounds().width / 2, shotgun.getGlobalBounds().height / 2);
+	shotgun.setScale(scaleSize);
+	//gunSprite = shotgun;
 }
 
 void Weapons::fire(sf::Vector2f mousePos, sf::Vector2f playerPos)
 {
-	Bullet b(playerPos);
-
-	float dx = mousePos.x - playerPos.x;
+	//Bullet b(playerPos);
+	/*float dx = mousePos.x - playerPos.x;
 	float dy = mousePos.y - playerPos.y;
+	float angle = std::atan2(dy, dx); 
+	b.setFireAngle(angle);
+	bullets.push_back(b);*/
+
+	//this phase is in testing and under developement
+	sf::Vector2f gunMid = sf::Vector2f(gunSprite.getPosition().x, gunSprite.getPosition().y);
+	
+	float dx = mousePos.x - gunMid.x;
+	float dy = mousePos.y - gunMid.y;
 	float angle = std::atan2(dy, dx);
+
+	float yOffset = std::sin(angle) * (gunSprite.getGlobalBounds().width / 2);
+	float xOffset = std::cos(angle) * (gunSprite.getGlobalBounds().width / 2);
+	float finalX = gunMid.x + xOffset;
+	float finalY = gunMid.y + yOffset;
+
+	Bullet b(sf::Vector2f(finalX, finalY));
 	b.setFireAngle(angle);
 	bullets.push_back(b);
+
 }
 
 void Weapons::update(sf::Vector2f mousePos, sf::Vector2f playerPos, float dt, Camera view)
@@ -42,6 +62,24 @@ void Weapons::update(sf::Vector2f mousePos, sf::Vector2f playerPos, float dt, Ca
 			i = bullets.erase(i);
 		else
 			i++;
+	}
+}
+
+void Weapons::changeWeapon(int type)
+{
+	switch (type)
+	{
+	case 1:
+		gunSprite = pistol;
+		break;
+	case 2:
+		gunSprite = rifel;
+		break;
+	case 3:
+		gunSprite = shotgun;
+		break;
+	default:
+		break;
 	}
 }
 
@@ -62,6 +100,7 @@ bool Weapons::ifOutsideView(Bullet b, Camera view)
 void Weapons::draw(sf::RenderWindow & window)
 {
 	for (auto i = bullets.begin(); i != bullets.end(); i++) {
-		window.draw(*i);
+		window.draw(i->sprite);
+		//window.draw(*i);
 	}
 }

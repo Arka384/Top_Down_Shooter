@@ -11,6 +11,7 @@ typedef struct quad {
 class Map
 {
 private:
+	int maxNumberOfMapObject = 8;
 	sf::Vector2f windowSize;
 	sf::Texture mapObjects[5];
 	//sf::Vector2f scaleSize = sf::Vector2f(0.1, 0.1);
@@ -25,7 +26,7 @@ public:
 	void initMap(Camera view);
 	void spwanObjectsInQuad(sf::Vector2i quadIndex, Camera view);
 	void removeQuad(sf::Vector2i quadIndex);
-	void update(Camera view, bool keyPressed, sf::Vector2f playerPo);
+	void update(Camera view, bool keyPressed, sf::Vector2f playerPos);
 	bool outsideView(sf::Sprite object, Camera view);
 	void draw(sf::RenderWindow& window);
 };
