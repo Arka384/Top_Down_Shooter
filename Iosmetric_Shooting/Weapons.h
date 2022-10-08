@@ -9,8 +9,11 @@ private:
 	sf::Vector2f windowSize;
 	sf::Texture pistolTex, rifelTex, shotgunTex, muzzleFlashTex;
 	sf::Sprite pistol, rifel, shotgun;
+	int gunType = 1;	//pistol first
 	float muzzleFlashTime = 0.1f;
 	float flashTimer = 0.f;
+	float pistolReloadTime = 0.2f, rifelReloadTime = 0.1f, shotGunReloadTime = 0.3f;
+	float reloadTimer = 0.f;
 
 public:
 	std::list<Bullet> bullets;
@@ -20,8 +23,8 @@ public:
 	bool renderFlash = false;
 
 	Weapons(sf::Vector2f windowSize);
-	void fire(sf::Vector2f mousePos, sf::Vector2f playerPos);
-	void update(sf::Vector2f mousePos, sf::Vector2f playerPos, float dt, Camera view);
+	void fire(sf::Vector2f mousePos);
+	void update(bool mousePressed, sf::Vector2f mousePos, sf::Vector2f playerPos, float dt, Camera view);
 	void changeWeapon(int type);
 	bool ifOutsideView(Bullet b, Camera view);
 	void draw(sf::RenderWindow &window);

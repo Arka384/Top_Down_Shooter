@@ -16,6 +16,7 @@ int main()
 	sf::Vector2f mousePos;
 	sf::Vector2i tempMousePos;
 	bool keyPressed = false;
+	bool mousePressed = false;
 
 	Map map(windowSize);
 	Bullet b;
@@ -37,9 +38,15 @@ int main()
 			{
 			case sf::Event::Closed:
 				window.close();
+
 			case sf::Event::MouseButtonPressed:
-				weapon.fire(mousePos, player.getPosition());
+				mousePressed = true;
+				weapon.fire(mousePos);
 				break;
+			case sf::Event::MouseButtonReleased:
+				mousePressed = false;
+				break;
+
 			case sf::Event::KeyPressed:
 				keyPressed = true;
 				
@@ -49,11 +56,11 @@ int main()
 					weapon.changeWeapon(2);
 				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3))
 					weapon.changeWeapon(3);
-					
-
 				break;
 			case sf::Event::KeyReleased:
 				keyPressed = false;
+				break;
+
 			default:
 				break;
 			}
@@ -63,8 +70,8 @@ int main()
 		mousePos = window.mapPixelToCoords(tempMousePos);
 
 		player.update(dt, keyPressed, mousePos, enemyManager.enemyBullets, weapon);
-		weapon.update(mousePos, player.getPosition(), dt, playerCam);
-		//enemyManager.update(dt, weapon, player.getPosition(), playerCam);
+		weapon.update(mousePressed, mousePos, player.getPosition(), dt, playerCam);
+		enemyManager.update(dt, weapon, player.getPosition(), playerCam);
 		playerCam.update(player.getPosition(), window, dt);
 		//map.update(playerCam, keyPressed, player.getPosition());
 

@@ -32,8 +32,28 @@ Weapons::Weapons(sf::Vector2f windowSize)
 	muzzleFlash.setScale(0.05, 0.05);
 }
 
-void Weapons::fire(sf::Vector2f mousePos, sf::Vector2f playerPos)
+void Weapons::fire(sf::Vector2f mousePos)
 {
+	if (gunType == 1) {
+		if (reloadTimer > pistolReloadTime)
+			reloadTimer = 0;
+		else
+			return;
+	}
+	else if (gunType == 2) {
+		if (reloadTimer > rifelReloadTime)
+			reloadTimer = 0;
+		else
+			return;
+	}
+	else {
+		if (reloadTimer > shotGunReloadTime)
+			reloadTimer = 0;
+		else
+			return;
+	}
+
+
 	sf::Vector2f gunMid = sf::Vector2f(gunSprite.getPosition().x, gunSprite.getPosition().y);
 	
 	float dx = mousePos.x - gunMid.x;
@@ -45,18 +65,40 @@ void Weapons::fire(sf::Vector2f mousePos, sf::Vector2f playerPos)
 	float finalX = gunMid.x + xOffset;
 	float finalY = gunMid.y + yOffset;
 
-	Bullet b(sf::Vector2f(finalX, finalY));
-	b.setFireAngle(angle);
-	bullets.push_back(b);
+	if (gunType == 3) {//if shotgun then multiple bullets
+		for (int i = -31; i <= 31; i+=31) {
+			/*float tempyOffset = std::sin(angle+i) * (gunSprite.getGlobalBounds().width / 2);
+			float tempxOffset = std::cos(angle+i) * (gunSprite.getGlobalBounds().width / 2);
+			float tempfinalX = gunMid.x + tempxOffset;
+			float tempfinalY = gunMid.y + tempyOffset;*/
 
+			//Bullet b(sf::Vector2f(tempfinalX, tempfinalY));
+			Bullet b(sf::Vector2f(finalX, finalY));
+			b.setFireAngle(angle+i);
+			bullets.push_back(b);
+		}
+	}	
+	else {	//single bullets if not shotgun
+		Bullet b(sf::Vector2f(finalX, finalY));
+		b.setFireAngle(angle);
+		bullets.push_back(b);
+	}
+
+	
 	//muzzleFlash.setRotation(angle);
 	muzzleFlash.setPosition(finalX, finalY);
 	renderFlash = true;
 }
 
-void Weapons::update(sf::Vector2f mousePos, sf::Vector2f playerPos, float dt, Camera view)
+void Weapons::update(bool mousePressed, sf::Vector2f mousePos, sf::Vector2f playerPos, float dt, Camera view)
 {
-	flashTimer += dt;
+	flashTimer += dt;	//for muzzle flash
+	reloadTimer += dt;	//for firing delay
+
+	if (gunType == 2 && mousePressed) {
+		fire(mousePos);
+	}
+
 	if (flashTimer > muzzleFlashTime) {
 		flashTimer = 0;
 		renderFlash = false;
@@ -73,7 +115,6 @@ void Weapons::update(sf::Vector2f mousePos, sf::Vector2f playerPos, float dt, Ca
 		float finalX = gunMid.x + xOffset;
 		float finalY = gunMid.y + yOffset;
 
-		//muzzleFlash.setRotation(angle);
 		muzzleFlash.setPosition(finalX, finalY);
 	}
 
@@ -93,12 +134,15 @@ void Weapons::changeWeapon(int type)
 	{
 	case 1:
 		gunSprite = pistol;
+		gunType = 1;
 		break;
 	case 2:
 		gunSprite = rifel;
+		gunType = 2;
 		break;
 	case 3:
 		gunSprite = shotgun;
+		gunType = 3;
 		break;
 	default:
 		break;
@@ -125,5 +169,4 @@ void Weapons::draw(sf::RenderWindow & window)
 		window.draw(i->sprite);
 		//window.draw(*i);
 	}
-	
 }

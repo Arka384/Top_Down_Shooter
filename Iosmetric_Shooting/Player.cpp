@@ -181,15 +181,20 @@ void Player::draw(sf::RenderWindow &window, Weapons wp)
 {
 	//window.draw(*this);
 	if (gunBehindPlayer) {
-		if (!isDead)
+		if (!isDead) {
 			window.draw(wp.gunSprite);
+			if (wp.renderFlash)
+				window.draw(wp.muzzleFlash);
+		}			
 		window.draw(playerSprite);
 	}
 	else {
 		window.draw(playerSprite);
-		if (!isDead)
+		if (!isDead) {
 			window.draw(wp.gunSprite);
+			if (wp.renderFlash)
+				window.draw(wp.muzzleFlash);
+		}
+			
 	}
-	if (wp.renderFlash)
-		window.draw(wp.muzzleFlash);
 }
