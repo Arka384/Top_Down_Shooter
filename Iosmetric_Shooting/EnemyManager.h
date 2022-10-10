@@ -15,12 +15,17 @@ private:
 	bool maxEnemySpawnd = false;
 
 	//sprite and textures
-	sf::Texture type1WalkTexture;
+	sf::Texture type1WalkTexture, genericDeathTex;
 	sf::Sprite type1WalkSprite;
+	sf::Sprite genericDeathSprite;
 	sf::Vector2f scaleSize = sf::Vector2f(0.15, 0.15), spritePosOffset = sf::Vector2f(0, 60), colRectSize = sf::Vector2f(40, 80);
 	
 	int subTexRectSize = 2048;
 	int minDistBtPlayerEnemy = 450;	//least distance between player and enemy
+
+	std::list<std::pair<sf::Sprite, float>> deathShadows;
+	float deathShadowAnimTime = 0.2f;
+	float deathShadowTimer = 0.f;
 
 public:
 	std::list<Enemy> enemies;

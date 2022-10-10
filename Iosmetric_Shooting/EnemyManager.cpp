@@ -12,6 +12,13 @@ EnemyManager::EnemyManager(sf::Vector2f windowSize)
 	type1WalkSprite.setScale(scaleSize);
 
 	enemySprite = type1WalkSprite;
+
+	//loading generic death texture
+	genericDeathTex.loadFromFile("Assets/Generic_death_animation/generic_death.png");
+	genericDeathSprite.setTexture(genericDeathTex);
+	genericDeathSprite.setTextureRect(sf::IntRect(0, 0, 2048, 2048));
+	genericDeathSprite.setOrigin(genericDeathSprite.getGlobalBounds().width / 2, genericDeathSprite.getGlobalBounds().height / 2);
+	genericDeathSprite.setScale(scaleSize);
 }
 
 void EnemyManager::spawnEnemies(void)
@@ -47,14 +54,35 @@ void EnemyManager::update(float dt, Weapons & w, sf::Vector2f playerPos, Camera 
 
 		shoot(playerPos, *i, dt);
 
-		if (i->getHealth() <= 0)
+		if (i->getHealth() <= 0) {	//enemy is down trigger death animation
+			genericDeathSprite.setPosition(i->sprite.getPosition());
+			deathShadows.push_back(std::make_pair(genericDeathSprite, 0.f));
+
 			i = enemies.erase(i);
+		}
 		else
 			i++;
 	}
 	numberOfEnemy = enemies.size();
 	maxEnemySpawnd = (numberOfEnemy == maxNumberOfEnemy) ? true : false;
 	
+	//update enemy death shadows
+	auto j = deathShadows.begin();
+	while (j != deathShadows.end()) {
+		j->second += dt;
+		if (j->second > 0.1f)
+			j->first.setTextureRect(sf::IntRect(2048, 0, 2048, 2048));
+		if (j->second > 0.15f)
+			j->first.setTextureRect(sf::IntRect((2048 * 2), 0, 2048, 2048));
+		if(j->second > 1.4f)
+			j->first.setColor(sf::Color(255, 255, 255, 255/2));
+		
+		if (j->second > 2.f)
+			j = deathShadows.erase(j);
+		else
+			j++;	
+	}
+
 
 	//update enemy bullets
 	auto enBullet = enemyBullets.begin();
@@ -149,6 +177,11 @@ void EnemyManager::drawEnemies(sf::RenderWindow & window)
 		//window.draw(*i);
 		window.draw(i->sprite);
 	}
+
+	for (auto i = deathShadows.begin(); i != deathShadows.end(); i++) {
+		window.draw(i->first);
+	}
+
 	for (auto i = enemyBullets.begin(); i != enemyBullets.end(); i++) {
 		window.draw(i->sprite);
 		window.draw(*i);
