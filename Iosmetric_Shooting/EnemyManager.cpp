@@ -134,7 +134,7 @@ void EnemyManager::shoot(sf::Vector2f playerPos, Enemy enemy, float dt)
 		reloadingTimer = 0;
 		enemyReloadTime = 1.5 + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (2.5 - 1.5)));
 		//bullet fire for particular enemy
-		Bullet b(enemy.getPosition());
+		Bullet b(enemy.getPosition(), 2);
 		float dx = playerPos.x - enemy.getPosition().x;
 		float dy = playerPos.y - enemy.getPosition().y;
 		float angle = std::atan2(dy, dx);
@@ -151,5 +151,6 @@ void EnemyManager::drawEnemies(sf::RenderWindow & window)
 	}
 	for (auto i = enemyBullets.begin(); i != enemyBullets.end(); i++) {
 		window.draw(i->sprite);
+		window.draw(*i);
 	}
 }

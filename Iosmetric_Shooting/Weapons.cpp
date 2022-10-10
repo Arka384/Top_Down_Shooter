@@ -73,13 +73,13 @@ void Weapons::fire(sf::Vector2f mousePos)
 			float tempfinalY = gunMid.y + tempyOffset;*/
 
 			//Bullet b(sf::Vector2f(tempfinalX, tempfinalY));
-			Bullet b(sf::Vector2f(finalX, finalY));
+			Bullet b(sf::Vector2f(finalX, finalY), 1);
 			b.setFireAngle(angle+i);
 			bullets.push_back(b);
 		}
 	}	
 	else {	//single bullets if not shotgun
-		Bullet b(sf::Vector2f(finalX, finalY));
+		Bullet b(sf::Vector2f(finalX, finalY), 1);
 		b.setFireAngle(angle);
 		bullets.push_back(b);
 	}
