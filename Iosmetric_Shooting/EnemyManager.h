@@ -24,8 +24,6 @@ private:
 	int minDistBtPlayerEnemy = 450;	//least distance between player and enemy
 
 	std::list<std::pair<sf::Sprite, float>> deathShadows;
-	float deathShadowAnimTime = 0.2f;
-	float deathShadowTimer = 0.f;
 
 public:
 	std::list<Enemy> enemies;
@@ -34,7 +32,7 @@ public:
 
 	EnemyManager(sf::Vector2f windowSize);
 	void shoot(sf::Vector2f playerPos, Enemy enemy, float dt);
-	void spawnEnemies(void);
+	void spawnEnemies(sf::Vector2f playerPos, Camera view);
 	void update(float dt, Weapons &w, sf::Vector2f playerPos, Camera view);
 	void moveEnemy(float dt, sf::Vector2f playerPos, Enemy &e);
 	void animateWalk(float dt, Enemy &e);

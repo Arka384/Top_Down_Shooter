@@ -11,46 +11,67 @@ C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooti
           ]
 C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(11,63): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(11,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(29,26): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(21,40): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(34,19): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(29,23): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(38,19): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(43,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(102,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(117,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(117,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(134,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(134,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(146,15): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(41,19): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(147,16): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(45,19): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(148,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(54,26): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(149,15): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(54,23): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(163,25): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(68,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(127,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(142,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(142,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(159,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(159,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(171,15): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(172,16): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(173,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(174,15): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(188,25): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   Generating code
-  1 of 424 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+  12 of 432 functions ( 2.8%) were compiled, the rest were copied from previous compilation.
+    8 functions were new in current compilation
+    2 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Iosmetric_Shooting.vcxproj -> C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Release\Iosmetric_Shooting.exe

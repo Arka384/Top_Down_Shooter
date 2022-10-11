@@ -18,13 +18,37 @@ EnemyManager::EnemyManager(sf::Vector2f windowSize)
 	genericDeathSprite.setTexture(genericDeathTex);
 	genericDeathSprite.setTextureRect(sf::IntRect(0, 0, 2048, 2048));
 	genericDeathSprite.setOrigin(genericDeathSprite.getGlobalBounds().width / 2, genericDeathSprite.getGlobalBounds().height / 2);
-	genericDeathSprite.setScale(scaleSize);
+	genericDeathSprite.setScale(0.18, 0.18);
 }
 
-void EnemyManager::spawnEnemies(void)
-{
-	int x = std::rand() % static_cast<int>(windowSize.x*1.25f);
-	int y = std::rand() % static_cast<int>(windowSize.y*1.25f);
+void EnemyManager::spawnEnemies(sf::Vector2f playerPos, Camera view)
+{ 
+	int direction = std::rand() % 4;
+	int x = 0, y = 0;
+	sf::Vector2f viewSize = view.playerView.getSize();
+
+	switch (direction)
+	{
+	case 0:	//up
+		x = std::rand() % static_cast<int>(viewSize.x);
+		y = playerPos.y - viewSize.y / 2;
+		break;
+	case 1:	//down
+		x = std::rand() % static_cast<int>(viewSize.x);
+		y = playerPos.y + viewSize.y / 2;
+		break;
+	case 2:	//left
+		x = playerPos.x - viewSize.x / 2;
+		y = std::rand() % static_cast<int>(viewSize.y);
+		break;
+	case 3:	//right
+		x = playerPos.x + viewSize.x / 2;
+		y = std::rand() % static_cast<int>(viewSize.y);
+		break;
+	default:
+		return;
+		break;
+	}
 
 	Enemy e(sf::Vector2f(x, y), colRectSize, enemySprite);
 	enemies.push_back(e);
@@ -39,7 +63,7 @@ void EnemyManager::update(float dt, Weapons & w, sf::Vector2f playerPos, Camera 
 	spawnnigTimer += dt;
 	if (spawnnigTimer >= spawnTime && maxEnemySpawnd == false) {
 		spawnnigTimer = 0;
-		spawnEnemies();
+		spawnEnemies(playerPos, view);
 		spawnTime = 0.5 + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (2.0 - 0.5)));
 	}
 
