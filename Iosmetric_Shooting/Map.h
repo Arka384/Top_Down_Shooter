@@ -11,9 +11,9 @@ typedef struct quad {
 class Map
 {
 private:
-	int maxNumberOfMapObject = 5;
+	int maxNumberOfMapObject = 8;
 	sf::Vector2f windowSize;
-	sf::Texture mapObjects[5];
+	sf::Texture mapObjects[6];
 	//sf::Vector2f scaleSize = sf::Vector2f(0.1, 0.1);
 	sf::Vector2i oldViewIndex = sf::Vector2i(0, 0);
 

@@ -8,8 +8,9 @@ Map::Map(sf::Vector2f windowSize)
 	mapObjects[0].loadFromFile("Assets/Environment/rock1.png");
 	mapObjects[1].loadFromFile("Assets/Environment/rock2.png");
 	mapObjects[2].loadFromFile("Assets/Environment/rock3.png");
-	//mapObjects[3].loadFromFile("Assets/Environment/ground_black_spot.png");
-	//mapObjects[4].loadFromFile("Assets/Environment/ground_spots.png");
+	mapObjects[3].loadFromFile("Assets/Environment/cluster1.png");
+	mapObjects[4].loadFromFile("Assets/Environment/cluster2.png");
+	mapObjects[5].loadFromFile("Assets/Environment/cluster3.png");
 
 }
 
@@ -47,12 +48,16 @@ void Map::spwanObjectsInQuad(sf::Vector2i quadIndex, Camera view)
 	for (int i = 0; i < maxNumberOfMapObject; i++) {
 		int x = std::rand() % (static_cast<int>(view.playerView.getSize().x)) + quadLeft;
 		int y = std::rand() % (static_cast<int>(view.playerView.getSize().y)) + quadUp;
-		int objectType = std::rand() % 3;
+		int objectType = std::rand() % 6;
 
 		sf::Sprite tempSprite;
 		tempSprite.setTexture(mapObjects[objectType]);
 		if (objectType <= 2) {
-			float scale = 0.01 + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (0.1 - 0.01)));
+			float scale = 0.005 + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (0.1 - 0.005)));
+			tempSprite.setScale(scale, scale);
+		}
+		else {
+			float scale = 0.05 + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (0.15 - 0.05)));
 			tempSprite.setScale(scale, scale);
 		}
 
