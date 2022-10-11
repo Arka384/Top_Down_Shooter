@@ -3,15 +3,13 @@
 Camera::Camera(sf::Vector2f windowSize)
 {
 	playerView.setSize(windowSize);
+	//playerView.zoom(1.5);
 }
 
 void Camera::update(sf::Vector2f playerPos, sf::RenderWindow &window, float dt)
 {
-	sf::Vector2f diff = playerPos - playerView.getCenter();
-	float dist = std::sqrt(std::pow(diff.x, 2) + std::pow(diff.y, 2));
+	playerView.setCenter(playerPos);
+	window.setView(playerView);
 
-	if (dist > maxPlayerOffset) {
-		playerView.move((diff.x / dist)*moveSpeed*dt, (diff.y / dist)*moveSpeed*dt);
-		window.setView(playerView);
-	}
+	viewQuad.setPosition(playerView.getCenter());
 }

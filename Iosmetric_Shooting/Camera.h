@@ -8,6 +8,7 @@ private:
 
 public:
 	sf::View playerView;
+	sf::RectangleShape viewQuad;
 
 	Camera(sf::Vector2f windowSize);
 	void update(sf::Vector2f playerPos, sf::RenderWindow &window, float dt);

@@ -16,7 +16,8 @@ Map::Map(sf::Vector2f windowSize)
 void Map::initMap(Camera view)
 {
 	//loading initial 8 quads
-
+	//middle
+	spwanObjectsInQuad(sf::Vector2i(0, 0), view);
 	//top left
 	spwanObjectsInQuad(sf::Vector2i(-1, -1), view);
 	//top
@@ -44,16 +45,17 @@ void Map::spwanObjectsInQuad(sf::Vector2i quadIndex, Camera view)
 	temp.x = quadIndex.x;
 	temp.y = quadIndex.y;
 	for (int i = 0; i < maxNumberOfMapObject; i++) {
-		int x = std::rand() % (static_cast<int>(windowSize.x)) + quadLeft;
-		int y = std::rand() % (static_cast<int>(windowSize.y)) + quadUp;
+		int x = std::rand() % (static_cast<int>(view.playerView.getSize().x)) + quadLeft;
+		int y = std::rand() % (static_cast<int>(view.playerView.getSize().y)) + quadUp;
 		int objectType = std::rand() % 3;
 
 		sf::Sprite tempSprite;
 		tempSprite.setTexture(mapObjects[objectType]);
 		if (objectType <= 2) {
-			float scale = 0.02 + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (0.4 - 0.02)));
+			float scale = 0.01 + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (0.1 - 0.01)));
 			tempSprite.setScale(scale, scale);
 		}
+
 
 		tempSprite.setColor(backgroundColor);
 		tempSprite.setPosition(x, y);

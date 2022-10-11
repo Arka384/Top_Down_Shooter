@@ -71,18 +71,18 @@ int main()
 
 		player.update(dt, keyPressed, mousePos, enemyManager.enemyBullets, weapon);
 		weapon.update(mousePressed, mousePos, player.getPosition(), dt, playerCam);
-		enemyManager.update(dt, weapon, player.getPosition(), playerCam);
+		//enemyManager.update(dt, weapon, player.getPosition(), playerCam);
 		playerCam.update(player.getPosition(), window, dt);
-		//map.update(playerCam, keyPressed, player.getPosition());
+		map.update(playerCam, keyPressed, player.getPosition());
 
 
 		window.clear(map.backgroundColor);
 
-		//map.draw(window);
+		map.draw(window);
 		if (!player.isDead)
 			weapon.draw(window);
 		player.draw(window, weapon);
-		enemyManager.drawEnemies(window);
+		//enemyManager.drawEnemies(window);
 
 		window.display();
 	}
