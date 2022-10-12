@@ -9,7 +9,7 @@ private:
 	float spawnTime = 0.2f;
 	float spawnnigTimer = 0.f;
 	float reloadingTimer = 0.f;
-	float moveSpeed = 200.f;
+	float moveSpeed = 300.f;
 	int maxNumberOfEnemy = 5;
 	int numberOfEnemy = 0;
 	bool maxEnemySpawnd = false;
@@ -33,7 +33,7 @@ public:
 	EnemyManager(sf::Vector2f windowSize);
 	void shoot(sf::Vector2f playerPos, Enemy enemy, float dt);
 	void spawnEnemies(sf::Vector2f playerPos, Camera view);
-	void update(float dt, Weapons &w, sf::Vector2f playerPos, Camera view);
+	void update(float dt, Weapons &w, sf::Vector2f playerPos, Camera &view);
 	void moveEnemy(float dt, sf::Vector2f playerPos, Enemy &e);
 	void animateWalk(float dt, Enemy &e);
 	bool ifOutsizeView(Bullet b, Camera view);

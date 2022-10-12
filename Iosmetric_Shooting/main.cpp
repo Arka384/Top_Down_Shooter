@@ -6,7 +6,8 @@ int main()
 {
 	srand(static_cast<unsigned>(std::time(0)));
 
-	sf::Vector2f windowSize = sf::Vector2f(1920, 1080);
+	//std::cout << sf::VideoMode::getDesktopMode().width << " " << sf::VideoMode::getDesktopMode().height;
+	sf::Vector2f windowSize = sf::Vector2f(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height);
 	sf::RenderWindow window(sf::VideoMode(windowSize.x, windowSize.y), "Boii", sf::Style::Close);
 
 	window.setFramerateLimit(120);
@@ -25,7 +26,7 @@ int main()
 	Weapons weapon(windowSize);
 	Camera playerCam(windowSize);
 
-	//map.initMap(playerCam);
+	map.initMap(playerCam);
 
 
 	while (window.isOpen()) {
@@ -71,7 +72,7 @@ int main()
 
 		player.update(dt, keyPressed, mousePos, enemyManager.enemyBullets, weapon);
 		weapon.update(mousePressed, mousePos, player.getPosition(), dt, playerCam);
-		//enemyManager.update(dt, weapon, player.getPosition(), playerCam);
+		enemyManager.update(dt, weapon, player.getPosition(), playerCam);
 		playerCam.update(player.getPosition(), window, dt);
 		map.update(playerCam, keyPressed, player.getPosition());
 
@@ -82,7 +83,7 @@ int main()
 		if (!player.isDead)
 			weapon.draw(window);
 		player.draw(window, weapon);
-		//enemyManager.drawEnemies(window);
+		enemyManager.drawEnemies(window);
 
 		window.display();
 	}

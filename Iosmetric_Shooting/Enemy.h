@@ -15,7 +15,7 @@ public:
 
 	Enemy(sf::Vector2f pos, sf::Vector2f size, sf::Sprite sprite);
 	int getHealth(void);
-	void update(float dt, sf::Vector2f playerPos, Weapons &w);
+	void update(float dt, sf::Vector2f playerPos, Weapons &w, Camera &camera);
 	void draw(sf::RenderWindow &window);
 };
 

@@ -15,7 +15,7 @@ int Enemy::getHealth(void)
 	return health;
 }
 
-void Enemy::update(float dt, sf::Vector2f playerPos, Weapons &w)
+void Enemy::update(float dt, sf::Vector2f playerPos, Weapons &w, Camera& camera)
 {
 	flipped = (playerPos.x < this->getPosition().x) ? true : false;
 
@@ -23,6 +23,7 @@ void Enemy::update(float dt, sf::Vector2f playerPos, Weapons &w)
 	while(i != w.bullets.end()) {
 		if (this->isColliding(*i)) {
 			this->health -= 50;
+			camera.triggerShake = true;
 			i = w.bullets.erase(i);
 		}
 		else

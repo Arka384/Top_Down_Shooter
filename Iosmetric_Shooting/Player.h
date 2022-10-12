@@ -6,7 +6,7 @@ private:
 	sf::Vector2f position;
 	sf::Vector2f movementDir;
 	sf::Vector2f windowSize;
-	float moveSpeed = 500.f;
+	float moveSpeed = 400.f;
 	int health = 100;
 
 	//sprites and textures

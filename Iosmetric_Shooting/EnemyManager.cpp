@@ -57,7 +57,7 @@ void EnemyManager::spawnEnemies(sf::Vector2f playerPos, Camera view)
 	maxEnemySpawnd = (numberOfEnemy == maxNumberOfEnemy) ? true : false;
 }
 
-void EnemyManager::update(float dt, Weapons & w, sf::Vector2f playerPos, Camera view)
+void EnemyManager::update(float dt, Weapons & w, sf::Vector2f playerPos, Camera &view)
 {
 	//spawn enemies
 	spawnnigTimer += dt;
@@ -70,7 +70,7 @@ void EnemyManager::update(float dt, Weapons & w, sf::Vector2f playerPos, Camera 
 	//update enemies
 	auto i = enemies.begin();
 	while (i != enemies.end()) {
-		i->update(dt, playerPos, w);
+		i->update(dt, playerPos, w, view);
 
 		moveEnemy(dt, playerPos, *i);
 		animateWalk(dt, *i);

@@ -23,7 +23,8 @@ Bullet::Bullet(sf::Vector2f position, int bulletType)
 	else if (this->bulletType == 2) {
 		this->sprite.setTexture(fireBallTexture);
 		this->sprite.setTextureRect(sf::IntRect(0, 0, 500, 160));
-		this->sprite.setOrigin(this->sprite.getGlobalBounds().width / 2, this->sprite.getGlobalBounds().height / 2);
+		this->sprite.setOrigin(this->sprite.getGlobalBounds().width / 2 + this->sprite.getGlobalBounds().width / 4
+			, this->sprite.getGlobalBounds().height / 2);
 		this->sprite.setScale(0.3, 0.3);
 	}
 	
