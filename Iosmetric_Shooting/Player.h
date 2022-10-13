@@ -34,7 +34,7 @@ public:
 	Player(sf::Vector2f startingPos, sf::Vector2f windowSize);
 	void update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<Bullet> &enemyBullets, Weapons &weapon);
 
-	void animateIdle(float dt);
+	void animateIdle(float dt, sf::Vector2f requiredScale);
 	void animateWalk(float dt);
 	void animateDeath(float dt);
 

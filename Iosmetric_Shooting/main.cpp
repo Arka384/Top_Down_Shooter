@@ -25,6 +25,8 @@ int main()
 	EnemyManager enemyManager(windowSize);
 	Weapons weapon(windowSize);
 	Camera playerCam(windowSize);
+	Ui gameUi(windowSize);
+	gameUi.setGameState(0);
 
 	map.initMap(playerCam);
 
@@ -66,24 +68,56 @@ int main()
 				break;
 			}
 		}
+		//////////////////////////////////////////////////////////////////////////
+
 
 		tempMousePos = sf::Mouse::getPosition(window);
 		mousePos = window.mapPixelToCoords(tempMousePos);
 
-		player.update(dt, keyPressed, mousePos, enemyManager.enemyBullets, weapon);
-		weapon.update(mousePressed, mousePos, player.getPosition(), dt, playerCam);
-		enemyManager.update(dt, weapon, player.getPosition(), playerCam);
-		playerCam.update(player.getPosition(), window, dt);
-		map.update(playerCam, keyPressed, player.getPosition());
+		if (gameUi.getGameState() == 0) {	//if in main menu
+			gameUi.updateMainMenu(mousePos, mousePressed);
+		}
+		if (gameUi.getGameState() == 1) {	//if in character select state
+			gameUi.updateCharacterSelect(mousePos, mousePressed);
+			player.animateIdle(dt, sf::Vector2f(0.3, 0.3));
+		}
+		if (gameUi.getGameState() == 2) {	//if in countDown state
+			gameUi.updateCountDown(dt);
+		}
 
 
+		if (gameUi.getGameState() == 3) {	//if play state
+			player.update(dt, keyPressed, mousePos, enemyManager.enemyBullets, weapon);
+			weapon.update(mousePressed, mousePos, player.getPosition(), dt, playerCam);
+			enemyManager.update(dt, weapon, player.getPosition(), playerCam);
+			playerCam.update(player.getPosition(), window, dt);
+			map.update(playerCam, keyPressed, player.getPosition());
+		}
+		
+		//////////////////////////////////////////////////////////////////////////
+		//render functions
 		window.clear(map.backgroundColor);
 
-		map.draw(window);
-		if (!player.isDead)
-			weapon.draw(window);
-		player.draw(window, weapon);
-		enemyManager.drawEnemies(window);
+		if (gameUi.getGameState() == 0) {	//main menu state
+			gameUi.renderMainMenu(window);
+		}
+		if (gameUi.getGameState() == 1) {	//character select state
+			gameUi.renderCharacterSelect(window);
+			player.draw(window, weapon);
+		}
+		if (gameUi.getGameState() == 2) {	//countDown
+			gameUi.renderCountDown(window);
+		}
+
+
+		if (gameUi.getGameState() == 3) {	//if play state
+			map.draw(window);
+			if (!player.isDead)
+				weapon.draw(window);
+			player.draw(window, weapon);
+			enemyManager.drawEnemies(window);
+		}
+		
 
 		window.display();
 	}

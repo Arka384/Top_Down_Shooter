@@ -90,7 +90,7 @@ void Player::update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<
 	if (!isDead) {
 		if (oldPos == position) {
 			playerIdle = true;
-			animateIdle(dt);
+			animateIdle(dt, scaleSize);
 		}
 		else {
 			playerIdle = false;
@@ -115,7 +115,7 @@ void Player::update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<
 	}
 }
 
-void Player::animateIdle(float dt)
+void Player::animateIdle(float dt, sf::Vector2f requiredScale)
 {
 	idleAnimTimer += dt;
 	if (idleAnimTimer >= idleAnimTime) {
@@ -127,9 +127,9 @@ void Player::animateIdle(float dt)
 		idleSprite.setTextureRect(sf::IntRect(currIdleTex*subTexRectSize, 0, subTexRectSize, subTexRectSize));
 		idleSprite.setOrigin(subTexRectSize / 2, subTexRectSize / 2);
 		if(flipped)
-			idleSprite.setScale(-scaleSize.x, scaleSize.y);
+			idleSprite.setScale(-requiredScale.x, requiredScale.y);
 		else
-			idleSprite.setScale(scaleSize);
+			idleSprite.setScale(requiredScale);
 	}
 	idleSprite.setPosition(position - spritePosOffset);
 	playerSprite = idleSprite;
@@ -176,6 +176,7 @@ void Player::animateDeath(float dt)
 	deathSprite.setPosition(position - spritePosOffset);
 	playerSprite = deathSprite;
 }
+
 
 void Player::draw(sf::RenderWindow &window, Weapons wp)
 {

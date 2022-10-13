@@ -208,6 +208,6 @@ void EnemyManager::drawEnemies(sf::RenderWindow & window)
 
 	for (auto i = enemyBullets.begin(); i != enemyBullets.end(); i++) {
 		window.draw(i->sprite);
-		window.draw(*i);
+		//window.draw(*i);
 	}
 }
