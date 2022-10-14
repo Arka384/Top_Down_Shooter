@@ -94,6 +94,7 @@ int main()
 			enemyManager.update(dt, weapon, player.getPosition(), playerCam);
 			playerCam.update(player.getPosition(), window, dt);
 			map.update(playerCam, keyPressed, player.getPosition());
+			gameUi.updatePlayState(playerCam.playerView.getSize(), playerCam.playerView.getCenter(), player.getHealth());
 		}
 		
 		//////////////////////////////////////////////////////////////////////////
@@ -118,6 +119,7 @@ int main()
 				weapon.draw(window);
 			player.draw(window, weapon);
 			enemyManager.drawEnemies(window);
+			gameUi.renderPlayState(window);
 		}
 		
 

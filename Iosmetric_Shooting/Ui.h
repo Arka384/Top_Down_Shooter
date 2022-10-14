@@ -15,15 +15,17 @@ private:
 
 	//textures
 	sf::Texture menuBackgroundTex, blankBackgroundTex, playButtonTex, arrowTex, startButtonTex;
+	sf::Texture healthOutTex, healthInTex, healthTex, heartTex;
 	//sprites
 	sf::Sprite menuBackground, blankBackground, playButton, arrow, startButton;
+	sf::Sprite healthBarOutline, healthBarInline, healthBar, heart;
 	//fonts
 	sf::Font gravePartyFont;
 	//texts
 	sf::Text titleText, characterSelectText , countdownText;
 
 	sf::Vector2f playButtonPos, startButtonPos, arrowPos;
-	sf::Vector2f playButtonScale, startButtonScale;
+	sf::Vector2f playButtonScale, startButtonScale, healthStuffScale;
 	float countDownInterval = 1.f, countDownTimer = 0.f;
 	int countNum = 3;
 
@@ -36,9 +38,11 @@ public:
 	void updateMainMenu(sf::Vector2f mousePos, bool mousePressed);
 	void updateCharacterSelect(sf::Vector2f mousePos, bool &mousePressed);
 	void updateCountDown(float dt);
+	void updatePlayState(sf::Vector2f viewSize, sf::Vector2f viewCenter, int playerHealth);
 
 	void renderMainMenu(sf::RenderWindow& window);
 	void renderCharacterSelect(sf::RenderWindow& window);
 	void renderCountDown(sf::RenderWindow& window);
+	void renderPlayState(sf::RenderWindow& window);
 };
 

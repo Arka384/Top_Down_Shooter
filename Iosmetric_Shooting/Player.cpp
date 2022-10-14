@@ -25,8 +25,8 @@ Player::Player(sf::Vector2f startingPos, sf::Vector2f windowSize)
 		std::string deathTexureFileName = charTexureFileName + "Char_" + std::to_string(i+1) + "/" + "death.png";
 		deathTexture[i].loadFromFile(deathTexureFileName);
 	}
-
 	setCharacterType(2);
+
 }
 
 
@@ -142,6 +142,11 @@ void Player::setCharacterType(int type)
 int Player::getCharacterType(void)
 {
 	return this->characterType;
+}
+
+int Player::getHealth(void)
+{
+	return this->health;
 }
 
 void Player::animateIdle(float dt, sf::Vector2f requiredScale)

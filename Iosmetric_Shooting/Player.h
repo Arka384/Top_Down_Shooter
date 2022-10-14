@@ -36,6 +36,7 @@ public:
 	void update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<Bullet> &enemyBullets, Weapons &weapon);
 	void setCharacterType(int type);
 	int getCharacterType(void);
+	int getHealth(void);
 
 	void animateIdle(float dt, sf::Vector2f requiredScale);
 	void animateWalk(float dt);

@@ -20,6 +20,7 @@ Ui::Ui(sf::Vector2f windowSize)
 		charSelectTextPosition = sf::Vector2f(100, 100);
 		charSelectTextCharSize = 120;
 		startButtonScale = sf::Vector2f(0.6, 0.6);
+		healthStuffScale = sf::Vector2f(0.5, 0.4);
 	}
 	else {
 		menuBackFileName.append(".png");
@@ -30,6 +31,7 @@ Ui::Ui(sf::Vector2f windowSize)
 		charSelectTextPosition = sf::Vector2f(200, 180);
 		charSelectTextCharSize = 150;
 		startButtonScale = sf::Vector2f(0.8, 0.8);
+		healthStuffScale = sf::Vector2f(0.6, 0.4);
 	}	
 
 	//loading textures and sprites
@@ -61,6 +63,24 @@ Ui::Ui(sf::Vector2f windowSize)
 	startButtonPos = sf::Vector2f(windowSize.x / 2 - startButton.getGlobalBounds().width / 2, 
 		windowSize.y - startButton.getGlobalBounds().height*2);
 	startButton.setPosition(startButtonPos);
+
+	///////////
+	//health bar stuffs
+	healthOutTex.loadFromFile("Assets/Ui/heathBarOutline.png");
+	healthBarOutline.setTexture(healthOutTex);
+	healthBarOutline.setScale(healthStuffScale);
+
+	healthInTex.loadFromFile("Assets/Ui/heathBarInline.png");
+	healthBarInline.setTexture(healthInTex);
+	healthBarInline.setScale(healthStuffScale);
+
+	healthTex.loadFromFile("Assets/Ui/heathBar.png");
+	healthBar.setTexture(healthTex);
+	healthBar.setScale(healthStuffScale);
+
+	heartTex.loadFromFile("Assets/Ui/heart.png");
+	heart.setTexture(heartTex);
+	heart.setScale(healthStuffScale.x - 0.08, healthStuffScale.y);
 
 
 	//loading fonts
@@ -111,7 +131,8 @@ void Ui::updateMainMenu(sf::Vector2f mousePos, bool mousePressed)
 		playButton.setPosition(playButtonPos.x - 20, playButtonPos.y - 12);
 
 		if (mousePressed)
-			gameState = 1;	//change to char select 
+			//gameState = 1;	//change to char select 
+			gameState = 3;
 	}
 	else {
 		playButton.setPosition(playButtonPos);
@@ -181,6 +202,26 @@ void Ui::updateCountDown(float dt)
 
 }
 
+void Ui::updatePlayState(sf::Vector2f viewSize, sf::Vector2f viewCenter, int playerHealth)
+{
+	if (playerHealth >= 0) {
+		float healthBarFactor = healthStuffScale.x / 5;
+		float reduceScale = healthBarFactor * ((100 - playerHealth) / 20);
+		healthBar.setScale(healthStuffScale.x - reduceScale, healthStuffScale.y);
+	}
+	
+	float x = viewCenter.x - viewSize.x / 2 + healthBarOutline.getGlobalBounds().width / 4;
+	float y = viewCenter.y - viewSize.y / 2 + healthBarOutline.getGlobalBounds().height / 2;
+	healthBarOutline.setPosition(x,y);
+	healthBarInline.setPosition(x + 12, y + 8);
+	healthBar.setPosition(x + 12, y + 8);
+	if(this->windowSize.x <= 1366 && this->windowSize.y <=768)
+		heart.setPosition(x - 30, y - 6);
+	else
+		heart.setPosition(x - 38, y - 10);
+}
+
+
 void Ui::renderMainMenu(sf::RenderWindow& window)
 {
 	window.draw(menuBackground);
@@ -199,4 +240,12 @@ void Ui::renderCharacterSelect(sf::RenderWindow& window)
 void Ui::renderCountDown(sf::RenderWindow& window)
 {
 	window.draw(countdownText);
+}
+
+void Ui::renderPlayState(sf::RenderWindow& window)
+{
+	window.draw(healthBarInline);
+	window.draw(healthBar);
+	window.draw(healthBarOutline);
+	window.draw(heart);
 }
