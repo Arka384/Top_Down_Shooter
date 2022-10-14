@@ -14,11 +14,21 @@ Ui::Ui(sf::Vector2f windowSize)
 	playButtonPos = sf::Vector2f(windowSize.x / 2 - playButton.getGlobalBounds().width / 2, windowSize.y / 2 - 50);
 	playButton.setPosition(playButtonPos);
 
-	nextButtonTex.loadFromFile("Assets/Ui/next_button.png");
-	nextButton.setTexture(nextButtonTex);
-	nextButton.setScale(0.7, 0.7);
-	nextButtonPos = sf::Vector2f(windowSize.x / 2 - nextButton.getGlobalBounds().width / 2, windowSize.y - 250);
-	nextButton.setPosition(nextButtonPos);
+	blankBackgroundTex.loadFromFile("Assets/Ui/blank_background.png");
+	blankBackground.setTexture(blankBackgroundTex);
+	blankBackground.setPosition(0, -20);
+
+	arrowTex.loadFromFile("Assets/Ui/arrows.png");
+	arrow.setTexture(arrowTex);
+	arrow.setScale(0.5, 0.5);
+	arrowPos = sf::Vector2f(windowSize.x / 2 - 220, windowSize.y / 2);
+	arrow.setPosition(arrowPos);
+
+	startButtonTex.loadFromFile("Assets/Ui/next_button.png");
+	startButton.setTexture(startButtonTex);
+	startButton.setScale(0.6, 0.6);
+	startButtonPos = sf::Vector2f(windowSize.x / 2 - startButton.getGlobalBounds().width / 2, windowSize.y - 250);
+	startButton.setPosition(startButtonPos);
 
 
 	//loading fonts
@@ -36,7 +46,8 @@ Ui::Ui(sf::Vector2f windowSize)
 	characterSelectText.setCharacterSize(150);
 	characterSelectText.setFillColor(sf::Color(72, 37, 55, 255));
 	characterSelectText.setString("SELECT  YOUR  PLAYER");
-	characterSelectText.setPosition(350, 120);
+	characterSelectText.setPosition(200, 180);
+	characterSelectText.setRotation(-31.5 * (180 / 3.1415));
 
 	countdownText.setFont(gravePartyFont);
 	countdownText.setCharacterSize(200);
@@ -77,23 +88,42 @@ void Ui::updateMainMenu(sf::Vector2f mousePos, bool mousePressed)
 		
 }
 
-void Ui::updateCharacterSelect(sf::Vector2f mousePos, bool mousePressed)
+void Ui::updateCharacterSelect(sf::Vector2f mousePos, bool &mousePressed)
 {
-	float nextBW = nextButton.getGlobalBounds().width;
-	float nextBH = nextButton.getGlobalBounds().height;
+	float nextBW = startButton.getGlobalBounds().width;
+	float nextBH = startButton.getGlobalBounds().height;
+	if (mousePos.x > startButton.getPosition().x && mousePos.x < startButton.getPosition().x + nextBW &&
+		mousePos.y > startButton.getPosition().y && mousePos.y < startButton.getPosition().y + nextBH) {
 
-	if (mousePos.x > nextButton.getPosition().x && mousePos.x < nextButton.getPosition().x + nextBW &&
-		mousePos.y > nextButton.getPosition().y && mousePos.y < nextButton.getPosition().y + nextBH) {
-
-		nextButton.setScale(0.9, 0.9);
-		nextButton.setPosition(nextButtonPos.x - 20, nextButtonPos.y - 12);
+		startButton.setScale(1, 1);
+		startButton.setPosition(startButtonPos.x - 20, startButtonPos.y - 12);
 
 		if (mousePressed)
 			gameState = 2;	//change to countDown state
 	}
 	else {
-		nextButton.setPosition(nextButtonPos);
-		nextButton.setScale(0.7, 0.7);
+		startButton.setPosition(startButtonPos);
+		startButton.setScale(0.8, 0.8);
+	}
+
+
+	float arrowBW = arrow.getGlobalBounds().width;
+	float arrowBH = arrow.getGlobalBounds().height;
+	if (mousePos.x > arrow.getPosition().x && mousePos.x < arrow.getPosition().x + arrowBW &&
+		mousePos.y > arrow.getPosition().y && mousePos.y < arrow.getPosition().y + arrowBH) {
+
+		arrow.setScale(0.6, 0.6);
+		arrow.setPosition(arrowPos.x - 10, arrowPos.y - 6);
+		if (mousePressed) {
+			mousePressed = false;
+			playerType += 1;
+			if (playerType > 2)
+				playerType = 0;
+		}
+	}
+	else {
+		arrow.setPosition(arrowPos);
+		arrow.setScale(0.5, 0.5);
 	}
 }
 
@@ -128,8 +158,10 @@ void Ui::renderMainMenu(sf::RenderWindow& window)
 
 void Ui::renderCharacterSelect(sf::RenderWindow& window)
 {
+	window.draw(blankBackground);
 	window.draw(characterSelectText);
-	window.draw(nextButton);
+	window.draw(startButton);
+	window.draw(arrow);
 }
 
 void Ui::renderCountDown(sf::RenderWindow& window)

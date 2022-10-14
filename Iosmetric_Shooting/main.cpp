@@ -79,7 +79,9 @@ int main()
 		}
 		if (gameUi.getGameState() == 1) {	//if in character select state
 			gameUi.updateCharacterSelect(mousePos, mousePressed);
-			player.animateIdle(dt, sf::Vector2f(0.3, 0.3));
+			if (gameUi.playerType != player.getCharacterType())
+				player.setCharacterType(gameUi.playerType);
+			player.animateIdle(dt, sf::Vector2f(0.25, 0.25));
 		}
 		if (gameUi.getGameState() == 2) {	//if in countDown state
 			gameUi.updateCountDown(dt);

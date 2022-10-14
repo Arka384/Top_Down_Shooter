@@ -6,29 +6,29 @@ Player::Player(sf::Vector2f startingPos, sf::Vector2f windowSize)
 	this->setOrigin(this->getSize().x / 2, this->getSize().y / 2);
 	this->position = startingPos;
 	this->setPosition(position);
-	
 	this->windowSize = windowSize;
 
-	//loading walk textures
-	walkTexture.loadFromFile(walkTexureFileName);
-	walkSprite.setTexture(walkTexture);
-	walkSprite.setTextureRect(sf::IntRect(currWalkTex*subTexRectSize, 0, subTexRectSize, subTexRectSize));
-	walkSprite.setOrigin(subTexRectSize / 2, subTexRectSize / 2);
-	walkSprite.setScale(scaleSize);
-	//loading idle texture
-	idleTexture.loadFromFile(idleTexureFileName);
-	idleSprite.setTexture(idleTexture);
-	idleSprite.setTextureRect(sf::IntRect(currIdleTex*subTexRectSize, 0, subTexRectSize, subTexRectSize));
-	idleSprite.setOrigin(subTexRectSize / 2, subTexRectSize / 2);
-	idleSprite.setScale(scaleSize);
-	playerSprite = idleSprite;	//initial sprite
-	//loading death texture
-	deathTexture.loadFromFile(deathTexureFileName);
-	deathSprite.setTexture(deathTexture);
-	deathSprite.setTextureRect(sf::IntRect(currDeathTex*subTexRectSize, 0, subTexRectSize, subTexRectSize));
-	deathSprite.setOrigin(subTexRectSize / 2, subTexRectSize / 2);
-	deathSprite.setScale(scaleSize);
+	//loading walk textures for all three characters
+	for (int i = 0; i < 3; i++) {
+		std::string walkTexureFileName = charTexureFileName + "Char_" + std::to_string(i+1) + "/" + "walk.png";
+		walkTexture[i].loadFromFile(walkTexureFileName);
+	}
+	
+	//loading idle textures for all three characters
+	for (int i = 0; i < 3; i++) {
+		std::string idleTexureFileName = charTexureFileName + "Char_" + std::to_string(i+1) + "/" + "idle.png";
+		idleTexture[i].loadFromFile(idleTexureFileName);
+	}
+	
+	//loading death textures for all three characters
+	for (int i = 0; i < 3; i++) {
+		std::string deathTexureFileName = charTexureFileName + "Char_" + std::to_string(i+1) + "/" + "death.png";
+		deathTexture[i].loadFromFile(deathTexureFileName);
+	}
+
+	setCharacterType(2);
 }
+
 
 void Player::update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<Bullet> &enemyBullets, Weapons &weapon)
 {
@@ -102,7 +102,7 @@ void Player::update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<
 	auto i = enemyBullets.begin();
 	while (i != enemyBullets.end()) {
 		if (this->isColliding(*i)) {
-			//this->health -= 20;
+			this->health -= 20;
 			playerSprite.setColor(sf::Color::Red);
 			if (this->health <= 0) {
 				isDead = true;
@@ -113,6 +113,35 @@ void Player::update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<
 		else
 			i++;
 	}
+}
+
+void Player::setCharacterType(int type)
+{
+	//type varries between 0-2
+	//walk sprites
+	characterType = type;
+	walkSprite.setTexture(walkTexture[characterType]);
+	walkSprite.setTextureRect(sf::IntRect(currWalkTex * subTexRectSize, 0, subTexRectSize, subTexRectSize));
+	walkSprite.setOrigin(subTexRectSize / 2, subTexRectSize / 2);
+	walkSprite.setScale(scaleSize);
+
+	//idle sprites
+	idleSprite.setTexture(idleTexture[characterType]);
+	idleSprite.setTextureRect(sf::IntRect(currIdleTex * subTexRectSize, 0, subTexRectSize, subTexRectSize));
+	idleSprite.setOrigin(subTexRectSize / 2, subTexRectSize / 2);
+	idleSprite.setScale(scaleSize);
+	playerSprite = idleSprite;	//initial sprite
+
+	//death sprties
+	deathSprite.setTexture(deathTexture[characterType]);
+	deathSprite.setTextureRect(sf::IntRect(currDeathTex * subTexRectSize, 0, subTexRectSize, subTexRectSize));
+	deathSprite.setOrigin(subTexRectSize / 2, subTexRectSize / 2);
+	deathSprite.setScale(scaleSize);
+}
+
+int Player::getCharacterType(void)
+{
+	return this->characterType;
 }
 
 void Player::animateIdle(float dt, sf::Vector2f requiredScale)

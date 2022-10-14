@@ -14,24 +14,26 @@ private:
 	//5 -> game over
 
 	//textures
-	sf::Texture menuBackgroundTex, playButtonTex, nextButtonTex;
+	sf::Texture menuBackgroundTex, blankBackgroundTex, playButtonTex, arrowTex, startButtonTex;
 	//sprites
-	sf::Sprite menuBackground, playButton, nextButton;
+	sf::Sprite menuBackground, blankBackground, playButton, arrow, startButton;
 	//fonts
 	sf::Font gravePartyFont;
 	//texts
 	sf::Text titleText, characterSelectText , countdownText;
 
-	sf::Vector2f playButtonPos, nextButtonPos;
+	sf::Vector2f playButtonPos, startButtonPos, arrowPos;
 	float countDownInterval = 1.f, countDownTimer = 0.f;
 	int countNum = 3;
 
 public:
+	int playerType = 0;
+
 	Ui(sf::Vector2f windowSize);
 	void setGameState(int state);
 	int getGameState(void);
 	void updateMainMenu(sf::Vector2f mousePos, bool mousePressed);
-	void updateCharacterSelect(sf::Vector2f mousePos, bool mousePressed);
+	void updateCharacterSelect(sf::Vector2f mousePos, bool &mousePressed);
 	void updateCountDown(float dt);
 
 	void renderMainMenu(sf::RenderWindow& window);
