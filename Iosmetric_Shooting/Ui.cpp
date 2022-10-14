@@ -4,17 +4,48 @@ Ui::Ui(sf::Vector2f windowSize)
 {
 	this->windowSize = windowSize;
 
+	//resolution management
+	std::string menuBackFileName = "Assets/Ui/main_menu_1";
+	std::string blankBackFileName = "Assets/Ui/blank_background";
+	sf::Vector2f titleTextPosition, charSelectTextPosition;
+	float titleTextCharSize, charSelectTextCharSize;
+	
+
+	if (windowSize.x <= 1366 && windowSize.y <= 768) {
+		menuBackFileName.append("_small.png");
+		blankBackFileName.append("_small.png");
+		titleTextPosition = sf::Vector2f(200, 100);
+		titleTextCharSize = 180;
+		playButtonScale = sf::Vector2f(0.6, 0.6);
+		charSelectTextPosition = sf::Vector2f(100, 100);
+		charSelectTextCharSize = 120;
+		startButtonScale = sf::Vector2f(0.6, 0.6);
+	}
+	else {
+		menuBackFileName.append(".png");
+		blankBackFileName.append(".png");
+		titleTextPosition = sf::Vector2f(350, 120);
+		titleTextCharSize = 250;
+		playButtonScale = sf::Vector2f(1, 1);
+		charSelectTextPosition = sf::Vector2f(200, 180);
+		charSelectTextCharSize = 150;
+		startButtonScale = sf::Vector2f(0.8, 0.8);
+	}	
+
 	//loading textures and sprites
-	menuBackgroundTex.loadFromFile("Assets/Ui/main_menu_1.png");
+	menuBackgroundTex.loadFromFile(menuBackFileName);
 	menuBackground.setTexture(menuBackgroundTex);
 	menuBackground.setPosition(0, -20);
 
 	playButtonTex.loadFromFile("Assets/Ui/play_button.png");
 	playButton.setTexture(playButtonTex);
-	playButtonPos = sf::Vector2f(windowSize.x / 2 - playButton.getGlobalBounds().width / 2, windowSize.y / 2 - 50);
+	playButton.setScale(playButtonScale);
+	playButtonPos = sf::Vector2f(windowSize.x / 2 - playButton.getGlobalBounds().width / 2, 
+		windowSize.y / 2 + playButton.getGlobalBounds().height/4);
 	playButton.setPosition(playButtonPos);
 
-	blankBackgroundTex.loadFromFile("Assets/Ui/blank_background.png");
+	
+	blankBackgroundTex.loadFromFile(blankBackFileName);
 	blankBackground.setTexture(blankBackgroundTex);
 	blankBackground.setPosition(0, -20);
 
@@ -26,8 +57,9 @@ Ui::Ui(sf::Vector2f windowSize)
 
 	startButtonTex.loadFromFile("Assets/Ui/next_button.png");
 	startButton.setTexture(startButtonTex);
-	startButton.setScale(0.6, 0.6);
-	startButtonPos = sf::Vector2f(windowSize.x / 2 - startButton.getGlobalBounds().width / 2, windowSize.y - 250);
+	startButton.setScale(startButtonScale);
+	startButtonPos = sf::Vector2f(windowSize.x / 2 - startButton.getGlobalBounds().width / 2, 
+		windowSize.y - startButton.getGlobalBounds().height*2);
 	startButton.setPosition(startButtonPos);
 
 
@@ -36,17 +68,17 @@ Ui::Ui(sf::Vector2f windowSize)
 
 	//loading texts
 	titleText.setFont(gravePartyFont);
-	titleText.setCharacterSize(250);
+	titleText.setCharacterSize(titleTextCharSize);
 	titleText.setFillColor(sf::Color(19, 15, 45, 255));
 	titleText.setString("NO WAY OUT!");
-	titleText.setPosition(350, 120);
+	titleText.setPosition(titleTextPosition);
 	titleText.setRotation(-31.5 * (180 / 3.1415));
 
 	characterSelectText.setFont(gravePartyFont);
-	characterSelectText.setCharacterSize(150);
+	characterSelectText.setCharacterSize(charSelectTextCharSize);
 	characterSelectText.setFillColor(sf::Color(72, 37, 55, 255));
 	characterSelectText.setString("SELECT  YOUR  PLAYER");
-	characterSelectText.setPosition(200, 180);
+	characterSelectText.setPosition(charSelectTextPosition);
 	characterSelectText.setRotation(-31.5 * (180 / 3.1415));
 
 	countdownText.setFont(gravePartyFont);
@@ -75,7 +107,7 @@ void Ui::updateMainMenu(sf::Vector2f mousePos, bool mousePressed)
 	if (mousePos.x > playButton.getPosition().x && mousePos.x < playButton.getPosition().x + playBW &&
 		mousePos.y > playButton.getPosition().y && mousePos.y < playButton.getPosition().y + playBH) {
 		
-		playButton.setScale(1.2, 1.2);
+		playButton.setScale(playButtonScale.x + 0.2, playButtonScale.y + 0.2);
 		playButton.setPosition(playButtonPos.x - 20, playButtonPos.y - 12);
 
 		if (mousePressed)
@@ -83,7 +115,7 @@ void Ui::updateMainMenu(sf::Vector2f mousePos, bool mousePressed)
 	}
 	else {
 		playButton.setPosition(playButtonPos);
-		playButton.setScale(1, 1);
+		playButton.setScale(playButtonScale);
 	}
 		
 }
@@ -95,7 +127,7 @@ void Ui::updateCharacterSelect(sf::Vector2f mousePos, bool &mousePressed)
 	if (mousePos.x > startButton.getPosition().x && mousePos.x < startButton.getPosition().x + nextBW &&
 		mousePos.y > startButton.getPosition().y && mousePos.y < startButton.getPosition().y + nextBH) {
 
-		startButton.setScale(1, 1);
+		startButton.setScale(startButtonScale.x + 0.2, startButtonScale.x + 0.2);
 		startButton.setPosition(startButtonPos.x - 20, startButtonPos.y - 12);
 
 		if (mousePressed)
@@ -103,7 +135,7 @@ void Ui::updateCharacterSelect(sf::Vector2f mousePos, bool &mousePressed)
 	}
 	else {
 		startButton.setPosition(startButtonPos);
-		startButton.setScale(0.8, 0.8);
+		startButton.setScale(startButtonScale);
 	}
 
 
