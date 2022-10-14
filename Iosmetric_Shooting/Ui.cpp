@@ -7,8 +7,8 @@ Ui::Ui(sf::Vector2f windowSize)
 	//resolution management
 	std::string menuBackFileName = "Assets/Ui/main_menu_1";
 	std::string blankBackFileName = "Assets/Ui/blank_background";
-	sf::Vector2f titleTextPosition;
-	float titleTextCharSize;
+	sf::Vector2f titleTextPosition, charSelectTextPosition;
+	float titleTextCharSize, charSelectTextCharSize;
 	
 
 	if (windowSize.x <= 1366 && windowSize.y <= 768) {
@@ -17,13 +17,19 @@ Ui::Ui(sf::Vector2f windowSize)
 		titleTextPosition = sf::Vector2f(200, 100);
 		titleTextCharSize = 180;
 		playButtonScale = sf::Vector2f(0.6, 0.6);
-	}	
+		charSelectTextPosition = sf::Vector2f(100, 100);
+		charSelectTextCharSize = 120;
+		startButtonScale = sf::Vector2f(0.6, 0.6);
+	}
 	else {
 		menuBackFileName.append(".png");
 		blankBackFileName.append(".png");
 		titleTextPosition = sf::Vector2f(350, 120);
 		titleTextCharSize = 250;
 		playButtonScale = sf::Vector2f(1, 1);
+		charSelectTextPosition = sf::Vector2f(200, 180);
+		charSelectTextCharSize = 150;
+		startButtonScale = sf::Vector2f(0.8, 0.8);
 	}	
 
 	//loading textures and sprites
@@ -34,7 +40,8 @@ Ui::Ui(sf::Vector2f windowSize)
 	playButtonTex.loadFromFile("Assets/Ui/play_button.png");
 	playButton.setTexture(playButtonTex);
 	playButton.setScale(playButtonScale);
-	playButtonPos = sf::Vector2f(windowSize.x / 2 - playButton.getGlobalBounds().width / 2, windowSize.y / 2 - 50);
+	playButtonPos = sf::Vector2f(windowSize.x / 2 - playButton.getGlobalBounds().width / 2, 
+		windowSize.y / 2 + playButton.getGlobalBounds().height/4);
 	playButton.setPosition(playButtonPos);
 
 	
@@ -50,8 +57,9 @@ Ui::Ui(sf::Vector2f windowSize)
 
 	startButtonTex.loadFromFile("Assets/Ui/next_button.png");
 	startButton.setTexture(startButtonTex);
-	startButton.setScale(0.6, 0.6);
-	startButtonPos = sf::Vector2f(windowSize.x / 2 - startButton.getGlobalBounds().width / 2, windowSize.y - 250);
+	startButton.setScale(startButtonScale);
+	startButtonPos = sf::Vector2f(windowSize.x / 2 - startButton.getGlobalBounds().width / 2, 
+		windowSize.y - startButton.getGlobalBounds().height*2);
 	startButton.setPosition(startButtonPos);
 
 
@@ -67,10 +75,10 @@ Ui::Ui(sf::Vector2f windowSize)
 	titleText.setRotation(-31.5 * (180 / 3.1415));
 
 	characterSelectText.setFont(gravePartyFont);
-	characterSelectText.setCharacterSize(150);
+	characterSelectText.setCharacterSize(charSelectTextCharSize);
 	characterSelectText.setFillColor(sf::Color(72, 37, 55, 255));
 	characterSelectText.setString("SELECT  YOUR  PLAYER");
-	characterSelectText.setPosition(200, 180);
+	characterSelectText.setPosition(charSelectTextPosition);
 	characterSelectText.setRotation(-31.5 * (180 / 3.1415));
 
 	countdownText.setFont(gravePartyFont);
@@ -119,7 +127,7 @@ void Ui::updateCharacterSelect(sf::Vector2f mousePos, bool &mousePressed)
 	if (mousePos.x > startButton.getPosition().x && mousePos.x < startButton.getPosition().x + nextBW &&
 		mousePos.y > startButton.getPosition().y && mousePos.y < startButton.getPosition().y + nextBH) {
 
-		startButton.setScale(1, 1);
+		startButton.setScale(startButtonScale.x + 0.2, startButtonScale.x + 0.2);
 		startButton.setPosition(startButtonPos.x - 20, startButtonPos.y - 12);
 
 		if (mousePressed)
@@ -127,7 +135,7 @@ void Ui::updateCharacterSelect(sf::Vector2f mousePos, bool &mousePressed)
 	}
 	else {
 		startButton.setPosition(startButtonPos);
-		startButton.setScale(0.8, 0.8);
+		startButton.setScale(startButtonScale);
 	}
 
 

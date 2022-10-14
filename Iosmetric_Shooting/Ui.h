@@ -23,7 +23,7 @@ private:
 	sf::Text titleText, characterSelectText , countdownText;
 
 	sf::Vector2f playButtonPos, startButtonPos, arrowPos;
-	sf::Vector2f playButtonScale;
+	sf::Vector2f playButtonScale, startButtonScale;
 	float countDownInterval = 1.f, countDownTimer = 0.f;
 	int countNum = 3;
 
