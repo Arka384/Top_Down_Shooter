@@ -7,6 +7,7 @@ Ui::Ui(sf::Vector2f windowSize)
 	//resolution management
 	std::string menuBackFileName = "Assets/Ui/main_menu_1";
 	std::string blankBackFileName = "Assets/Ui/blank_background";
+	std::string howToFileName = "Assets/Ui/how_TO";
 	sf::Vector2f titleTextPosition, charSelectTextPosition;
 	float titleTextCharSize, charSelectTextCharSize;
 	
@@ -14,6 +15,7 @@ Ui::Ui(sf::Vector2f windowSize)
 	if (windowSize.x <= 1366 && windowSize.y <= 768) {
 		menuBackFileName.append("_small.png");
 		blankBackFileName.append("_small.png");
+		howToFileName.append("_small.png");
 		titleTextPosition = sf::Vector2f(200, 100);
 		titleTextCharSize = 180;
 		playButtonScale = sf::Vector2f(0.6, 0.6);
@@ -21,10 +23,13 @@ Ui::Ui(sf::Vector2f windowSize)
 		charSelectTextCharSize = 120;
 		startButtonScale = sf::Vector2f(0.6, 0.6);
 		healthStuffScale = sf::Vector2f(0.5, 0.4);
+		noWayOutScale = sf::Vector2f(0.7, 0.7);
+		noWayOutPos = sf::Vector2f(windowSize.x - 540, windowSize.y - 260);
 	}
 	else {
 		menuBackFileName.append(".png");
 		blankBackFileName.append(".png");
+		howToFileName.append(".png");
 		titleTextPosition = sf::Vector2f(350, 120);
 		titleTextCharSize = 250;
 		playButtonScale = sf::Vector2f(1, 1);
@@ -32,6 +37,8 @@ Ui::Ui(sf::Vector2f windowSize)
 		charSelectTextCharSize = 150;
 		startButtonScale = sf::Vector2f(0.8, 0.8);
 		healthStuffScale = sf::Vector2f(0.6, 0.4);
+		noWayOutScale = sf::Vector2f(1, 1);
+		noWayOutPos = sf::Vector2f(windowSize.x - 660, windowSize.y - 340);
 	}	
 
 	//loading textures and sprites
@@ -63,6 +70,16 @@ Ui::Ui(sf::Vector2f windowSize)
 	startButtonPos = sf::Vector2f(windowSize.x / 2 - startButton.getGlobalBounds().width / 2, 
 		windowSize.y - startButton.getGlobalBounds().height*2);
 	startButton.setPosition(startButtonPos);
+
+	howToTex.loadFromFile(howToFileName);
+	howToInfo.setTexture(howToTex);
+	howToInfo.setPosition(0, -20);
+
+	noWayOutTex.loadFromFile("Assets/Ui/noWayOut.png");
+	noWayOut.setTexture(noWayOutTex);
+	noWayOut.setScale(noWayOutScale);
+	noWayOut.setPosition(noWayOutPos);
+
 
 	///////////
 	//health bar stuffs
@@ -121,18 +138,15 @@ int Ui::getGameState(void)
 
 void Ui::updateMainMenu(sf::Vector2f mousePos, bool mousePressed)
 {
-	float playBW = playButton.getGlobalBounds().width;
-	float playBH = playButton.getGlobalBounds().height;
-
-	if (mousePos.x > playButton.getPosition().x && mousePos.x < playButton.getPosition().x + playBW &&
-		mousePos.y > playButton.getPosition().y && mousePos.y < playButton.getPosition().y + playBH) {
+	if (ifMouseIntersects(mousePos, playButton.getPosition(), 
+		sf::Vector2f(playButton.getGlobalBounds().width, playButton.getGlobalBounds().height))) {
 		
 		playButton.setScale(playButtonScale.x + 0.2, playButtonScale.y + 0.2);
 		playButton.setPosition(playButtonPos.x - 20, playButtonPos.y - 12);
 
 		if (mousePressed)
-			//gameState = 1;	//change to char select 
-			gameState = 3;
+			gameState = 1;	//change to char select 
+			//gameState = 3;
 	}
 	else {
 		playButton.setPosition(playButtonPos);
@@ -143,10 +157,8 @@ void Ui::updateMainMenu(sf::Vector2f mousePos, bool mousePressed)
 
 void Ui::updateCharacterSelect(sf::Vector2f mousePos, bool &mousePressed)
 {
-	float nextBW = startButton.getGlobalBounds().width;
-	float nextBH = startButton.getGlobalBounds().height;
-	if (mousePos.x > startButton.getPosition().x && mousePos.x < startButton.getPosition().x + nextBW &&
-		mousePos.y > startButton.getPosition().y && mousePos.y < startButton.getPosition().y + nextBH) {
+	if (ifMouseIntersects(mousePos, startButton.getPosition(), 
+		sf::Vector2f(startButton.getGlobalBounds().width, startButton.getGlobalBounds().height))) {
 
 		startButton.setScale(startButtonScale.x + 0.2, startButtonScale.x + 0.2);
 		startButton.setPosition(startButtonPos.x - 20, startButtonPos.y - 12);
@@ -160,10 +172,8 @@ void Ui::updateCharacterSelect(sf::Vector2f mousePos, bool &mousePressed)
 	}
 
 
-	float arrowBW = arrow.getGlobalBounds().width;
-	float arrowBH = arrow.getGlobalBounds().height;
-	if (mousePos.x > arrow.getPosition().x && mousePos.x < arrow.getPosition().x + arrowBW &&
-		mousePos.y > arrow.getPosition().y && mousePos.y < arrow.getPosition().y + arrowBH) {
+	if (ifMouseIntersects(mousePos, arrow.getPosition(),
+		sf::Vector2f(arrow.getGlobalBounds().width, arrow.getGlobalBounds().height))) {
 
 		arrow.setScale(0.6, 0.6);
 		arrow.setPosition(arrowPos.x - 10, arrowPos.y - 6);
@@ -180,6 +190,23 @@ void Ui::updateCharacterSelect(sf::Vector2f mousePos, bool &mousePressed)
 	}
 }
 
+void Ui::updateHowToState(sf::Vector2f mousePos, bool& mousePressed)
+{
+	if (ifMouseIntersects(mousePos, noWayOut.getPosition(),
+		sf::Vector2f(noWayOut.getGlobalBounds().width, noWayOut.getGlobalBounds().height))) {
+
+		noWayOut.setScale(noWayOutScale.x + 0.1, noWayOutScale.y + 0.1);
+		noWayOut.setPosition(noWayOutPos.x - 16, noWayOutPos.y - 8);
+
+		if (mousePressed)
+			gameState = 3;
+	}
+	else {
+		noWayOut.setScale(noWayOutScale);
+		noWayOut.setPosition(noWayOutPos);
+	}
+}
+
 void Ui::updateCountDown(float dt)
 {
 	countDownTimer += dt;
@@ -188,7 +215,7 @@ void Ui::updateCountDown(float dt)
 		countDownTimer = 0;
 
 		if (countNum == -1) {
-			gameState = 3;	//change to play state
+			gameState = 4;	//change to play state
 			return;
 		}
 
@@ -221,6 +248,15 @@ void Ui::updatePlayState(sf::Vector2f viewSize, sf::Vector2f viewCenter, int pla
 		heart.setPosition(x - 38, y - 10);
 }
 
+bool Ui::ifMouseIntersects(sf::Vector2f mousePos, sf::Vector2f buttonPos, sf::Vector2f buttonSize)
+{
+	if (mousePos.x > buttonPos.x && mousePos.x <  buttonPos.x + buttonSize.x &&
+		mousePos.y > buttonPos.y && mousePos.y < buttonPos.y + buttonSize.y)
+		return true;
+	else
+		return false;
+}
+
 
 void Ui::renderMainMenu(sf::RenderWindow& window)
 {
@@ -235,6 +271,12 @@ void Ui::renderCharacterSelect(sf::RenderWindow& window)
 	window.draw(characterSelectText);
 	window.draw(startButton);
 	window.draw(arrow);
+}
+
+void Ui::renderHowToState(sf::RenderWindow& window)
+{
+	window.draw(howToInfo);
+	window.draw(noWayOut);
 }
 
 void Ui::renderCountDown(sf::RenderWindow& window)

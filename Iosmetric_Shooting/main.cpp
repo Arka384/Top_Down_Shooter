@@ -70,58 +70,75 @@ int main()
 		}
 		//////////////////////////////////////////////////////////////////////////
 
-
+		//////////////////////////////////////////////////////////////////////////
+		//update actions
 		tempMousePos = sf::Mouse::getPosition(window);
 		mousePos = window.mapPixelToCoords(tempMousePos);
-
-		if (gameUi.getGameState() == 0) {	//if in main menu
+		
+		switch (gameUi.getGameState())
+		{
+		case 0:	//if in main menu
 			gameUi.updateMainMenu(mousePos, mousePressed);
-		}
-		if (gameUi.getGameState() == 1) {	//if in character select state
+			break;
+		case 1:	//if in character select state
 			gameUi.updateCharacterSelect(mousePos, mousePressed);
 			if (gameUi.playerType != player.getCharacterType())
 				player.setCharacterType(gameUi.playerType);
 			player.animateIdle(dt, sf::Vector2f(0.25, 0.25));
-		}
-		if (gameUi.getGameState() == 2) {	//if in countDown state
+			break;
+		case 2:	//how to 
+			gameUi.updateHowToState(mousePos, mousePressed);
+			break;
+		case 3:	//if in countDown state
 			gameUi.updateCountDown(dt);
-		}
-
-
-		if (gameUi.getGameState() == 3) {	//if play state
+			break;
+		case 4:	//if play state
 			player.update(dt, keyPressed, mousePos, enemyManager.enemyBullets, weapon);
 			weapon.update(mousePressed, mousePos, player.getPosition(), dt, playerCam);
 			enemyManager.update(dt, weapon, player.getPosition(), playerCam);
 			playerCam.update(player.getPosition(), window, dt);
 			map.update(playerCam, keyPressed, player.getPosition());
 			gameUi.updatePlayState(playerCam.playerView.getSize(), playerCam.playerView.getCenter(), player.getHealth());
+			break;
+		case 5:
+
+		case 6:
+		default:
+			break;
 		}
+
+
 		
 		//////////////////////////////////////////////////////////////////////////
 		//render functions
 		window.clear(map.backgroundColor);
 
-		if (gameUi.getGameState() == 0) {	//main menu state
+		switch (gameUi.getGameState())
+		{
+		case 0:	//main menu state
 			gameUi.renderMainMenu(window);
-		}
-		if (gameUi.getGameState() == 1) {	//character select state
+			break;
+		case 1:	//character select state
 			gameUi.renderCharacterSelect(window);
 			player.draw(window, weapon);
-		}
-		if (gameUi.getGameState() == 2) {	//countDown
+			break;
+		case 2:	//how to 
+			gameUi.renderHowToState(window);
+			break;
+		case 3:	//countDown
 			gameUi.renderCountDown(window);
-		}
-
-
-		if (gameUi.getGameState() == 3) {	//if play state
+			break;
+		case 4:	//if play state
 			map.draw(window);
 			if (!player.isDead)
 				weapon.draw(window);
 			player.draw(window, weapon);
 			enemyManager.drawEnemies(window);
 			gameUi.renderPlayState(window);
+			break;
+		default:
+			break;
 		}
-		
 
 		window.display();
 	}

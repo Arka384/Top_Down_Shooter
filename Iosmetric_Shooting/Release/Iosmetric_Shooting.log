@@ -1,42 +1,49 @@
 ﻿  Ui.cpp
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(19,42): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(21,42): warning C4305: 'argument': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(22,43): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(24,43): warning C4305: 'argument': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(23,43): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(25,43): warning C4305: 'argument': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(33,43): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(26,40): warning C4305: 'argument': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(34,43): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(38,43): warning C4305: 'argument': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(83,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(91,29): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(95,46): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(98,39): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(102,56): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(130,66): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(130,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(151,69): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(151,43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(168,26): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(39,43): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(100,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(108,29): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(112,46): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(115,39): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(119,56): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(144,66): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(144,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(163,69): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(163,43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(178,26): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(198,60): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Ui.cpp(198,37): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   Generating code
-  2 of 596 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+  1 of 599 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Iosmetric_Shooting.vcxproj -> C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Release\Iosmetric_Shooting.exe
