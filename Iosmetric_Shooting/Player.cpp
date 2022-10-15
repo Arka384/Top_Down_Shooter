@@ -102,7 +102,7 @@ void Player::update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<
 	auto i = enemyBullets.begin();
 	while (i != enemyBullets.end()) {
 		if (this->isColliding(*i)) {
-			this->health -= 20;
+			//this->health -= 20;
 			playerSprite.setColor(sf::Color::Red);
 			if (this->health <= 0) {
 				isDead = true;

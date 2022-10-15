@@ -94,7 +94,7 @@ int main()
 			break;
 		case 4:	//if play state
 			player.update(dt, keyPressed, mousePos, enemyManager.enemyBullets, weapon);
-			weapon.update(mousePressed, mousePos, player.getPosition(), dt, playerCam);
+			weapon.update(mousePressed, mousePos, player.getPosition(), player, dt, playerCam);
 			enemyManager.update(dt, weapon, player.getPosition(), playerCam);
 			playerCam.update(player.getPosition(), window, dt);
 			map.update(playerCam, keyPressed, player.getPosition());

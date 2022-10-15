@@ -12,8 +12,10 @@ public:
 	float walkAnimTime = 0.08f, walkAnimTimer = 0.f;
 	bool flipped = false;
 	bool inNearestPoint = false;
+	int enemyType;	//for the record of sprite type
+	sf::Color deathShadowColor;
 
-	Enemy(sf::Vector2f pos, sf::Vector2f size, sf::Sprite sprite);
+	Enemy(sf::Vector2f pos, sf::Vector2f size, sf::Sprite sprite, int type);
 	int getHealth(void);
 	void update(float dt, sf::Vector2f playerPos, Weapons &w, Camera &camera);
 	void draw(sf::RenderWindow &window);

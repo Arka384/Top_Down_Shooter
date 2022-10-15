@@ -13,7 +13,7 @@ private:
 	//sprites and textures
 	//there will be three characters. So 3 sets of textures will be there.
 	sf::Texture idleTexture[3], walkTexture[3], deathTexture[3];
-	sf::Sprite playerSprite, idleSprite, walkSprite, deathSprite;
+	sf::Sprite idleSprite, walkSprite, deathSprite;
 
 	std::string charTexureFileName = "Assets/characters/";
 
@@ -31,6 +31,8 @@ private:
 	float deathAnimTime = 0.08f, deathAnimTimer = 0.f;
 
 public:
+	sf::Sprite playerSprite;
+
 	float isDead = false;
 	Player(sf::Vector2f startingPos, sf::Vector2f windowSize);
 	void update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<Bullet> &enemyBullets, Weapons &weapon);

@@ -15,8 +15,8 @@ private:
 	bool maxEnemySpawnd = false;
 
 	//sprite and textures
-	sf::Texture type1WalkTexture, genericDeathTex;
-	sf::Sprite type1WalkSprite;
+	sf::Texture walkTextures[4], genericDeathTex;
+	sf::Sprite enemyWalkSprites[4];
 	sf::Sprite genericDeathSprite;
 	sf::Vector2f scaleSize = sf::Vector2f(0.15, 0.15), spritePosOffset = sf::Vector2f(0, 60), colRectSize = sf::Vector2f(40, 80);
 	

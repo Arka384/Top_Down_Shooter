@@ -25,6 +25,9 @@ Weapons::Weapons(sf::Vector2f windowSize)
 	shotgun.setScale(scaleSize);
 	//gunSprite = shotgun;
 
+	pickupGun[0] = rifel;
+	pickupGun[1] = shotgun;
+
 	//loading muzzle flash textures
 	muzzleFlashTex.loadFromFile("Assets/Extras/muzzle.png");
 	muzzleFlash.setTexture(muzzleFlashTex);
@@ -90,10 +93,11 @@ void Weapons::fire(sf::Vector2f mousePos)
 	renderFlash = true;
 }
 
-void Weapons::update(bool mousePressed, sf::Vector2f mousePos, sf::Vector2f playerPos, float dt, Camera view)
+void Weapons::update(bool mousePressed, sf::Vector2f mousePos, sf::Vector2f playerPos, Entity player, float dt, Camera view)
 {
 	flashTimer += dt;	//for muzzle flash
 	reloadTimer += dt;	//for firing delay
+	gunSpawnTimer += dt;	//for gun spawn
 
 	if (gunType == 2 && mousePressed) {
 		fire(mousePos);
@@ -118,6 +122,24 @@ void Weapons::update(bool mousePressed, sf::Vector2f mousePos, sf::Vector2f play
 		muzzleFlash.setPosition(finalX, finalY);
 	}
 
+	//spawn guns
+	if (gunSpawnTimer >= gunSpawnTimeDelay && gunSpawnned == false) {
+		gunSpawnTimer = 0;
+		gunSpawnTimeDelay = 10 + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (15 - 10)));
+		spawndWeaponType = spawnWeapon(playerPos, dt, view);
+	}
+	if (gunSpawnned && gunSpawnTimer > 5) {
+		gunSpawnned = false;
+		gunSpawnTimer = 0;
+	}
+	//update spawned gun
+	if (gunSpawnned && spawnnedGun.getGlobalBounds().intersects(player.getGlobalBounds())) {
+		gunSpawnTimer = 0;
+		changeWeapon(spawndWeaponType + 2);
+		gunSpawnned = false;
+	}
+
+
 	auto i = bullets.begin();
 	while (i != bullets.end()) {
 		i->update(dt);
@@ -126,6 +148,43 @@ void Weapons::update(bool mousePressed, sf::Vector2f mousePos, sf::Vector2f play
 		else
 			i++;
 	}
+}
+
+int Weapons::spawnWeapon(sf::Vector2f playerPos, float dt, Camera view)
+{
+	int direction = std::rand() % 4;
+	int x = 0, y = 0;
+	sf::Vector2f viewSize = view.playerView.getSize();
+
+	switch (direction)
+	{
+	case 0:	//up
+		x = std::rand() % static_cast<int>(viewSize.x);
+		y = playerPos.y - viewSize.y / 2;
+		break;
+	case 1:	//down
+		x = std::rand() % static_cast<int>(viewSize.x);
+		y = playerPos.y + viewSize.y / 2;
+		break;
+	case 2:	//left
+		x = playerPos.x - viewSize.x / 2;
+		y = std::rand() % static_cast<int>(viewSize.y);
+		break;
+	case 3:	//right
+		x = playerPos.x + viewSize.x / 2;
+		y = std::rand() % static_cast<int>(viewSize.y);
+		break;
+	default:
+		return 0;
+		break;
+	}
+
+	int type = std::rand() % 2;
+	spawnnedGun = pickupGun[type];
+	spawnnedGun.setPosition(playerPos.x - 400, playerPos.y - 400);
+	gunSpawnned = true;
+
+	return type;
 }
 
 void Weapons::changeWeapon(int type)
@@ -168,5 +227,9 @@ void Weapons::draw(sf::RenderWindow & window)
 	for (auto i = bullets.begin(); i != bullets.end(); i++) {
 		window.draw(i->sprite);
 		//window.draw(*i);
+	}
+
+	if (gunSpawnned) {
+		window.draw(spawnnedGun);
 	}
 }

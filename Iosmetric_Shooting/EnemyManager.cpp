@@ -5,13 +5,18 @@ EnemyManager::EnemyManager(sf::Vector2f windowSize)
 	this->windowSize = windowSize;
 	
 	//loading textures
-	type1WalkTexture.loadFromFile("Assets/characters/Enemy_1/walk.png");
-	type1WalkSprite.setTexture(type1WalkTexture);
-	type1WalkSprite.setTextureRect(sf::IntRect(sf::IntRect(0*subTexRectSize, 0, subTexRectSize, subTexRectSize)));
-	type1WalkSprite.setOrigin(subTexRectSize / 2, subTexRectSize / 2);
-	type1WalkSprite.setScale(scaleSize);
+	std::string walkTexFileName = "Assets/characters/Enemy_";
+	for (int i = 0; i < 4; i++) {
+		std::string currFileName = walkTexFileName + std::to_string(i + 1) + "/walk.png";
+		walkTextures[i].loadFromFile(currFileName);
 
-	enemySprite = type1WalkSprite;
+		enemyWalkSprites[i].setTexture(walkTextures[i]);
+		enemyWalkSprites[i].setTextureRect(sf::IntRect(sf::IntRect(0 * subTexRectSize, 0, subTexRectSize, subTexRectSize)));
+		enemyWalkSprites[i].setOrigin(subTexRectSize / 2, subTexRectSize / 2);
+		enemyWalkSprites[i].setScale(scaleSize);
+	}
+	enemySprite = enemyWalkSprites[0];
+
 
 	//loading generic death texture
 	genericDeathTex.loadFromFile("Assets/Generic_death_animation/generic_death.png");
@@ -50,7 +55,10 @@ void EnemyManager::spawnEnemies(sf::Vector2f playerPos, Camera view)
 		break;
 	}
 
-	Enemy e(sf::Vector2f(x, y), colRectSize, enemySprite);
+	int enemyType = std::rand() % 4;
+	enemySprite = enemyWalkSprites[enemyType];
+
+	Enemy e(sf::Vector2f(x, y), colRectSize, enemySprite, enemyType);
 	enemies.push_back(e);
 	numberOfEnemy++;
 
@@ -79,6 +87,7 @@ void EnemyManager::update(float dt, Weapons & w, sf::Vector2f playerPos, Camera 
 		shoot(playerPos, *i, dt);
 
 		if (i->getHealth() <= 0) {	//enemy is down trigger death animation
+			genericDeathSprite.setColor(i->deathShadowColor);
 			genericDeathSprite.setPosition(i->sprite.getPosition());
 			deathShadows.push_back(std::make_pair(genericDeathSprite, 0.f));
 
@@ -99,7 +108,7 @@ void EnemyManager::update(float dt, Weapons & w, sf::Vector2f playerPos, Camera 
 		if (j->second > 0.15f)
 			j->first.setTextureRect(sf::IntRect((2048 * 2), 0, 2048, 2048));
 		if(j->second > 1.4f)
-			j->first.setColor(sf::Color(255, 255, 255, 255/2));
+			j->first.setColor(sf::Color(j->first.getColor().r, j->first.getColor().g, j->first.getColor().b, 255 / 2));
 		
 		if (j->second > 2.f)
 			j = deathShadows.erase(j);
@@ -135,7 +144,7 @@ void EnemyManager::moveEnemy(float dt, sf::Vector2f playerPos, Enemy & e)
 
 void EnemyManager::animateWalk(float dt, Enemy &e)
 {
-	if (e.inNearestPoint) {
+	if (e.inNearestPoint && e.enemyType != 2) {
 		e.currWalkTex = 0;
 		e.sprite.setTextureRect(sf::IntRect(e.currWalkTex*subTexRectSize, 0, subTexRectSize, subTexRectSize));
 		e.sprite.setOrigin(subTexRectSize / 2, subTexRectSize / 2);
@@ -161,7 +170,6 @@ void EnemyManager::animateWalk(float dt, Enemy &e)
 		else
 			e.sprite.setScale(scaleSize);
 	}
-	//type1WalkSprite.setPosition(position - spritePosOffset);
 	
 }
 

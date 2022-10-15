@@ -25,7 +25,7 @@ Bullet::Bullet(sf::Vector2f position, int bulletType)
 		this->sprite.setTextureRect(sf::IntRect(0, 0, 500, 160));
 		this->sprite.setOrigin(this->sprite.getGlobalBounds().width / 2 + this->sprite.getGlobalBounds().width / 4
 			, this->sprite.getGlobalBounds().height / 2);
-		this->sprite.setScale(0.3, 0.3);
+		this->sprite.setScale(0.25, 0.25);
 	}
 	
 	this->sprite.setPosition(position);
