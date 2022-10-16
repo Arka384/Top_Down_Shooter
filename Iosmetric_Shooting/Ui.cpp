@@ -26,7 +26,7 @@ Ui::Ui(sf::Vector2f windowSize)
 		noWayOutScale = sf::Vector2f(0.7, 0.7);
 		noWayOutPos = sf::Vector2f(windowSize.x - 540, windowSize.y - 260);
 		gotoMenuButtonScale = sf::Vector2f(0.8, 0.8);
-		gotoMenuButtonPos = sf::Vector2f(windowSize.x / 2 - 55, windowSize.y - 110);
+		//gotoMenuButtonPos = sf::Vector2f(windowSize.x / 2 - 55, windowSize.y - 110);
 	}
 	else {
 		menuBackFileName.append(".png");
@@ -42,7 +42,7 @@ Ui::Ui(sf::Vector2f windowSize)
 		noWayOutScale = sf::Vector2f(1, 1);
 		noWayOutPos = sf::Vector2f(windowSize.x - 660, windowSize.y - 340);
 		gotoMenuButtonScale = sf::Vector2f(1, 1);
-		gotoMenuButtonPos = sf::Vector2f(windowSize.x / 2 - 75,	windowSize.y - 280);
+		//gotoMenuButtonPos = sf::Vector2f(windowSize.x / 2 - 75,	windowSize.y - 280);
 	}	
 
 	//loading textures and sprites
@@ -282,10 +282,15 @@ void Ui::loadScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, std::vec
 	std::string tempScore = std::to_string(totalScore);
 	scoreTexts[4].setString(tempScore);
 	scoreTexts[4].setPosition(x + scoreUi.getGlobalBounds().width / 2, y + 315);
+
+	gotoMenuButtonPos = sf::Vector2f(x + 250, y + 520);
+	gotoMenuButton.setPosition(gotoMenuButtonPos);
+
+
 	scoresLoaded = true;
 }
 
-void Ui::updateScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, sf::Vector2f mousePos, bool mousePressed)
+bool Ui::updateScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, sf::Vector2f mousePos, bool mousePressed)
 {
 	if (ifMouseIntersects(mousePos, gotoMenuButton.getPosition(),
 		sf::Vector2f(gotoMenuButton.getGlobalBounds().width, gotoMenuButton.getGlobalBounds().height))) {
@@ -293,13 +298,15 @@ void Ui::updateScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, sf::Ve
 		gotoMenuButton.setScale(gotoMenuButtonScale.x + 0.2, gotoMenuButtonScale.y + 0.2);
 		gotoMenuButton.setPosition(gotoMenuButtonPos.x - 16, gotoMenuButtonPos.y - 8);
 
-		if (mousePressed)
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+			return true;
+		}
 			//need to reset everything before changing to menu 
-			gameState = 0;
 	}
 	else {
 		gotoMenuButton.setScale(gotoMenuButtonScale);
 		gotoMenuButton.setPosition(gotoMenuButtonPos);
+		return false;
 	}
 }
 
@@ -311,6 +318,13 @@ bool Ui::ifMouseIntersects(sf::Vector2f mousePos, sf::Vector2f buttonPos, sf::Ve
 		return true;
 	else
 		return false;
+}
+
+void Ui::resetStates(void)
+{
+	playerType = 0;
+	scoresLoaded = false;
+	
 }
 
 

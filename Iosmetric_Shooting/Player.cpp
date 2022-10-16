@@ -152,6 +152,20 @@ int Player::getHealth(void)
 	return this->health;
 }
 
+void Player::resetStates(void)
+{
+	this->health = 100;
+	this->characterType = 0;
+	position = sf::Vector2f(windowSize.x / 2, windowSize.y / 2);
+	currIdleTex = currWalkTex = currDeathTex = 0;
+	playerIdle = true;
+	flipped = false;
+	gunBehindPlayer = false;
+	hitAnimated = true;
+	isDead = false;
+	deathAnimEnd = false;
+}
+
 void Player::animateIdle(float dt, sf::Vector2f requiredScale)
 {
 	idleAnimTimer += dt;

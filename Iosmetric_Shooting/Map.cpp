@@ -176,6 +176,14 @@ bool Map::outsideView(sf::Sprite object, Camera view)
 		return false;
 }
 
+void Map::resetStates(void)
+{
+	oldViewIndex = sf::Vector2i(0, 0);
+
+	quads.clear();
+
+}
+
 void Map::draw(sf::RenderWindow& window)
 {
 	for (auto i = quads.begin(); i != quads.end(); i++)

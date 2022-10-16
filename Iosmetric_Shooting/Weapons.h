@@ -31,6 +31,7 @@ public:
 	int spawnWeapon(sf::Vector2f playerPos, float dt, Camera view);
 	void changeWeapon(int type);
 	bool ifOutsideView(Bullet b, Camera view);
+	void resetStates(void);
 	void draw(sf::RenderWindow &window);
 };
 

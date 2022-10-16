@@ -6,7 +6,7 @@ class EnemyManager
 private:
 	sf::Vector2f windowSize;
 	float enemyReloadTime = 1.f;
-	float spawnTime = 0.2f;
+	float spawnTime = 1.f;
 	float spawnnigTimer = 0.f;
 	float reloadingTimer = 0.f;
 	float moveSpeed = 300.f;
@@ -38,6 +38,7 @@ public:
 	void moveEnemy(float dt, sf::Vector2f playerPos, Enemy &e);
 	void animateWalk(float dt, Enemy &e);
 	bool ifOutsizeView(Bullet b, Camera view);
+	void resetStates(void);
 	void drawEnemies(sf::RenderWindow &window);
 };
 

@@ -106,13 +106,24 @@ int main()
 		case 5:	//score state
 			if (!gameUi.scoresLoaded)
 				gameUi.loadScoreState(playerCam.playerView.getSize(), playerCam.playerView.getCenter(), enemyManager.killScores);
-			gameUi.updateScoreState(playerCam.playerView.getSize(), playerCam.playerView.getCenter(), mousePos, mousePressed);
+			if (gameUi.updateScoreState(playerCam.playerView.getSize(), playerCam.playerView.getCenter(), mousePos, mousePressed)) {
+				player.resetStates();
+				enemyManager.resetStates();
+				weapon.resetStates();
+				sf::Vector2i temp = sf::Vector2i(window.getSize().x / 2, window.getSize().y / 2);
+				playerCam.playerView.setCenter(temp.x, temp.y);
+				window.setView(playerCam.playerView);
+				gameUi.resetStates();
+				//map.resetStates();
+				//map.initMap(playerCam);	
+				gameUi.setGameState(0);
+			}
 			break;
 		case 6:
 		default:
 			break;
 		}
-
+		//playerCam.update(player.getPosition(), window, dt);
 
 		
 		//////////////////////////////////////////////////////////////////////////

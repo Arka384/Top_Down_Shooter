@@ -28,5 +28,6 @@ public:
 	void removeQuad(sf::Vector2i quadIndex);
 	void update(Camera view, bool keyPressed, sf::Vector2f playerPos);
 	bool outsideView(sf::Sprite object, Camera view);
+	void resetStates(void);
 	void draw(sf::RenderWindow& window);
 };

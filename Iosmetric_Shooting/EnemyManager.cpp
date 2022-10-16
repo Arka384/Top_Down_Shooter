@@ -192,6 +192,21 @@ bool EnemyManager::ifOutsizeView(Bullet b, Camera view)
 		return false;
 }
 
+void EnemyManager::resetStates(void)
+{
+	spawnnigTimer = 0.f;
+	reloadingTimer = 0.f;
+	spawnTime = 1.f;
+	maxEnemySpawnd = false;
+
+	deathShadows.clear();
+	killScores.clear();
+	for (int i = 0; i < 4; i++)
+		killScores.push_back(0);
+	enemies.clear();
+	enemyBullets.clear();
+}
+
 void EnemyManager::shoot(sf::Vector2f playerPos, Enemy enemy, float dt)
 {
 	reloadingTimer += dt;

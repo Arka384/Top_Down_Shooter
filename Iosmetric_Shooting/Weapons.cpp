@@ -222,6 +222,19 @@ bool Weapons::ifOutsideView(Bullet b, Camera view)
 		return false;
 }
 
+void Weapons::resetStates(void)
+{
+	changeWeapon(1);
+	flashTimer = 0.f;
+	reloadTimer = 0.f;
+	gunSpawnTimer = 0.f;
+	gunSpawnned = false;
+	spawndWeaponType = 0;
+	renderFlash = false;
+
+	bullets.clear();
+}
+
 void Weapons::draw(sf::RenderWindow & window)
 {
 	for (auto i = bullets.begin(); i != bullets.end(); i++) {

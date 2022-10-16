@@ -40,6 +40,7 @@ public:
 	void setCharacterType(int type);
 	int getCharacterType(void);
 	int getHealth(void);
+	void resetStates(void);
 
 	void animateIdle(float dt, sf::Vector2f requiredScale);
 	void animateWalk(float dt);

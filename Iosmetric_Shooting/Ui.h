@@ -49,9 +49,10 @@ public:
 	void updateCountDown(float dt);
 	void updatePlayState(sf::Vector2f viewSize, sf::Vector2f viewCenter, int playerHealth);
 	void loadScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, std::vector<int> scores);
-	void updateScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, sf::Vector2f mousePos, bool mousePressed);
+	bool updateScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, sf::Vector2f mousePos, bool mousePressed);
 
 	bool ifMouseIntersects(sf::Vector2f mousePos, sf::Vector2f buttonPos, sf::Vector2f buttonSize);
+	void resetStates(void);
 
 	void renderMainMenu(sf::RenderWindow& window);
 	void renderCharacterSelect(sf::RenderWindow& window);
