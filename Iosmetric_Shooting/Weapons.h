@@ -1,7 +1,6 @@
 #pragma once
 #include "Camera.h"
-#include <list>
-#include <iostream>
+//#include <list>
 
 class Weapons
 {

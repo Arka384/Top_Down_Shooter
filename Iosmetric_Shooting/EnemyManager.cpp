@@ -14,6 +14,8 @@ EnemyManager::EnemyManager(sf::Vector2f windowSize)
 		enemyWalkSprites[i].setTextureRect(sf::IntRect(sf::IntRect(0 * subTexRectSize, 0, subTexRectSize, subTexRectSize)));
 		enemyWalkSprites[i].setOrigin(subTexRectSize / 2, subTexRectSize / 2);
 		enemyWalkSprites[i].setScale(scaleSize);
+
+		killScores.push_back(0);	//pushing 4 times
 	}
 	enemySprite = enemyWalkSprites[0];
 
@@ -90,6 +92,9 @@ void EnemyManager::update(float dt, Weapons & w, sf::Vector2f playerPos, Camera 
 			genericDeathSprite.setColor(i->deathShadowColor);
 			genericDeathSprite.setPosition(i->sprite.getPosition());
 			deathShadows.push_back(std::make_pair(genericDeathSprite, 0.f));
+
+			//updating score
+			killScores[i->enemyType]++;
 
 			i = enemies.erase(i);
 		}

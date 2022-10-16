@@ -26,6 +26,7 @@ private:
 	std::list<std::pair<sf::Sprite, float>> deathShadows;
 
 public:
+	std::vector<int> killScores;
 	std::list<Enemy> enemies;
 	std::list<Bullet> enemyBullets;
 	sf::Sprite enemySprite;

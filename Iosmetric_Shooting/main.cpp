@@ -26,7 +26,7 @@ int main()
 	Weapons weapon(windowSize);
 	Camera playerCam(windowSize);
 	Ui gameUi(windowSize);
-	gameUi.setGameState(0);
+	gameUi.setGameState(4);
 
 	map.initMap(playerCam);
 
@@ -99,9 +99,15 @@ int main()
 			playerCam.update(player.getPosition(), window, dt);
 			map.update(playerCam, keyPressed, player.getPosition());
 			gameUi.updatePlayState(playerCam.playerView.getSize(), playerCam.playerView.getCenter(), player.getHealth());
+			
+			if (player.isDead && player.deathAnimEnd)
+				gameUi.setGameState(5);
 			break;
-		case 5:
-
+		case 5:	//score state
+			if (!gameUi.scoresLoaded)
+				gameUi.loadScoreState(playerCam.playerView.getSize(), playerCam.playerView.getCenter(), enemyManager.killScores);
+			gameUi.updateScoreState(playerCam.playerView.getSize(), playerCam.playerView.getCenter(), mousePos, mousePressed);
+			break;
 		case 6:
 		default:
 			break;
@@ -135,6 +141,9 @@ int main()
 			player.draw(window, weapon);
 			enemyManager.drawEnemies(window);
 			gameUi.renderPlayState(window);
+			break;
+		case 5:	//score
+			gameUi.renderScoreState(window);
 			break;
 		default:
 			break;

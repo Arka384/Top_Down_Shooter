@@ -25,6 +25,8 @@ Ui::Ui(sf::Vector2f windowSize)
 		healthStuffScale = sf::Vector2f(0.5, 0.4);
 		noWayOutScale = sf::Vector2f(0.7, 0.7);
 		noWayOutPos = sf::Vector2f(windowSize.x - 540, windowSize.y - 260);
+		gotoMenuButtonScale = sf::Vector2f(0.8, 0.8);
+		gotoMenuButtonPos = sf::Vector2f(windowSize.x / 2 - 55, windowSize.y - 110);
 	}
 	else {
 		menuBackFileName.append(".png");
@@ -39,6 +41,8 @@ Ui::Ui(sf::Vector2f windowSize)
 		healthStuffScale = sf::Vector2f(0.6, 0.4);
 		noWayOutScale = sf::Vector2f(1, 1);
 		noWayOutPos = sf::Vector2f(windowSize.x - 660, windowSize.y - 340);
+		gotoMenuButtonScale = sf::Vector2f(1, 1);
+		gotoMenuButtonPos = sf::Vector2f(windowSize.x / 2 - 75,	windowSize.y - 280);
 	}	
 
 	//loading textures and sprites
@@ -80,6 +84,14 @@ Ui::Ui(sf::Vector2f windowSize)
 	noWayOut.setScale(noWayOutScale);
 	noWayOut.setPosition(noWayOutPos);
 
+	scoreUiTex.loadFromFile("Assets/Ui/kills.png");
+	scoreUi.setTexture(scoreUiTex);
+	scoreUi.setPosition(windowSize.x / 2 - scoreUi.getGlobalBounds().width / 2, windowSize.y / 2 - scoreUi.getGlobalBounds().height / 2);
+
+	gotoMenuButtonTex.loadFromFile("Assets/Ui/goto_main_menu.png");
+	gotoMenuButton.setTexture(gotoMenuButtonTex);
+	gotoMenuButton.setScale(gotoMenuButtonScale);
+	gotoMenuButton.setPosition(gotoMenuButtonPos);
 
 	///////////
 	//health bar stuffs
@@ -123,6 +135,12 @@ Ui::Ui(sf::Vector2f windowSize)
 	countdownText.setFillColor(sf::Color(72, 37, 55, 255));
 	countdownText.setString("GET  READY");
 	countdownText.setPosition(windowSize.x/2 - countdownText.getGlobalBounds().width/2, windowSize.y / 2 - 220);
+
+	for (int i = 0; i < 5; i++) {
+		scoreTexts[i].setFont(gravePartyFont);
+		scoreTexts[i].setFillColor(sf::Color(0, 0, 0, 255));
+		scoreTexts[i].setCharacterSize(50);
+	}
 
 }
 
@@ -190,7 +208,7 @@ void Ui::updateCharacterSelect(sf::Vector2f mousePos, bool &mousePressed)
 	}
 }
 
-void Ui::updateHowToState(sf::Vector2f mousePos, bool& mousePressed)
+void Ui::updateHowToState(sf::Vector2f mousePos, bool mousePressed)
 {
 	if (ifMouseIntersects(mousePos, noWayOut.getPosition(),
 		sf::Vector2f(noWayOut.getGlobalBounds().width, noWayOut.getGlobalBounds().height))) {
@@ -248,6 +266,44 @@ void Ui::updatePlayState(sf::Vector2f viewSize, sf::Vector2f viewCenter, int pla
 		heart.setPosition(x - 38, y - 10);
 }
 
+void Ui::loadScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, std::vector<int> scores)
+{
+	float x = viewCenter.x - scoreUi.getGlobalBounds().width / 2;
+	float y = viewCenter.y - scoreUi.getGlobalBounds().height / 2;
+	scoreUi.setPosition(x, y);
+
+	int totalScore = 0;
+	for (int i = 0; i < 4; i++) {
+		totalScore += scores[i];
+		std::string tempScore = std::to_string(scores[i]);
+		scoreTexts[i].setString(tempScore);
+		scoreTexts[i].setPosition((x+100 + i*130), y + 250);
+	}
+	std::string tempScore = std::to_string(totalScore);
+	scoreTexts[4].setString(tempScore);
+	scoreTexts[4].setPosition(x + scoreUi.getGlobalBounds().width / 2, y + 315);
+	scoresLoaded = true;
+}
+
+void Ui::updateScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, sf::Vector2f mousePos, bool mousePressed)
+{
+	if (ifMouseIntersects(mousePos, gotoMenuButton.getPosition(),
+		sf::Vector2f(gotoMenuButton.getGlobalBounds().width, gotoMenuButton.getGlobalBounds().height))) {
+
+		gotoMenuButton.setScale(gotoMenuButtonScale.x + 0.2, gotoMenuButtonScale.y + 0.2);
+		gotoMenuButton.setPosition(gotoMenuButtonPos.x - 16, gotoMenuButtonPos.y - 8);
+
+		if (mousePressed)
+			//need to reset everything before changing to menu 
+			gameState = 0;
+	}
+	else {
+		gotoMenuButton.setScale(gotoMenuButtonScale);
+		gotoMenuButton.setPosition(gotoMenuButtonPos);
+	}
+}
+
+
 bool Ui::ifMouseIntersects(sf::Vector2f mousePos, sf::Vector2f buttonPos, sf::Vector2f buttonSize)
 {
 	if (mousePos.x > buttonPos.x && mousePos.x <  buttonPos.x + buttonSize.x &&
@@ -290,4 +346,12 @@ void Ui::renderPlayState(sf::RenderWindow& window)
 	window.draw(healthBar);
 	window.draw(healthBarOutline);
 	window.draw(heart);
+}
+
+void Ui::renderScoreState(sf::RenderWindow& window)
+{
+	window.draw(scoreUi);
+	for (int i = 0; i < 5; i++)
+		window.draw(scoreTexts[i]);
+	window.draw(gotoMenuButton);
 }

@@ -25,7 +25,7 @@ private:
 	sf::Vector2f scaleSize = sf::Vector2f(0.15, 0.15), spritePosOffset = sf::Vector2f(0, 65), colRectSize = sf::Vector2f(40, 80);
 
 	//animations
-	bool playerIdle = true, flipped = false, gunBehindPlayer = false, deathAnimEnd = false, hitAnimated = true;
+	bool playerIdle = true, flipped = false, gunBehindPlayer = false, hitAnimated = true;
 	float idleAnimTime = 0.2f, idleAnimTimer = 0.f;
 	float walkAnimTime = 0.07f, walkAnimTimer = 0.f;
 	float deathAnimTime = 0.08f, deathAnimTimer = 0.f;
@@ -33,7 +33,8 @@ private:
 public:
 	sf::Sprite playerSprite;
 
-	float isDead = false;
+	bool isDead = false;
+	bool deathAnimEnd = false;
 	Player(sf::Vector2f startingPos, sf::Vector2f windowSize);
 	void update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<Bullet> &enemyBullets, Weapons &weapon);
 	void setCharacterType(int type);

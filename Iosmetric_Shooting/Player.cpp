@@ -34,19 +34,22 @@ void Player::update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<
 {
 	//keyboard movement
 	sf::Vector2f oldPos = position;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-		position.x -= moveSpeed * dt;
-	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-		position.x += moveSpeed * dt;
-	}
+	if (!isDead) {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+			position.x -= moveSpeed * dt;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+			position.x += moveSpeed * dt;
+		}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-		position.y -= moveSpeed * dt;
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+			position.y -= moveSpeed * dt;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+			position.y += moveSpeed * dt;
+		}
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-		position.y += moveSpeed * dt;	
-	}
+	
 
 	/*float dx = mousePos.x - position.x;
 	float dy = mousePos.y - position.y;*/
@@ -102,7 +105,7 @@ void Player::update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<
 	auto i = enemyBullets.begin();
 	while (i != enemyBullets.end()) {
 		if (this->isColliding(*i)) {
-			//this->health -= 20;
+			this->health -= 20;
 			playerSprite.setColor(sf::Color::Red);
 			if (this->health <= 0) {
 				isDead = true;
