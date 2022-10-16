@@ -98,7 +98,7 @@ int main()
 			enemyManager.update(dt, weapon, player.getPosition(), playerCam);
 			playerCam.update(player.getPosition(), window, dt);
 			map.update(playerCam, keyPressed, player.getPosition());
-			gameUi.updatePlayState(playerCam.playerView.getSize(), playerCam.playerView.getCenter(), player.getHealth());
+			gameUi.updatePlayState(playerCam.playerView.getSize(), playerCam.playerView.getCenter(), player.getHealth(), weapon.remainingGunTime);
 			
 			if (player.isDead && player.deathAnimEnd)
 				gameUi.setGameState(5);
@@ -151,7 +151,7 @@ int main()
 				weapon.draw(window);
 			player.draw(window, weapon);
 			enemyManager.drawEnemies(window);
-			gameUi.renderPlayState(window);
+			gameUi.renderPlayState(window, weapon.gunEquipped, weapon.spawndWeaponType);
 			break;
 		case 5:	//score
 			gameUi.renderScoreState(window);

@@ -26,7 +26,7 @@ Ui::Ui(sf::Vector2f windowSize)
 		noWayOutScale = sf::Vector2f(0.7, 0.7);
 		noWayOutPos = sf::Vector2f(windowSize.x - 540, windowSize.y - 260);
 		gotoMenuButtonScale = sf::Vector2f(0.8, 0.8);
-		//gotoMenuButtonPos = sf::Vector2f(windowSize.x / 2 - 55, windowSize.y - 110);
+		gunTimerBarScale = sf::Vector2f(0.5, 0.5);
 	}
 	else {
 		menuBackFileName.append(".png");
@@ -42,7 +42,7 @@ Ui::Ui(sf::Vector2f windowSize)
 		noWayOutScale = sf::Vector2f(1, 1);
 		noWayOutPos = sf::Vector2f(windowSize.x - 660, windowSize.y - 340);
 		gotoMenuButtonScale = sf::Vector2f(1, 1);
-		//gotoMenuButtonPos = sf::Vector2f(windowSize.x / 2 - 75,	windowSize.y - 280);
+		gunTimerBarScale = sf::Vector2f(0.6, 0.6);
 	}	
 
 	//loading textures and sprites
@@ -92,6 +92,20 @@ Ui::Ui(sf::Vector2f windowSize)
 	gotoMenuButton.setTexture(gotoMenuButtonTex);
 	gotoMenuButton.setScale(gotoMenuButtonScale);
 	gotoMenuButton.setPosition(gotoMenuButtonPos);
+
+	rifelTimeBarTex.loadFromFile("Assets/Ui/rifel_outline.png");
+	rifelTimeBar.setTexture(rifelTimeBarTex);
+	rifelTimeBar.setScale(gunTimerBarScale);
+	shotgunTimeBarTex.loadFromFile("Assets/Ui/shotgun_outline.png");
+	shotgunTimeBar.setTexture(shotgunTimeBarTex);
+	shotgunTimeBar.setScale(gunTimerBarScale);
+	timeBarInlineTex.loadFromFile("Assets/Ui/gunTimer_inline.png");
+	timeBarInline.setTexture(timeBarInlineTex);
+	timeBarInline.setScale(gunTimerBarScale);
+	timeBarTex.loadFromFile("Assets/Ui/gunTimer_bar.png");
+	timeBar.setTexture(timeBarTex);
+	timeBar.setScale(gunTimerBarScale);
+
 
 	///////////
 	//health bar stuffs
@@ -247,12 +261,17 @@ void Ui::updateCountDown(float dt)
 
 }
 
-void Ui::updatePlayState(sf::Vector2f viewSize, sf::Vector2f viewCenter, int playerHealth)
+void Ui::updatePlayState(sf::Vector2f viewSize, sf::Vector2f viewCenter, int playerHealth, float remainingGunTime)
 {
 	if (playerHealth >= 0) {
 		float healthBarFactor = healthStuffScale.x / 5;
 		float reduceScale = healthBarFactor * ((100 - playerHealth) / 20);
 		healthBar.setScale(healthStuffScale.x - reduceScale, healthStuffScale.y);
+	}
+	if (remainingGunTime >= 0) {
+		float timerbarFactor = gunTimerBarScale.x / 10;
+		float reduceScale = timerbarFactor * ((10 - remainingGunTime));
+		timeBar.setScale(gunTimerBarScale.x - reduceScale, gunTimerBarScale.y);
 	}
 	
 	float x = viewCenter.x - viewSize.x / 2 + healthBarOutline.getGlobalBounds().width / 4;
@@ -260,10 +279,20 @@ void Ui::updatePlayState(sf::Vector2f viewSize, sf::Vector2f viewCenter, int pla
 	healthBarOutline.setPosition(x,y);
 	healthBarInline.setPosition(x + 12, y + 8);
 	healthBar.setPosition(x + 12, y + 8);
-	if(this->windowSize.x <= 1366 && this->windowSize.y <=768)
+	if (this->windowSize.x <= 1366 && this->windowSize.y <= 768) {
 		heart.setPosition(x - 30, y - 6);
-	else
+		timeBarInline.setPosition(x + 600 + 100, y + 10);
+		timeBar.setPosition(x + 600 + 100, y + 10);
+	}
+	else {
 		heart.setPosition(x - 38, y - 10);
+		timeBarInline.setPosition(x + 600 + 120, y + 10);
+		timeBar.setPosition(x + 600 + 120, y + 10);
+	}
+		
+	rifelTimeBar.setPosition(x + 600, y);
+	shotgunTimeBar.setPosition(x + 600, y);
+
 }
 
 void Ui::loadScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, std::vector<int> scores)
@@ -354,12 +383,21 @@ void Ui::renderCountDown(sf::RenderWindow& window)
 	window.draw(countdownText);
 }
 
-void Ui::renderPlayState(sf::RenderWindow& window)
+void Ui::renderPlayState(sf::RenderWindow& window, bool showTimeBar, int timebarType)
 {
 	window.draw(healthBarInline);
 	window.draw(healthBar);
 	window.draw(healthBarOutline);
 	window.draw(heart);
+
+	if (showTimeBar) {
+		window.draw(timeBarInline);
+		window.draw(timeBar);
+		if (timebarType == 0)
+			window.draw(rifelTimeBar);
+		else
+			window.draw(shotgunTimeBar);
+	}
 }
 
 void Ui::renderScoreState(sf::RenderWindow& window)

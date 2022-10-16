@@ -16,7 +16,6 @@ private:
 	float gunSpawnTimeDelay = 5.f, gunEquippedTime = 10.f;
 	float gunSpawnTimer = 0.f, gunEquippedTimer = 0.f;
 	bool gunSpawnned = false;
-	int spawndWeaponType = 0;
 
 public:
 	std::list<Bullet> bullets;
@@ -24,6 +23,9 @@ public:
 	sf::Vector2f spritePosOffset = sf::Vector2f(0, 25);
 	sf::Vector2f scaleSize = sf::Vector2f(0.1, 0.1);
 	bool renderFlash = false;
+	int remainingGunTime = 0;
+	int spawndWeaponType = 0;
+	bool gunEquipped = false;
 
 	Weapons(sf::Vector2f windowSize);
 	void fire(sf::Vector2f mousePos);

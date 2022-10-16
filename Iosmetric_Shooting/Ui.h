@@ -21,10 +21,12 @@ private:
 	sf::Texture menuBackgroundTex, blankBackgroundTex, playButtonTex, arrowTex, startButtonTex;
 	sf::Texture healthOutTex, healthInTex, healthTex, heartTex;
 	sf::Texture howToTex, noWayOutTex, scoreUiTex, gotoMenuButtonTex;
+	sf::Texture rifelTimeBarTex, shotgunTimeBarTex, timeBarInlineTex, timeBarTex;
 	//sprites
 	sf::Sprite menuBackground, blankBackground, playButton, arrow, startButton;
 	sf::Sprite healthBarOutline, healthBarInline, healthBar, heart;
 	sf::Sprite howToInfo, noWayOut, scoreUi, gotoMenuButton;
+	sf::Sprite rifelTimeBar, shotgunTimeBar, timeBarInline, timeBar;
 	//fonts
 	sf::Font gravePartyFont;
 	//texts
@@ -32,6 +34,7 @@ private:
 
 	sf::Vector2f playButtonPos, startButtonPos, arrowPos, noWayOutPos, gotoMenuButtonPos;
 	sf::Vector2f playButtonScale, startButtonScale, healthStuffScale, noWayOutScale, gotoMenuButtonScale;
+	sf::Vector2f gunTimerBarScale;
 	float countDownInterval = 1.f, countDownTimer = 0.f;
 	int countNum = 3;
 	
@@ -47,7 +50,7 @@ public:
 	void updateCharacterSelect(sf::Vector2f mousePos, bool &mousePressed);
 	void updateHowToState(sf::Vector2f mousePos, bool mousePressed);
 	void updateCountDown(float dt);
-	void updatePlayState(sf::Vector2f viewSize, sf::Vector2f viewCenter, int playerHealth);
+	void updatePlayState(sf::Vector2f viewSize, sf::Vector2f viewCenter, int playerHealth, float remainingGunTime);
 	void loadScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, std::vector<int> scores);
 	bool updateScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, sf::Vector2f mousePos, bool mousePressed);
 
@@ -58,7 +61,7 @@ public:
 	void renderCharacterSelect(sf::RenderWindow& window);
 	void renderHowToState(sf::RenderWindow& window);
 	void renderCountDown(sf::RenderWindow& window);
-	void renderPlayState(sf::RenderWindow& window);
+	void renderPlayState(sf::RenderWindow& window, bool showTimeBar, int timebarType);
 	void renderScoreState(sf::RenderWindow& window);
 };
 

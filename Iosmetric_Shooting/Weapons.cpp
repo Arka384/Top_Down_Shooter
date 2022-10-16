@@ -98,6 +98,11 @@ void Weapons::update(bool mousePressed, sf::Vector2f mousePos, sf::Vector2f play
 	flashTimer += dt;	//for muzzle flash
 	reloadTimer += dt;	//for firing delay
 	gunSpawnTimer += dt;	//for gun spawn
+	if (gunEquipped) {
+		gunEquippedTimer += dt;
+		remainingGunTime = gunEquippedTime - gunEquippedTimer;
+	}
+		
 
 	if (gunType == 2 && mousePressed) {
 		fire(mousePos);
@@ -135,10 +140,17 @@ void Weapons::update(bool mousePressed, sf::Vector2f mousePos, sf::Vector2f play
 	//update spawned gun
 	if (gunSpawnned && spawnnedGun.getGlobalBounds().intersects(player.getGlobalBounds())) {
 		gunSpawnTimer = 0;
+		gunEquippedTimer = 0;
 		changeWeapon(spawndWeaponType + 2);
 		gunSpawnned = false;
+		gunEquipped = true;
 	}
-
+	//update equipped gun time
+	if (gunEquipped && gunEquippedTimer >= gunEquippedTime) {
+		changeWeapon(1);	//reset weapon to pistol
+		gunEquipped = false;
+		gunEquippedTimer = 0;
+	}
 
 	auto i = bullets.begin();
 	while (i != bullets.end()) {
@@ -230,6 +242,9 @@ void Weapons::resetStates(void)
 	gunSpawnTimer = 0.f;
 	gunSpawnned = false;
 	spawndWeaponType = 0;
+	gunEquippedTimer = 0;
+	gunEquipped = false;
+	remainingGunTime = 0;
 	renderFlash = false;
 
 	bullets.clear();
