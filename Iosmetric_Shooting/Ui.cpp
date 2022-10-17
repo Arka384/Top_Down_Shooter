@@ -156,6 +156,13 @@ Ui::Ui(sf::Vector2f windowSize)
 		scoreTexts[i].setCharacterSize(50);
 	}
 
+	//loading sounds
+	buttonActiveBuffer.loadFromFile("Assets/Sounds/Ui/menu_active.wav");
+	buttonActive.setBuffer(buttonActiveBuffer);
+
+	buttonSelectBuffer.loadFromFile("Assets/Sounds/Ui/menu_select.wav");
+	buttonSelect.setBuffer(buttonSelectBuffer);
+
 }
 
 void Ui::setGameState(int state)
@@ -171,14 +178,16 @@ int Ui::getGameState(void)
 void Ui::updateMainMenu(sf::Vector2f mousePos, bool mousePressed)
 {
 	if (ifMouseIntersects(mousePos, playButton.getPosition(), 
-		sf::Vector2f(playButton.getGlobalBounds().width, playButton.getGlobalBounds().height))) {
+		sf::Vector2f(playButton.getGlobalBounds().width, playButton.getGlobalBounds().height), 0)) {
 		
 		playButton.setScale(playButtonScale.x + 0.2, playButtonScale.y + 0.2);
 		playButton.setPosition(playButtonPos.x - 20, playButtonPos.y - 12);
 
-		if (mousePressed)
+		if (mousePressed) {
+			buttonSelect.play();
 			gameState = 1;	//change to char select 
-			//gameState = 3;
+		}
+		
 	}
 	else {
 		playButton.setPosition(playButtonPos);
@@ -190,27 +199,41 @@ void Ui::updateMainMenu(sf::Vector2f mousePos, bool mousePressed)
 void Ui::updateCharacterSelect(sf::Vector2f mousePos, bool &mousePressed)
 {
 	if (ifMouseIntersects(mousePos, startButton.getPosition(), 
-		sf::Vector2f(startButton.getGlobalBounds().width, startButton.getGlobalBounds().height))) {
+		sf::Vector2f(startButton.getGlobalBounds().width, startButton.getGlobalBounds().height), 1)) {
 
 		startButton.setScale(startButtonScale.x + 0.2, startButtonScale.x + 0.2);
 		startButton.setPosition(startButtonPos.x - 20, startButtonPos.y - 12);
+		if (soundException1) {
+			soundException1 = false;
+			buttonActive.play();
+		}
 
-		if (mousePressed)
+		if (mousePressed) {
+			buttonSelect.play();
 			gameState = 2;	//change to countDown state
+		}
+			
 	}
 	else {
 		startButton.setPosition(startButtonPos);
 		startButton.setScale(startButtonScale);
+		soundException1 = true;
 	}
 
 
 	if (ifMouseIntersects(mousePos, arrow.getPosition(),
-		sf::Vector2f(arrow.getGlobalBounds().width, arrow.getGlobalBounds().height))) {
+		sf::Vector2f(arrow.getGlobalBounds().width, arrow.getGlobalBounds().height), 2)) {
 
 		arrow.setScale(0.6, 0.6);
 		arrow.setPosition(arrowPos.x - 10, arrowPos.y - 6);
+		if (soundException2) {
+			soundException2 = false;
+			buttonActive.play();
+		}
+
 		if (mousePressed) {
 			mousePressed = false;
+			buttonSelect.play();
 			playerType += 1;
 			if (playerType > 2)
 				playerType = 0;
@@ -219,19 +242,23 @@ void Ui::updateCharacterSelect(sf::Vector2f mousePos, bool &mousePressed)
 	else {
 		arrow.setPosition(arrowPos);
 		arrow.setScale(0.5, 0.5);
+		soundException2 = true;
 	}
 }
 
 void Ui::updateHowToState(sf::Vector2f mousePos, bool mousePressed)
 {
 	if (ifMouseIntersects(mousePos, noWayOut.getPosition(),
-		sf::Vector2f(noWayOut.getGlobalBounds().width, noWayOut.getGlobalBounds().height))) {
+		sf::Vector2f(noWayOut.getGlobalBounds().width, noWayOut.getGlobalBounds().height),3)) {
 
 		noWayOut.setScale(noWayOutScale.x + 0.1, noWayOutScale.y + 0.1);
 		noWayOut.setPosition(noWayOutPos.x - 16, noWayOutPos.y - 8);
 
-		if (mousePressed)
+		if (mousePressed) {
+			buttonSelect.play();
 			gameState = 3;
+		}
+			
 	}
 	else {
 		noWayOut.setScale(noWayOutScale);
@@ -250,10 +277,12 @@ void Ui::updateCountDown(float dt)
 			gameState = 4;	//change to play state
 			return;
 		}
-
+		buttonActive.play();
 		countdownText.setString(std::to_string(countNum));
-		if(countNum == 0)
+		if (countNum == 0) {
+			buttonSelect.play();
 			countdownText.setString("GO");
+		}
 		countdownText.setPosition(windowSize.x / 2 - countdownText.getGlobalBounds().width / 2, windowSize.y / 2 - 220);
 
 		countNum -= 1;
@@ -322,12 +351,13 @@ void Ui::loadScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, std::vec
 bool Ui::updateScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, sf::Vector2f mousePos, bool mousePressed)
 {
 	if (ifMouseIntersects(mousePos, gotoMenuButton.getPosition(),
-		sf::Vector2f(gotoMenuButton.getGlobalBounds().width, gotoMenuButton.getGlobalBounds().height))) {
+		sf::Vector2f(gotoMenuButton.getGlobalBounds().width, gotoMenuButton.getGlobalBounds().height), 4)) {
 
 		gotoMenuButton.setScale(gotoMenuButtonScale.x + 0.2, gotoMenuButtonScale.y + 0.2);
 		gotoMenuButton.setPosition(gotoMenuButtonPos.x - 16, gotoMenuButtonPos.y - 8);
 
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+			buttonSelect.play();
 			return true;
 		}
 			//need to reset everything before changing to menu 
@@ -340,13 +370,22 @@ bool Ui::updateScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, sf::Ve
 }
 
 
-bool Ui::ifMouseIntersects(sf::Vector2f mousePos, sf::Vector2f buttonPos, sf::Vector2f buttonSize)
+bool Ui::ifMouseIntersects(sf::Vector2f mousePos, sf::Vector2f buttonPos, sf::Vector2f buttonSize, int number)
 {
 	if (mousePos.x > buttonPos.x && mousePos.x <  buttonPos.x + buttonSize.x &&
-		mousePos.y > buttonPos.y && mousePos.y < buttonPos.y + buttonSize.y)
+		mousePos.y > buttonPos.y && mousePos.y < buttonPos.y + buttonSize.y) {
+		if(playButtonActive && (number!=1 && number!=2))
+		{
+			buttonActive.play();
+		}
+			
+		playButtonActive = false;
 		return true;
-	else
+	}
+	else {
+		playButtonActive = true;
 		return false;
+	}
 }
 
 void Ui::resetStates(void)

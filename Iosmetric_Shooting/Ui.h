@@ -31,12 +31,19 @@ private:
 	sf::Font gravePartyFont;
 	//texts
 	sf::Text titleText, characterSelectText , countdownText, scoreTexts[5];
+	//sounds
+	sf::SoundBuffer buttonActiveBuffer, buttonSelectBuffer;
+	sf::Sound buttonActive, buttonSelect;
 
 	sf::Vector2f playButtonPos, startButtonPos, arrowPos, noWayOutPos, gotoMenuButtonPos;
 	sf::Vector2f playButtonScale, startButtonScale, healthStuffScale, noWayOutScale, gotoMenuButtonScale;
 	sf::Vector2f gunTimerBarScale;
 	float countDownInterval = 1.f, countDownTimer = 0.f;
 	int countNum = 3;
+
+	bool playButtonActive = true;
+	bool soundException1 = true, soundException2 = true;
+
 	
 
 public:
@@ -54,7 +61,7 @@ public:
 	void loadScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, std::vector<int> scores);
 	bool updateScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, sf::Vector2f mousePos, bool mousePressed);
 
-	bool ifMouseIntersects(sf::Vector2f mousePos, sf::Vector2f buttonPos, sf::Vector2f buttonSize);
+	bool ifMouseIntersects(sf::Vector2f mousePos, sf::Vector2f buttonPos, sf::Vector2f buttonSize, int number);
 	void resetStates(void);
 
 	void renderMainMenu(sf::RenderWindow& window);

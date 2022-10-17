@@ -26,7 +26,7 @@ int main()
 	Weapons weapon(windowSize);
 	Camera playerCam(windowSize);
 	Ui gameUi(windowSize);
-	gameUi.setGameState(4);
+	gameUi.setGameState(0);
 
 	map.initMap(playerCam);
 
