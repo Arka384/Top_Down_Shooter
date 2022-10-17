@@ -8,6 +8,11 @@ private:
 	sf::Vector2f windowSize;
 	sf::Texture pistolTex, rifelTex, shotgunTex, muzzleFlashTex;
 	sf::Sprite pistol, rifel, shotgun;
+	sf::SoundBuffer pistolSoundBuf, rifelSoundBuf, shotgunSoundBuf;
+	sf::SoundBuffer pistolPickupBuf, rifelPickupBuf, shotgunPickupBuf;
+	sf::Sound pistolSound, rifelSound, shotgunSound;
+	sf::Sound pistolPickup, rifelPickup, shotgunPickup;
+
 	int gunType = 1;	//pistol first
 	float muzzleFlashTime = 0.1f;
 	float flashTimer = 0.f;
@@ -31,7 +36,7 @@ public:
 	void fire(sf::Vector2f mousePos);
 	void update(bool mousePressed, sf::Vector2f mousePos, sf::Vector2f playerPos, Entity player, float dt, Camera view);
 	int spawnWeapon(sf::Vector2f playerPos, float dt, Camera view);
-	void changeWeapon(int type);
+	void changeWeapon(int type, bool playSound);
 	bool ifOutsideView(Bullet b, Camera view);
 	void resetStates(void);
 	void draw(sf::RenderWindow &window);

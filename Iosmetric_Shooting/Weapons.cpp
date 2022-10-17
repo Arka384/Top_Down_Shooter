@@ -33,6 +33,23 @@ Weapons::Weapons(sf::Vector2f windowSize)
 	muzzleFlash.setTexture(muzzleFlashTex);
 	muzzleFlash.setOrigin(muzzleFlash.getGlobalBounds().width / 2, muzzleFlash.getGlobalBounds().height / 2);
 	muzzleFlash.setScale(0.05, 0.05);
+
+	//loading sounds
+	pistolSoundBuf.loadFromFile("Assets/Sounds/Weapon_sounds/9mm-pistol-shot.wav");
+	pistolSound.setBuffer(pistolSoundBuf);
+	pistolSound.setVolume(40);
+	rifelSoundBuf.loadFromFile("Assets/Sounds/Weapon_sounds/ar-15-single-shot.wav");
+	rifelSound.setBuffer(rifelSoundBuf);
+	shotgunSoundBuf.loadFromFile("Assets/Sounds/Weapon_sounds/12-gauge-pump-action-shotgun.wav");
+	shotgunSound.setBuffer(shotgunSoundBuf);
+
+	pistolPickupBuf.loadFromFile("Assets/Sounds/Weapon_sounds/pistol-cock.wav");
+	pistolPickup.setBuffer(pistolPickupBuf);
+	rifelPickupBuf.loadFromFile("Assets/Sounds/Weapon_sounds/rifel_cock.wav");
+	rifelPickup.setBuffer(rifelPickupBuf);
+	shotgunPickupBuf.loadFromFile("Assets/Sounds/Weapon_sounds/shotgun_cock.wav");
+	shotgunPickup.setBuffer(shotgunPickupBuf);
+
 }
 
 void Weapons::fire(sf::Vector2f mousePos)
@@ -55,7 +72,21 @@ void Weapons::fire(sf::Vector2f mousePos)
 		else
 			return;
 	}
-
+	
+	switch (gunType)
+	{
+	case 1:
+		pistolSound.play();
+		break;
+	case 2:
+		rifelSound.play();
+		break;
+	case 3:
+		shotgunSound.play();
+		break;
+	default:
+		break;
+	}
 
 	sf::Vector2f gunMid = sf::Vector2f(gunSprite.getPosition().x, gunSprite.getPosition().y);
 	
@@ -69,7 +100,7 @@ void Weapons::fire(sf::Vector2f mousePos)
 	float finalY = gunMid.y + yOffset;
 
 	if (gunType == 3) {//if shotgun then multiple bullets
-		for (int i = -31; i <= 31; i+=31) {
+		for (int i = -31; i <= 31; i+=31) {	//these values represents angle
 			/*float tempyOffset = std::sin(angle+i) * (gunSprite.getGlobalBounds().width / 2);
 			float tempxOffset = std::cos(angle+i) * (gunSprite.getGlobalBounds().width / 2);
 			float tempfinalX = gunMid.x + tempxOffset;
@@ -141,13 +172,13 @@ void Weapons::update(bool mousePressed, sf::Vector2f mousePos, sf::Vector2f play
 	if (gunSpawnned && spawnnedGun.getGlobalBounds().intersects(player.getGlobalBounds())) {
 		gunSpawnTimer = 0;
 		gunEquippedTimer = 0;
-		changeWeapon(spawndWeaponType + 2);
+		changeWeapon(spawndWeaponType + 2, true);
 		gunSpawnned = false;
 		gunEquipped = true;
 	}
 	//update equipped gun time
 	if (gunEquipped && gunEquippedTimer >= gunEquippedTime) {
-		changeWeapon(1);	//reset weapon to pistol
+		changeWeapon(1, true);	//reset weapon to pistol
 		gunEquipped = false;
 		gunEquippedTimer = 0;
 	}
@@ -199,21 +230,27 @@ int Weapons::spawnWeapon(sf::Vector2f playerPos, float dt, Camera view)
 	return type;
 }
 
-void Weapons::changeWeapon(int type)
+void Weapons::changeWeapon(int type, bool playSound)
 {
 	switch (type)
 	{
 	case 1:
 		gunSprite = pistol;
 		gunType = 1;
+		if(playSound)
+			pistolPickup.play();
 		break;
 	case 2:
 		gunSprite = rifel;
 		gunType = 2;
+		if (playSound)
+			rifelPickup.play();
 		break;
 	case 3:
 		gunSprite = shotgun;
 		gunType = 3;
+		if (playSound)
+			shotgunPickup.play();
 		break;
 	default:
 		break;
@@ -236,7 +273,7 @@ bool Weapons::ifOutsideView(Bullet b, Camera view)
 
 void Weapons::resetStates(void)
 {
-	changeWeapon(1);
+	changeWeapon(1, false);
 	flashTimer = 0.f;
 	reloadTimer = 0.f;
 	gunSpawnTimer = 0.f;

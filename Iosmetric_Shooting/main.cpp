@@ -54,11 +54,11 @@ int main()
 				keyPressed = true;
 				
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
-					weapon.changeWeapon(1);
+					weapon.changeWeapon(1, true);
 				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
-					weapon.changeWeapon(2);
+					weapon.changeWeapon(2, true);
 				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3))
-					weapon.changeWeapon(3);
+					weapon.changeWeapon(3, true);
 				break;
 			case sf::Event::KeyReleased:
 				keyPressed = false;
