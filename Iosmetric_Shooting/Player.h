@@ -14,8 +14,11 @@ private:
 	//there will be three characters. So 3 sets of textures will be there.
 	sf::Texture idleTexture[3], walkTexture[3], deathTexture[3];
 	sf::Sprite idleSprite, walkSprite, deathSprite;
+	sf::SoundBuffer deathSoundBuf, hurtSoundBuf;
+	sf::Sound deathSound, hurtSound;
 
 	std::string charTexureFileName = "Assets/characters/";
+	bool deathAnimEnd = false;
 
 	int subTexRectSize = 2048;
 	int currIdleTex = 0, maxIdleTex = 6;
@@ -29,12 +32,13 @@ private:
 	float idleAnimTime = 0.2f, idleAnimTimer = 0.f;
 	float walkAnimTime = 0.07f, walkAnimTimer = 0.f;
 	float deathAnimTime = 0.08f, deathAnimTimer = 0.f;
+	float deathSceneKeepTimer = 0;
 
 public:
 	sf::Sprite playerSprite;
-
 	bool isDead = false;
-	bool deathAnimEnd = false;
+	bool deathSceneEnd = false;
+
 	Player(sf::Vector2f startingPos, sf::Vector2f windowSize);
 	void update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<Bullet> &enemyBullets, Weapons &weapon);
 	void setCharacterType(int type);

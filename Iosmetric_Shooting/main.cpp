@@ -100,7 +100,7 @@ int main()
 			map.update(playerCam, keyPressed, player.getPosition());
 			gameUi.updatePlayState(playerCam.playerView.getSize(), playerCam.playerView.getCenter(), player.getHealth(), weapon.remainingGunTime);
 			
-			if (player.isDead && player.deathAnimEnd)
+			if (player.isDead && player.deathSceneEnd)
 				gameUi.setGameState(5);
 			break;
 		case 5:	//score state

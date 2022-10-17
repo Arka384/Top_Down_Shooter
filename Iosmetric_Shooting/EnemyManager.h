@@ -19,7 +19,9 @@ private:
 	sf::Sprite enemyWalkSprites[4];
 	sf::Sprite genericDeathSprite;
 	sf::Vector2f scaleSize = sf::Vector2f(0.15, 0.15), spritePosOffset = sf::Vector2f(0, 60), colRectSize = sf::Vector2f(40, 80);
-	
+	sf::SoundBuffer hurtBuf;
+	sf::Sound hurt;
+
 	int subTexRectSize = 2048;
 	int minDistBtPlayerEnemy = 450;	//least distance between player and enemy
 

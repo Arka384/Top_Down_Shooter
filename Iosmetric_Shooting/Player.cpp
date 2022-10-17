@@ -27,6 +27,12 @@ Player::Player(sf::Vector2f startingPos, sf::Vector2f windowSize)
 	}
 	setCharacterType(2);
 
+
+	//loading sounds
+	deathSoundBuf.loadFromFile("Assets/Sounds/Player_sounds/death.wav");
+	deathSound.setBuffer(deathSoundBuf);
+	hurtSoundBuf.loadFromFile("Assets/Sounds/Player_sounds/umph.wav");
+	hurtSound.setBuffer(hurtSoundBuf);
 }
 
 
@@ -101,14 +107,26 @@ void Player::update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<
 		}
 	}
 
+	if (deathAnimEnd) {
+		deathSceneKeepTimer += dt;
+		if (deathSceneKeepTimer > 3)
+			deathSceneEnd = true;
+	}
+
 	//collision with enemy bullets
 	auto i = enemyBullets.begin();
 	while (i != enemyBullets.end()) {
 		if (this->isColliding(*i)) {
-			//this->health -= 20;	//comment this line and you will be invincible
+
+			this->health -= 20;	//comment this line and you will be invincible
+			if(!deathAnimEnd)
+				hurtSound.play();
 			playerSprite.setColor(sf::Color::Red);
+
 			if (this->health <= 0) {
 				isDead = true;
+				if(deathSound.getStatus() != sf::Sound::Playing)
+					deathSound.play();
 				this->setFillColor(sf::Color::Red);
 			}
 			i = enemyBullets.erase(i);
@@ -156,6 +174,7 @@ void Player::resetStates(void)
 {
 	this->health = 100;
 	this->characterType = 0;
+	deathSceneKeepTimer = 0;
 	position = sf::Vector2f(windowSize.x / 2, windowSize.y / 2);
 	currIdleTex = currWalkTex = currDeathTex = 0;
 	playerIdle = true;
@@ -164,6 +183,7 @@ void Player::resetStates(void)
 	hitAnimated = true;
 	isDead = false;
 	deathAnimEnd = false;
+	deathSceneEnd = false;
 }
 
 void Player::animateIdle(float dt, sf::Vector2f requiredScale)

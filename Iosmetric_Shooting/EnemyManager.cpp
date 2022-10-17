@@ -26,6 +26,10 @@ EnemyManager::EnemyManager(sf::Vector2f windowSize)
 	genericDeathSprite.setTextureRect(sf::IntRect(0, 0, 2048, 2048));
 	genericDeathSprite.setOrigin(genericDeathSprite.getGlobalBounds().width / 2, genericDeathSprite.getGlobalBounds().height / 2);
 	genericDeathSprite.setScale(0.18, 0.18);
+
+	//loading sounds
+	hurtBuf.loadFromFile("Assets/Sounds/Player_sounds/hit.wav");
+	hurt.setBuffer(hurtBuf);
 }
 
 void EnemyManager::spawnEnemies(sf::Vector2f playerPos, Camera view)
@@ -89,6 +93,7 @@ void EnemyManager::update(float dt, Weapons & w, sf::Vector2f playerPos, Camera 
 		shoot(playerPos, *i, dt);
 
 		if (i->getHealth() <= 0) {	//enemy is down trigger death animation
+			hurt.play();
 			genericDeathSprite.setColor(i->deathShadowColor);
 			genericDeathSprite.setPosition(i->sprite.getPosition());
 			deathShadows.push_back(std::make_pair(genericDeathSprite, 0.f));
