@@ -27,6 +27,10 @@ Player::Player(sf::Vector2f startingPos, sf::Vector2f windowSize)
 	}
 	setCharacterType(2);
 
+	shadowTex.loadFromFile("Assets/Extras/shadow.png");
+	shadow.setTexture(shadowTex);
+	shadow.setScale(0.035, 0.035);
+
 
 	//loading sounds
 	deathSoundBuf.loadFromFile("Assets/Sounds/Player_sounds/death.wav");
@@ -55,7 +59,7 @@ void Player::update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<
 			position.y += moveSpeed * dt;
 		}
 	}
-	
+	shadow.setPosition(position.x - 30, position.y - 5);
 
 	/*float dx = mousePos.x - position.x;
 	float dy = mousePos.y - position.y;*/

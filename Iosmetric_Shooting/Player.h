@@ -12,7 +12,7 @@ private:
 
 	//sprites and textures
 	//there will be three characters. So 3 sets of textures will be there.
-	sf::Texture idleTexture[3], walkTexture[3], deathTexture[3];
+	sf::Texture idleTexture[3], walkTexture[3], deathTexture[3], shadowTex;
 	sf::Sprite idleSprite, walkSprite, deathSprite;
 	sf::SoundBuffer deathSoundBuf, hurtSoundBuf;
 	sf::Sound deathSound, hurtSound;
@@ -35,7 +35,7 @@ private:
 	float deathSceneKeepTimer = 0;
 
 public:
-	sf::Sprite playerSprite;
+	sf::Sprite playerSprite, shadow;
 	bool isDead = false;
 	bool deathSceneEnd = false;
 

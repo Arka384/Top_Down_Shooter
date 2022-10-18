@@ -27,6 +27,10 @@ EnemyManager::EnemyManager(sf::Vector2f windowSize)
 	genericDeathSprite.setOrigin(genericDeathSprite.getGlobalBounds().width / 2, genericDeathSprite.getGlobalBounds().height / 2);
 	genericDeathSprite.setScale(0.18, 0.18);
 
+	shadowTex.loadFromFile("Assets/Extras/shadow.png");
+	shadow.setTexture(shadowTex);
+	shadow.setScale(0.035, 0.035);
+
 	//loading sounds
 	hurtBuf.loadFromFile("Assets/Sounds/Player_sounds/hit.wav");
 	hurt.setBuffer(hurtBuf);
@@ -64,7 +68,7 @@ void EnemyManager::spawnEnemies(sf::Vector2f playerPos, Camera view)
 	int enemyType = std::rand() % 4;
 	enemySprite = enemyWalkSprites[enemyType];
 
-	Enemy e(sf::Vector2f(x, y), colRectSize, enemySprite, enemyType);
+	Enemy e(sf::Vector2f(x, y), colRectSize, enemySprite, this->shadow, enemyType);
 	enemies.push_back(e);
 	numberOfEnemy++;
 
@@ -89,6 +93,7 @@ void EnemyManager::update(float dt, Weapons & w, sf::Vector2f playerPos, Camera 
 		moveEnemy(dt, playerPos, *i);
 		animateWalk(dt, *i);
 		i->sprite.setPosition(i->getPosition() - spritePosOffset);
+		i->shadowSprite.setPosition(i->getPosition().x - 30, i->getPosition().y - 5);
 
 		shoot(playerPos, *i, dt);
 
@@ -230,6 +235,11 @@ void EnemyManager::shoot(sf::Vector2f playerPos, Enemy enemy, float dt)
 
 void EnemyManager::drawEnemies(sf::RenderWindow & window)
 {
+	for (auto i = enemies.begin(); i != enemies.end(); i++) {
+		//window.draw(*i);
+		window.draw(i->shadowSprite);
+	}
+
 	for (auto i = enemies.begin(); i != enemies.end(); i++) {
 		//window.draw(*i);
 		window.draw(i->sprite);

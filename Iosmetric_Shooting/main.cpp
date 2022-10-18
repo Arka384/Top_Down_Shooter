@@ -147,6 +147,7 @@ int main()
 			break;
 		case 4:	//if play state
 			map.draw(window);
+			window.draw(player.shadow);
 			if (!player.isDead)
 				weapon.draw(window);
 			player.draw(window, weapon);

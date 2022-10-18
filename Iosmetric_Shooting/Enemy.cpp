@@ -1,12 +1,13 @@
 #include "Enemy.h"
 
-Enemy::Enemy(sf::Vector2f pos, sf::Vector2f size, sf::Sprite sprite, int type)
+Enemy::Enemy(sf::Vector2f pos, sf::Vector2f size, sf::Sprite sprite, sf::Sprite shaodw, int type)
 {
 	position = pos;
 	this->setSize(size);
 	this->setOrigin(this->getSize().x / 2, this->getSize().y / 2);
 	this->setPosition(position);
 	this->sprite = sprite;
+	this->shadowSprite = shaodw;
 	this->inNearestPoint = false;
 	this->enemyType = type;
 
