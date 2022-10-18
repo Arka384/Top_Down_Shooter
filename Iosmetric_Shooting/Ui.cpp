@@ -163,6 +163,16 @@ Ui::Ui(sf::Vector2f windowSize)
 	buttonSelectBuffer.loadFromFile("Assets/Sounds/Ui/menu_select.wav");
 	buttonSelect.setBuffer(buttonSelectBuffer);
 
+	std::string bgMusicFilename = "Assets/Sounds/Background_music/bg_music_";
+	for (int i = 0; i < 5; i++) {
+		bgMusicBuf[i].loadFromFile(bgMusicFilename + std::to_string(i + 1) + ".wav");
+		bgMusic[i].setBuffer(bgMusicBuf[i]);
+		if (i > 0)
+			bgMusic[i].setVolume(bgMusicVolume - 20);
+		else
+			bgMusic[i].setVolume(bgMusicVolume);
+	}
+
 }
 
 void Ui::setGameState(int state)
@@ -177,6 +187,12 @@ int Ui::getGameState(void)
 
 void Ui::updateMainMenu(sf::Vector2f mousePos, bool mousePressed)
 {
+	if (bgMusic[0].getStatus() != sf::Sound::Playing) {
+		bgMusic[musicType].stop();
+		bgMusic[0].play();
+	}
+		
+
 	if (ifMouseIntersects(mousePos, playButton.getPosition(), 
 		sf::Vector2f(playButton.getGlobalBounds().width, playButton.getGlobalBounds().height), 0)) {
 		
@@ -210,7 +226,7 @@ void Ui::updateCharacterSelect(sf::Vector2f mousePos, bool &mousePressed)
 
 		if (mousePressed) {
 			buttonSelect.play();
-			gameState = 2;	//change to countDown state
+			gameState = 2;	//change to howto state
 		}
 			
 	}
@@ -268,6 +284,20 @@ void Ui::updateHowToState(sf::Vector2f mousePos, bool mousePressed)
 
 void Ui::updateCountDown(float dt)
 {
+	if (bgMusic[0].getStatus() == sf::Sound::Playing) {
+		if (bgMusic[0].getVolume() > 0)
+			bgMusic[0].setVolume(bgMusic[0].getVolume()-0.18);
+		if (static_cast<int>(bgMusic[0].getVolume()) <= 0) {
+			bgMusic[0].stop();
+			bgMusic[0].setVolume(bgMusicVolume);
+		}
+	}
+	else if(!bgMusicPlaying) {
+		musicType = std::rand() % 4 + 1;
+		bgMusic[musicType].play();
+		bgMusicPlaying = true;
+	}
+
 	countDownTimer += dt;
 
 	if (countDownTimer > countDownInterval) {
@@ -292,6 +322,13 @@ void Ui::updateCountDown(float dt)
 
 void Ui::updatePlayState(sf::Vector2f viewSize, sf::Vector2f viewCenter, int playerHealth, float remainingGunTime)
 {
+	if (bgMusic[musicType].getStatus() == sf::Sound::Stopped()) {
+		musicType = std::rand() % 4 + 1;
+		bgMusic[musicType].play();
+		bgMusicPlaying = true;
+	}
+
+
 	if (playerHealth >= 0) {
 		float healthBarFactor = healthStuffScale.x / 5;
 		float reduceScale = healthBarFactor * ((100 - playerHealth) / 20);
@@ -350,6 +387,16 @@ void Ui::loadScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, std::vec
 
 bool Ui::updateScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, sf::Vector2f mousePos, bool mousePressed)
 {
+	if (bgMusic[musicType].getStatus() == sf::Sound::Playing) {
+		if (bgMusic[musicType].getVolume() > 0)
+			bgMusic[musicType].setVolume(bgMusic[musicType].getVolume() - 0.2);
+		if (static_cast<int>(bgMusic[musicType].getVolume()) <= 0) {
+			bgMusic[musicType].stop();
+			bgMusicPlaying = false;
+			bgMusic[musicType].setVolume(bgMusicVolume);
+		}
+	}
+
 	if (ifMouseIntersects(mousePos, gotoMenuButton.getPosition(),
 		sf::Vector2f(gotoMenuButton.getGlobalBounds().width, gotoMenuButton.getGlobalBounds().height), 4)) {
 
@@ -392,7 +439,8 @@ void Ui::resetStates(void)
 {
 	playerType = 0;
 	scoresLoaded = false;
-	
+	countNum = 3;
+	bgMusicPlaying = false;
 }
 
 

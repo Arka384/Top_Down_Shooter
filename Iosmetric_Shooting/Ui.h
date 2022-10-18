@@ -33,17 +33,21 @@ private:
 	sf::Text titleText, characterSelectText , countdownText, scoreTexts[5];
 	//sounds
 	sf::SoundBuffer buttonActiveBuffer, buttonSelectBuffer;
+	sf::SoundBuffer bgMusicBuf[5];
 	sf::Sound buttonActive, buttonSelect;
+	sf::Sound bgMusic[5];
 
 	sf::Vector2f playButtonPos, startButtonPos, arrowPos, noWayOutPos, gotoMenuButtonPos;
 	sf::Vector2f playButtonScale, startButtonScale, healthStuffScale, noWayOutScale, gotoMenuButtonScale;
 	sf::Vector2f gunTimerBarScale;
-	float countDownInterval = 1.f, countDownTimer = 0.f;
+	float countDownInterval = 1.2f, countDownTimer = 0.f;
 	int countNum = 3;
 
 	bool playButtonActive = true;
 	bool soundException1 = true, soundException2 = true;
-
+	bool bgMusicPlaying = false;
+	int musicType = 1;
+	int bgMusicVolume = 60;
 	
 
 public:
