@@ -38,8 +38,10 @@ public:
 	sf::Sprite playerSprite, shadow;
 	bool isDead = false;
 	bool deathSceneEnd = false;
+	bool resourceLoaded = false;
 
 	Player(sf::Vector2f startingPos, sf::Vector2f windowSize);
+	void load(void);
 	void update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<Bullet> &enemyBullets, Weapons &weapon);
 	void setCharacterType(int type);
 	int getCharacterType(void);

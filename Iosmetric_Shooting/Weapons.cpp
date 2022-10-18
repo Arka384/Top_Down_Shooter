@@ -3,7 +3,10 @@
 Weapons::Weapons(sf::Vector2f windowSize)
 {
 	this->windowSize = windowSize;
+}
 
+void Weapons::load(void)
+{
 	//loading pistol textures
 	pistolTex.loadFromFile("Assets/Weapons/weaponR2.png");
 	pistol.setTexture(pistolTex);
@@ -34,6 +37,12 @@ Weapons::Weapons(sf::Vector2f windowSize)
 	muzzleFlash.setOrigin(muzzleFlash.getGlobalBounds().width / 2, muzzleFlash.getGlobalBounds().height / 2);
 	muzzleFlash.setScale(0.05, 0.05);
 
+	crosshairTex.loadFromFile("Assets/Extras/crosshair.png");
+	crosshair.setTexture(crosshairTex);
+	crosshair.setScale(0.8, 0.8);
+	crosshair.setOrigin(crosshair.getGlobalBounds().width / 2, crosshair.getGlobalBounds().height / 2);
+	crosshair.setColor(sf::Color(255, 255, 255, 200));
+
 	//loading sounds
 	pistolSoundBuf.loadFromFile("Assets/Sounds/Weapon_sounds/9mm-pistol-shot.wav");
 	pistolSound.setBuffer(pistolSoundBuf);
@@ -50,6 +59,7 @@ Weapons::Weapons(sf::Vector2f windowSize)
 	shotgunPickupBuf.loadFromFile("Assets/Sounds/Weapon_sounds/shotgun_cock.wav");
 	shotgunPickup.setBuffer(shotgunPickupBuf);
 
+	resourceLoaded = true;
 }
 
 void Weapons::fire(sf::Vector2f mousePos)
@@ -138,6 +148,7 @@ void Weapons::update(bool mousePressed, sf::Vector2f mousePos, sf::Vector2f play
 	if (gunType == 2 && mousePressed && !playerStatus) {
 		fire(mousePos);
 	}
+	crosshair.setPosition(mousePos);
 
 	if (flashTimer > muzzleFlashTime) {
 		flashTimer = 0;

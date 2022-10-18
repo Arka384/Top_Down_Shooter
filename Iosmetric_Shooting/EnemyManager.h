@@ -32,8 +32,10 @@ public:
 	std::list<Enemy> enemies;
 	std::list<Bullet> enemyBullets;
 	sf::Sprite enemySprite;
+	bool resourceLoaded = false;
 
 	EnemyManager(sf::Vector2f windowSize);
+	void load(void);
 	void shoot(sf::Vector2f playerPos, Enemy enemy, float dt);
 	void spawnEnemies(sf::Vector2f playerPos, Camera view);
 	void update(float dt, Weapons &w, sf::Vector2f playerPos, Camera &view);

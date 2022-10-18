@@ -2,8 +2,10 @@
 
 EnemyManager::EnemyManager(sf::Vector2f windowSize)
 {
-	this->windowSize = windowSize;
-	
+	this->windowSize = windowSize;	
+}
+
+void EnemyManager::load(void) {
 	//loading textures
 	std::string walkTexFileName = "Assets/characters/Enemy_";
 	for (int i = 0; i < 4; i++) {
@@ -34,6 +36,8 @@ EnemyManager::EnemyManager(sf::Vector2f windowSize)
 	//loading sounds
 	hurtBuf.loadFromFile("Assets/Sounds/Player_sounds/hit.wav");
 	hurt.setBuffer(hurtBuf);
+
+	resourceLoaded = true;
 }
 
 void EnemyManager::spawnEnemies(sf::Vector2f playerPos, Camera view)

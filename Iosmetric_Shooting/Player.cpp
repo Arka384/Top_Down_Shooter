@@ -7,22 +7,25 @@ Player::Player(sf::Vector2f startingPos, sf::Vector2f windowSize)
 	this->position = startingPos;
 	this->setPosition(position);
 	this->windowSize = windowSize;
+}
 
+void Player::load(void)
+{
 	//loading walk textures for all three characters
 	for (int i = 0; i < 3; i++) {
-		std::string walkTexureFileName = charTexureFileName + "Char_" + std::to_string(i+1) + "/" + "walk.png";
+		std::string walkTexureFileName = charTexureFileName + "Char_" + std::to_string(i + 1) + "/" + "walk.png";
 		walkTexture[i].loadFromFile(walkTexureFileName);
 	}
-	
+
 	//loading idle textures for all three characters
 	for (int i = 0; i < 3; i++) {
-		std::string idleTexureFileName = charTexureFileName + "Char_" + std::to_string(i+1) + "/" + "idle.png";
+		std::string idleTexureFileName = charTexureFileName + "Char_" + std::to_string(i + 1) + "/" + "idle.png";
 		idleTexture[i].loadFromFile(idleTexureFileName);
 	}
-	
+
 	//loading death textures for all three characters
 	for (int i = 0; i < 3; i++) {
-		std::string deathTexureFileName = charTexureFileName + "Char_" + std::to_string(i+1) + "/" + "death.png";
+		std::string deathTexureFileName = charTexureFileName + "Char_" + std::to_string(i + 1) + "/" + "death.png";
 		deathTexture[i].loadFromFile(deathTexureFileName);
 	}
 	setCharacterType(2);
@@ -37,8 +40,9 @@ Player::Player(sf::Vector2f startingPos, sf::Vector2f windowSize)
 	deathSound.setBuffer(deathSoundBuf);
 	hurtSoundBuf.loadFromFile("Assets/Sounds/Player_sounds/umph.wav");
 	hurtSound.setBuffer(hurtSoundBuf);
-}
 
+	resourceLoaded = true;
+}
 
 void Player::update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<Bullet> &enemyBullets, Weapons &weapon)
 {

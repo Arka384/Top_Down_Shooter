@@ -6,7 +6,7 @@ class Weapons
 {
 private:
 	sf::Vector2f windowSize;
-	sf::Texture pistolTex, rifelTex, shotgunTex, muzzleFlashTex;
+	sf::Texture pistolTex, rifelTex, shotgunTex, muzzleFlashTex, crosshairTex;
 	sf::Sprite pistol, rifel, shotgun;
 	sf::SoundBuffer pistolSoundBuf, rifelSoundBuf, shotgunSoundBuf;
 	sf::SoundBuffer pistolPickupBuf, rifelPickupBuf, shotgunPickupBuf;
@@ -24,15 +24,17 @@ private:
 
 public:
 	std::list<Bullet> bullets;
-	sf::Sprite gunSprite, muzzleFlash, pickupGun[2], spawnnedGun;
+	sf::Sprite gunSprite, muzzleFlash, pickupGun[2], spawnnedGun, crosshair;
 	sf::Vector2f spritePosOffset = sf::Vector2f(0, 25);
 	sf::Vector2f scaleSize = sf::Vector2f(0.1, 0.1);
 	bool renderFlash = false;
 	int remainingGunTime = 0;
 	int spawndWeaponType = 0;
 	bool gunEquipped = false;
+	bool resourceLoaded = false;
 
 	Weapons(sf::Vector2f windowSize);
+	void load(void);
 	void fire(sf::Vector2f mousePos);
 	void update(bool mousePressed, sf::Vector2f mousePos, sf::Vector2f playerPos, Entity player, float dt, Camera view, bool playerStatus);
 	int spawnWeapon(sf::Vector2f playerPos, float dt, Camera view);

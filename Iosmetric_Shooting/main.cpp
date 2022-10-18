@@ -75,6 +75,10 @@ int main()
 		//update actions
 		tempMousePos = sf::Mouse::getPosition(window);
 		mousePos = window.mapPixelToCoords(tempMousePos);
+		if (gameUi.getGameState() == 4)
+			window.setMouseCursorVisible(false);
+		else
+			window.setMouseCursorVisible(true);
 		
 		switch (gameUi.getGameState())
 		{
@@ -82,6 +86,9 @@ int main()
 			gameUi.updateMainMenu(mousePos, mousePressed);
 			break;
 		case 1:	//if in character select state
+			if (!player.resourceLoaded)
+				player.load();
+
 			gameUi.updateCharacterSelect(mousePos, mousePressed);
 			if (gameUi.playerType != player.getCharacterType())
 				player.setCharacterType(gameUi.playerType);
@@ -91,6 +98,10 @@ int main()
 			gameUi.updateHowToState(mousePos, mousePressed);
 			break;
 		case 3:	//if in countDown state
+			if (!weapon.resourceLoaded && !enemyManager.resourceLoaded) {
+				weapon.load();
+				enemyManager.load();
+			}
 			gameUi.updateCountDown(dt);
 			break;
 		case 4:	//if play state
@@ -137,6 +148,10 @@ int main()
 			gameUi.renderMainMenu(window);
 			break;
 		case 1:	//character select state
+			if (!player.resourceLoaded) {
+				gameUi.renderMainMenu(window);
+				break;
+			}
 			gameUi.renderCharacterSelect(window);
 			player.draw(window, weapon, gameUi.getGameState());
 			break;
@@ -154,6 +169,7 @@ int main()
 			player.draw(window, weapon, gameUi.getGameState());
 			enemyManager.drawEnemies(window);
 			gameUi.renderPlayState(window, weapon.gunEquipped, weapon.spawndWeaponType);
+			window.draw(weapon.crosshair);
 			break;
 		case 5:	//score
 			gameUi.renderScoreState(window);

@@ -463,6 +463,8 @@ void Ui::resetStates(void)
 	countNum = 3;
 	bgMusicPlaying = false;
 	newHighScoreAchieved = false;
+	countdownText.setString("GET  READY");
+	countdownText.setPosition(windowSize.x / 2 - countdownText.getGlobalBounds().width / 2, windowSize.y / 2 - 220);
 }
 
 
