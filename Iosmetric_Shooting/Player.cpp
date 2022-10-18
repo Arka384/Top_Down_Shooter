@@ -253,11 +253,11 @@ void Player::animateDeath(float dt)
 }
 
 
-void Player::draw(sf::RenderWindow &window, Weapons wp)
+void Player::draw(sf::RenderWindow &window, Weapons wp, int gameState)
 {
 	//window.draw(*this);
 	if (gunBehindPlayer) {
-		if (!isDead) {
+		if (!isDead && gameState == 4) {
 			window.draw(wp.gunSprite);
 			if (wp.renderFlash)
 				window.draw(wp.muzzleFlash);
@@ -266,7 +266,7 @@ void Player::draw(sf::RenderWindow &window, Weapons wp)
 	}
 	else {
 		window.draw(playerSprite);
-		if (!isDead) {
+		if (!isDead && gameState == 4) {
 			window.draw(wp.gunSprite);
 			if (wp.renderFlash)
 				window.draw(wp.muzzleFlash);

@@ -34,7 +34,7 @@ public:
 
 	Weapons(sf::Vector2f windowSize);
 	void fire(sf::Vector2f mousePos);
-	void update(bool mousePressed, sf::Vector2f mousePos, sf::Vector2f playerPos, Entity player, float dt, Camera view);
+	void update(bool mousePressed, sf::Vector2f mousePos, sf::Vector2f playerPos, Entity player, float dt, Camera view, bool playerStatus);
 	int spawnWeapon(sf::Vector2f playerPos, float dt, Camera view);
 	void changeWeapon(int type, bool playSound);
 	bool ifOutsideView(Bullet b, Camera view);

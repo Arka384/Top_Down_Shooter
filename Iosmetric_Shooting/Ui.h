@@ -1,5 +1,7 @@
 #pragma once
 #include "Bullet.h"
+#include <sstream>
+#include <fstream>
 #include <iostream>
 #include <list>
 #include <vector>
@@ -22,15 +24,18 @@ private:
 	sf::Texture healthOutTex, healthInTex, healthTex, heartTex;
 	sf::Texture howToTex, noWayOutTex, scoreUiTex, gotoMenuButtonTex;
 	sf::Texture rifelTimeBarTex, shotgunTimeBarTex, timeBarInlineTex, timeBarTex;
+	sf::Texture newHighScoreTex;
 	//sprites
 	sf::Sprite menuBackground, blankBackground, playButton, arrow, startButton;
 	sf::Sprite healthBarOutline, healthBarInline, healthBar, heart;
 	sf::Sprite howToInfo, noWayOut, scoreUi, gotoMenuButton;
 	sf::Sprite rifelTimeBar, shotgunTimeBar, timeBarInline, timeBar;
+	sf::Sprite newHighScore;
+
 	//fonts
 	sf::Font gravePartyFont;
 	//texts
-	sf::Text titleText, characterSelectText , countdownText, scoreTexts[5];
+	sf::Text titleText, characterSelectText , countdownText, scoreTexts[6];
 	//sounds
 	sf::SoundBuffer buttonActiveBuffer, buttonSelectBuffer;
 	sf::SoundBuffer bgMusicBuf[5];
@@ -46,6 +51,7 @@ private:
 	bool playButtonActive = true;
 	bool soundException1 = true, soundException2 = true;
 	bool bgMusicPlaying = false;
+	bool newHighScoreAchieved = false;
 	int musicType = 1;
 	int bgMusicVolume = 60;
 	

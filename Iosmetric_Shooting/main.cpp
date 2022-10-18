@@ -44,7 +44,8 @@ int main()
 
 			case sf::Event::MouseButtonPressed:
 				mousePressed = true;
-				weapon.fire(mousePos);
+				if (!player.isDead)
+					weapon.fire(mousePos);
 				break;
 			case sf::Event::MouseButtonReleased:
 				mousePressed = false;
@@ -94,7 +95,7 @@ int main()
 			break;
 		case 4:	//if play state
 			player.update(dt, keyPressed, mousePos, enemyManager.enemyBullets, weapon);
-			weapon.update(mousePressed, mousePos, player.getPosition(), player, dt, playerCam);
+			weapon.update(mousePressed, mousePos, player.getPosition(), player, dt, playerCam, player.isDead);
 			enemyManager.update(dt, weapon, player.getPosition(), playerCam);
 			playerCam.update(player.getPosition(), window, dt);
 			map.update(playerCam, keyPressed, player.getPosition());
@@ -137,7 +138,7 @@ int main()
 			break;
 		case 1:	//character select state
 			gameUi.renderCharacterSelect(window);
-			player.draw(window, weapon);
+			player.draw(window, weapon, gameUi.getGameState());
 			break;
 		case 2:	//how to 
 			gameUi.renderHowToState(window);
@@ -150,7 +151,7 @@ int main()
 			window.draw(player.shadow);
 			if (!player.isDead)
 				weapon.draw(window);
-			player.draw(window, weapon);
+			player.draw(window, weapon, gameUi.getGameState());
 			enemyManager.drawEnemies(window);
 			gameUi.renderPlayState(window, weapon.gunEquipped, weapon.spawndWeaponType);
 			break;

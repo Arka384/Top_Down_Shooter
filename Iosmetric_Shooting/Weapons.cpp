@@ -124,7 +124,7 @@ void Weapons::fire(sf::Vector2f mousePos)
 	renderFlash = true;
 }
 
-void Weapons::update(bool mousePressed, sf::Vector2f mousePos, sf::Vector2f playerPos, Entity player, float dt, Camera view)
+void Weapons::update(bool mousePressed, sf::Vector2f mousePos, sf::Vector2f playerPos, Entity player, float dt, Camera view, bool playerStatus)
 {
 	flashTimer += dt;	//for muzzle flash
 	reloadTimer += dt;	//for firing delay
@@ -135,7 +135,7 @@ void Weapons::update(bool mousePressed, sf::Vector2f mousePos, sf::Vector2f play
 	}
 		
 
-	if (gunType == 2 && mousePressed) {
+	if (gunType == 2 && mousePressed && !playerStatus) {
 		fire(mousePos);
 	}
 

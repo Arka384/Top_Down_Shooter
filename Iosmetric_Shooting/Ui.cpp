@@ -106,6 +106,11 @@ Ui::Ui(sf::Vector2f windowSize)
 	timeBar.setTexture(timeBarTex);
 	timeBar.setScale(gunTimerBarScale);
 
+	newHighScoreTex.loadFromFile("Assets/Ui/newHighScore.png");
+	newHighScore.setTexture(newHighScoreTex);
+	newHighScore.setScale(0.6, 0.6);
+	newHighScore.setRotation(-31);
+
 
 	///////////
 	//health bar stuffs
@@ -150,7 +155,7 @@ Ui::Ui(sf::Vector2f windowSize)
 	countdownText.setString("GET  READY");
 	countdownText.setPosition(windowSize.x/2 - countdownText.getGlobalBounds().width/2, windowSize.y / 2 - 220);
 
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < 6; i++) {
 		scoreTexts[i].setFont(gravePartyFont);
 		scoreTexts[i].setFillColor(sf::Color(0, 0, 0, 255));
 		scoreTexts[i].setCharacterSize(50);
@@ -378,6 +383,22 @@ void Ui::loadScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, std::vec
 	scoreTexts[4].setString(tempScore);
 	scoreTexts[4].setPosition(x + scoreUi.getGlobalBounds().width / 2, y + 315);
 
+	std::ifstream highScoreFile("Assets/User_flies/score.txt");
+	std::string scoreInFile;
+	highScoreFile >> scoreInFile;
+	highScoreFile.close();
+	int highestScore = std::atoi(scoreInFile.c_str());
+	if (totalScore > highestScore) {
+		newHighScoreAchieved = true;
+		newHighScore.setPosition(x - 440, y - 50);
+		highestScore = totalScore;
+		std::ofstream highScoreFile("Assets/User_flies/score.txt");
+		highScoreFile << std::to_string(highestScore);
+	}
+
+	scoreTexts[5].setString(std::to_string(highestScore));
+	scoreTexts[5].setPosition(x + scoreUi.getGlobalBounds().width / 2, y + 360);
+
 	gotoMenuButtonPos = sf::Vector2f(x + 250, y + 520);
 	gotoMenuButton.setPosition(gotoMenuButtonPos);
 
@@ -441,6 +462,7 @@ void Ui::resetStates(void)
 	scoresLoaded = false;
 	countNum = 3;
 	bgMusicPlaying = false;
+	newHighScoreAchieved = false;
 }
 
 
@@ -490,7 +512,9 @@ void Ui::renderPlayState(sf::RenderWindow& window, bool showTimeBar, int timebar
 void Ui::renderScoreState(sf::RenderWindow& window)
 {
 	window.draw(scoreUi);
-	for (int i = 0; i < 5; i++)
+	if (newHighScoreAchieved)
+		window.draw(newHighScore);
+	for (int i = 0; i < 6; i++)
 		window.draw(scoreTexts[i]);
 	window.draw(gotoMenuButton);
 }

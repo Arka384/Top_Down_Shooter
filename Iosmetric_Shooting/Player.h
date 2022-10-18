@@ -50,7 +50,7 @@ public:
 	void animateWalk(float dt);
 	void animateDeath(float dt);
 
-	void draw(sf::RenderWindow &window, Weapons wp);
+	void draw(sf::RenderWindow &window, Weapons wp, int gameState);
 
 };
 
