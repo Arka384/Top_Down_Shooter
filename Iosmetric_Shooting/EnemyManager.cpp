@@ -21,7 +21,6 @@ void EnemyManager::load(void) {
 	}
 	enemySprite = enemyWalkSprites[0];
 
-
 	//loading generic death texture
 	genericDeathTex.loadFromFile("Assets/Generic_death_animation/generic_death.png");
 	genericDeathSprite.setTexture(genericDeathTex);
@@ -135,7 +134,6 @@ void EnemyManager::update(float dt, Weapons & w, sf::Vector2f playerPos, Camera 
 			j++;	
 	}
 
-
 	//update enemy bullets
 	auto enBullet = enemyBullets.begin();
 	while (enBullet != enemyBullets.end()) {
@@ -174,7 +172,6 @@ void EnemyManager::animateWalk(float dt, Enemy &e)
 		return;
 	}
 		
-
 	e.walkAnimTimer += dt;
 	if (e.walkAnimTimer >= e.walkAnimTime) {
 		e.walkAnimTimer = 0;
@@ -240,12 +237,10 @@ void EnemyManager::shoot(sf::Vector2f playerPos, Enemy enemy, float dt)
 void EnemyManager::drawEnemies(sf::RenderWindow & window)
 {
 	for (auto i = enemies.begin(); i != enemies.end(); i++) {
-		//window.draw(*i);
 		window.draw(i->shadowSprite);
 	}
 
 	for (auto i = enemies.begin(); i != enemies.end(); i++) {
-		//window.draw(*i);
 		window.draw(i->sprite);
 	}
 
@@ -255,6 +250,5 @@ void EnemyManager::drawEnemies(sf::RenderWindow & window)
 
 	for (auto i = enemyBullets.begin(); i != enemyBullets.end(); i++) {
 		window.draw(i->sprite);
-		//window.draw(*i);
 	}
 }

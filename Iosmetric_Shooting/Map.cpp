@@ -83,7 +83,6 @@ void Map::removeQuad(sf::Vector2i quadIndex)
 void Map::update(Camera view, bool keyPressed, sf::Vector2f playerPos)
 {
 	sf::Vector2i currViewIndex = sf::Vector2i(playerPos.x / windowSize.x, playerPos.y / windowSize.y);
-	//std::cout << currViewIndex.x << " " << currViewIndex.y << "\n";
 	if (oldViewIndex == currViewIndex)
 		return;
 	
@@ -120,7 +119,6 @@ void Map::update(Camera view, bool keyPressed, sf::Vector2f playerPos)
 			spwanObjectsInQuad(sf::Vector2i(currViewIndex.x + 1, currViewIndex.y + 1), view);
 			//remove bottom left quad
 			removeQuad(sf::Vector2i(currViewIndex.x - 2, currViewIndex.y + 1));
-
 		}
 	}
 
@@ -174,14 +172,6 @@ bool Map::outsideView(sf::Sprite object, Camera view)
 		return true;
 	else
 		return false;
-}
-
-void Map::resetStates(void)
-{
-	oldViewIndex = sf::Vector2i(0, 0);
-
-	quads.clear();
-
 }
 
 void Map::draw(sf::RenderWindow& window)

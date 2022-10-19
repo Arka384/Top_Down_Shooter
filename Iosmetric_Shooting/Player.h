@@ -18,8 +18,7 @@ private:
 	sf::Sound deathSound, hurtSound;
 
 	std::string charTexureFileName = "Assets/characters/";
-	bool deathAnimEnd = false;
-
+	
 	int subTexRectSize = 2048;
 	int currIdleTex = 0, maxIdleTex = 6;
 	int currWalkTex = 0, maxWalkTex = 8;
@@ -28,7 +27,7 @@ private:
 	sf::Vector2f scaleSize = sf::Vector2f(0.15, 0.15), spritePosOffset = sf::Vector2f(0, 65), colRectSize = sf::Vector2f(40, 80);
 
 	//animations
-	bool playerIdle = true, flipped = false, gunBehindPlayer = false, hitAnimated = true;
+	bool playerIdle = true, flipped = false, gunBehindPlayer = false, hitAnimated = true, deathAnimEnd = false;;
 	float idleAnimTime = 0.2f, idleAnimTimer = 0.f;
 	float walkAnimTime = 0.07f, walkAnimTimer = 0.f;
 	float deathAnimTime = 0.08f, deathAnimTimer = 0.f;

@@ -14,7 +14,6 @@ private:
 	int maxNumberOfMapObject = 6;
 	sf::Vector2f windowSize;
 	sf::Texture mapObjects[6];
-	//sf::Vector2f scaleSize = sf::Vector2f(0.1, 0.1);
 	sf::Vector2i oldViewIndex = sf::Vector2i(0, 0);
 
 	std::list<quad> quads;
@@ -28,6 +27,5 @@ public:
 	void removeQuad(sf::Vector2i quadIndex);
 	void update(Camera view, bool keyPressed, sf::Vector2f playerPos);
 	bool outsideView(sf::Sprite object, Camera view);
-	void resetStates(void);
 	void draw(sf::RenderWindow& window);
 };

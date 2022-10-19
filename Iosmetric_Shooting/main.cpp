@@ -6,7 +6,6 @@ int main()
 {
 	srand(static_cast<unsigned>(std::time(0)));
 
-	//std::cout << sf::VideoMode::getDesktopMode().width << " " << sf::VideoMode::getDesktopMode().height;
 	sf::Vector2f windowSize = sf::Vector2f(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height);
 	sf::RenderWindow window(sf::VideoMode(windowSize.x, windowSize.y), "Boii", sf::Style::Close);
 
@@ -69,7 +68,6 @@ int main()
 				break;
 			}
 		}
-		//////////////////////////////////////////////////////////////////////////
 
 		//////////////////////////////////////////////////////////////////////////
 		//update actions
@@ -125,9 +123,7 @@ int main()
 				sf::Vector2i temp = sf::Vector2i(window.getSize().x / 2, window.getSize().y / 2);
 				playerCam.playerView.setCenter(temp.x, temp.y);
 				window.setView(playerCam.playerView);
-				gameUi.resetStates();
-				//map.resetStates();
-				//map.initMap(playerCam);	
+				gameUi.resetStates();	
 				gameUi.setGameState(0);
 			}
 			break;
@@ -135,7 +131,6 @@ int main()
 		default:
 			break;
 		}
-		//playerCam.update(player.getPosition(), window, dt);
 
 		
 		//////////////////////////////////////////////////////////////////////////

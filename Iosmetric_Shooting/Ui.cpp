@@ -10,7 +10,6 @@ Ui::Ui(sf::Vector2f windowSize)
 	std::string howToFileName = "Assets/Ui/how_TO";
 	sf::Vector2f titleTextPosition, charSelectTextPosition;
 	float titleTextCharSize, charSelectTextCharSize;
-	
 
 	if (windowSize.x <= 1366 && windowSize.y <= 768) {
 		menuBackFileName.append("_small.png");
@@ -111,7 +110,6 @@ Ui::Ui(sf::Vector2f windowSize)
 	newHighScore.setScale(0.6, 0.6);
 	newHighScore.setRotation(-31);
 
-
 	///////////
 	//health bar stuffs
 	healthOutTex.loadFromFile("Assets/Ui/heathBarOutline.png");
@@ -129,7 +127,6 @@ Ui::Ui(sf::Vector2f windowSize)
 	heartTex.loadFromFile("Assets/Ui/heart.png");
 	heart.setTexture(heartTex);
 	heart.setScale(healthStuffScale.x - 0.08, healthStuffScale.y);
-
 
 	//loading fonts
 	gravePartyFont.loadFromFile("Assets/Fonts/GraveParty.ttf");
@@ -197,7 +194,6 @@ void Ui::updateMainMenu(sf::Vector2f mousePos, bool mousePressed)
 		bgMusic[0].play();
 	}
 		
-
 	if (ifMouseIntersects(mousePos, playButton.getPosition(), 
 		sf::Vector2f(playButton.getGlobalBounds().width, playButton.getGlobalBounds().height), 0)) {
 		
@@ -233,14 +229,12 @@ void Ui::updateCharacterSelect(sf::Vector2f mousePos, bool &mousePressed)
 			buttonSelect.play();
 			gameState = 2;	//change to howto state
 		}
-			
 	}
 	else {
 		startButton.setPosition(startButtonPos);
 		startButton.setScale(startButtonScale);
 		soundException1 = true;
 	}
-
 
 	if (ifMouseIntersects(mousePos, arrow.getPosition(),
 		sf::Vector2f(arrow.getGlobalBounds().width, arrow.getGlobalBounds().height), 2)) {
@@ -279,7 +273,6 @@ void Ui::updateHowToState(sf::Vector2f mousePos, bool mousePressed)
 			buttonSelect.play();
 			gameState = 3;
 		}
-			
 	}
 	else {
 		noWayOut.setScale(noWayOutScale);
@@ -319,10 +312,8 @@ void Ui::updateCountDown(float dt)
 			countdownText.setString("GO");
 		}
 		countdownText.setPosition(windowSize.x / 2 - countdownText.getGlobalBounds().width / 2, windowSize.y / 2 - 220);
-
 		countNum -= 1;
 	}
-
 }
 
 void Ui::updatePlayState(sf::Vector2f viewSize, sf::Vector2f viewCenter, int playerHealth, float remainingGunTime)
@@ -332,7 +323,6 @@ void Ui::updatePlayState(sf::Vector2f viewSize, sf::Vector2f viewCenter, int pla
 		bgMusic[musicType].play();
 		bgMusicPlaying = true;
 	}
-
 
 	if (playerHealth >= 0) {
 		float healthBarFactor = healthStuffScale.x / 5;
@@ -363,7 +353,6 @@ void Ui::updatePlayState(sf::Vector2f viewSize, sf::Vector2f viewCenter, int pla
 		
 	rifelTimeBar.setPosition(x + 600, y);
 	shotgunTimeBar.setPosition(x + 600, y);
-
 }
 
 void Ui::loadScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, std::vector<int> scores)
@@ -402,7 +391,6 @@ void Ui::loadScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, std::vec
 	gotoMenuButtonPos = sf::Vector2f(x + 250, y + 520);
 	gotoMenuButton.setPosition(gotoMenuButtonPos);
 
-
 	scoresLoaded = true;
 }
 
@@ -428,7 +416,6 @@ bool Ui::updateScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, sf::Ve
 			buttonSelect.play();
 			return true;
 		}
-			//need to reset everything before changing to menu 
 	}
 	else {
 		gotoMenuButton.setScale(gotoMenuButtonScale);
@@ -436,7 +423,6 @@ bool Ui::updateScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, sf::Ve
 		return false;
 	}
 }
-
 
 bool Ui::ifMouseIntersects(sf::Vector2f mousePos, sf::Vector2f buttonPos, sf::Vector2f buttonSize, int number)
 {
@@ -446,7 +432,6 @@ bool Ui::ifMouseIntersects(sf::Vector2f mousePos, sf::Vector2f buttonPos, sf::Ve
 		{
 			buttonActive.play();
 		}
-			
 		playButtonActive = false;
 		return true;
 	}
@@ -466,7 +451,6 @@ void Ui::resetStates(void)
 	countdownText.setString("GET  READY");
 	countdownText.setPosition(windowSize.x / 2 - countdownText.getGlobalBounds().width / 2, windowSize.y / 2 - 220);
 }
-
 
 void Ui::renderMainMenu(sf::RenderWindow& window)
 {

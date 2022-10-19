@@ -34,7 +34,6 @@ void Player::load(void)
 	shadow.setTexture(shadowTex);
 	shadow.setScale(0.035, 0.035);
 
-
 	//loading sounds
 	deathSoundBuf.loadFromFile("Assets/Sounds/Player_sounds/death.wav");
 	deathSound.setBuffer(deathSoundBuf);
@@ -65,8 +64,6 @@ void Player::update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<
 	}
 	shadow.setPosition(position.x - 30, position.y - 5);
 
-	/*float dx = mousePos.x - position.x;
-	float dy = mousePos.y - position.y;*/
 	float dx = mousePos.x - weapon.gunSprite.getPosition().x;
 	float dy = mousePos.y - weapon.gunSprite.getPosition().y;
 	float angle = std::atan2(dy, dx);
@@ -256,10 +253,8 @@ void Player::animateDeath(float dt)
 	playerSprite = deathSprite;
 }
 
-
 void Player::draw(sf::RenderWindow &window, Weapons wp, int gameState)
 {
-	//window.draw(*this);
 	if (gunBehindPlayer) {
 		if (!isDead && gameState == 4) {
 			window.draw(wp.gunSprite);

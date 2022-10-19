@@ -19,14 +19,12 @@ void Weapons::load(void)
 	rifel.setTexture(rifelTex);
 	rifel.setOrigin(rifel.getGlobalBounds().width / 2, rifel.getGlobalBounds().height / 2);
 	rifel.setScale(scaleSize);
-	//gunSprite = rifel;
 
 	//loading shotgun tuxtures
 	shotgunTex.loadFromFile("Assets/Weapons/weaponR3.png");
 	shotgun.setTexture(shotgunTex);
 	shotgun.setOrigin(shotgun.getGlobalBounds().width / 2, shotgun.getGlobalBounds().height / 2);
 	shotgun.setScale(scaleSize);
-	//gunSprite = shotgun;
 
 	pickupGun[0] = rifel;
 	pickupGun[1] = shotgun;
@@ -111,12 +109,6 @@ void Weapons::fire(sf::Vector2f mousePos)
 
 	if (gunType == 3) {//if shotgun then multiple bullets
 		for (int i = -31; i <= 31; i+=31) {	//these values represents angle
-			/*float tempyOffset = std::sin(angle+i) * (gunSprite.getGlobalBounds().width / 2);
-			float tempxOffset = std::cos(angle+i) * (gunSprite.getGlobalBounds().width / 2);
-			float tempfinalX = gunMid.x + tempxOffset;
-			float tempfinalY = gunMid.y + tempyOffset;*/
-
-			//Bullet b(sf::Vector2f(tempfinalX, tempfinalY));
 			Bullet b(sf::Vector2f(finalX, finalY), 1);
 			b.setFireAngle(angle+i);
 			bullets.push_back(b);
@@ -128,8 +120,6 @@ void Weapons::fire(sf::Vector2f mousePos)
 		bullets.push_back(b);
 	}
 
-	
-	//muzzleFlash.setRotation(angle);
 	muzzleFlash.setPosition(finalX, finalY);
 	renderFlash = true;
 }
@@ -302,7 +292,6 @@ void Weapons::draw(sf::RenderWindow & window)
 {
 	for (auto i = bullets.begin(); i != bullets.end(); i++) {
 		window.draw(i->sprite);
-		//window.draw(*i);
 	}
 
 	if (gunSpawnned) {
