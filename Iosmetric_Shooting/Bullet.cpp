@@ -7,6 +7,11 @@ Bullet::Bullet()
 	fireBallTexture.loadFromFile("Assets/Extras/fireball.png");
 }
 
+Bullet::~Bullet()
+{
+	//std::cout << "bullet_destroyed";
+}
+
 Bullet::Bullet(sf::Vector2f position, int bulletType)
 {
 	this->bulletType = bulletType;

@@ -71,8 +71,8 @@ void EnemyManager::spawnEnemies(sf::Vector2f playerPos, Camera view)
 	int enemyType = std::rand() % 4;
 	enemySprite = enemyWalkSprites[enemyType];
 
-	Enemy e(sf::Vector2f(x, y), colRectSize, enemySprite, this->shadow, enemyType);
-	enemies.push_back(e);
+	Enemy *e = new Enemy(sf::Vector2f(x, y), colRectSize, enemySprite, this->shadow, enemyType);
+	enemies.push_back(*e);
 	numberOfEnemy++;
 
 	maxEnemySpawnd = (numberOfEnemy == maxNumberOfEnemy) ? true : false;
@@ -225,12 +225,12 @@ void EnemyManager::shoot(sf::Vector2f playerPos, Enemy enemy, float dt)
 		reloadingTimer = 0;
 		enemyReloadTime = 1.5 + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (2.5 - 1.5)));
 		//bullet fire for particular enemy
-		Bullet b(enemy.getPosition(), 2);
+		Bullet *b = new Bullet(enemy.getPosition(), 2);
 		float dx = playerPos.x - enemy.getPosition().x;
 		float dy = playerPos.y - enemy.getPosition().y;
 		float angle = std::atan2(dy, dx);
-		b.setFireAngle(angle);
-		enemyBullets.push_back(b);
+		b->setFireAngle(angle);
+		enemyBullets.push_back(*b);
 	}
 }
 

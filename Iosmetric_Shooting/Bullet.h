@@ -20,6 +20,7 @@ public:
 	sf::Sprite sprite;
 
 	Bullet();
+	~Bullet();
 	Bullet(sf::Vector2f position, int bulletType);
 	void setFireAngle(float angle);
 	void update(float dt);

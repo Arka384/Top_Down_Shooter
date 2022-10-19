@@ -109,15 +109,15 @@ void Weapons::fire(sf::Vector2f mousePos)
 
 	if (gunType == 3) {//if shotgun then multiple bullets
 		for (int i = -31; i <= 31; i+=31) {	//these values represents angle
-			Bullet b(sf::Vector2f(finalX, finalY), 1);
-			b.setFireAngle(angle+i);
-			bullets.push_back(b);
+			Bullet* b = new Bullet(sf::Vector2f(finalX, finalY), 1);
+			b->setFireAngle(angle+i);
+			bullets.push_back(*b);
 		}
 	}	
 	else {	//single bullets if not shotgun
-		Bullet b(sf::Vector2f(finalX, finalY), 1);
-		b.setFireAngle(angle);
-		bullets.push_back(b);
+		Bullet* b = new Bullet(sf::Vector2f(finalX, finalY), 1);
+		b->setFireAngle(angle);
+		bullets.push_back(*b);
 	}
 
 	muzzleFlash.setPosition(finalX, finalY);
