@@ -20,9 +20,7 @@ int main()
 
 	Map *map = new Map(windowSize);
 	Bullet* b = new Bullet();
-	//Player player(sf::Vector2f(windowSize.x / 2, windowSize.y / 2), windowSize);
 	Player *player = new Player(sf::Vector2f(windowSize.x/2, windowSize.y/2), windowSize);
-	//EnemyManager enemyManager(windowSize);
 	EnemyManager *enemyManager = new EnemyManager(windowSize);
 	Weapons *weapon = new Weapons(windowSize);
 	Camera *playerCam = new Camera(windowSize);
@@ -54,6 +52,11 @@ int main()
 
 			case sf::Event::KeyPressed:
 				keyPressed = true;
+
+				if ((gameUi->getGameState() == 4 || gameUi->getGameState() == 6) && 
+					sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+					gameUi->setGameState((gameUi->getGameState() == 4) ? 6 : 4);
+				}
 				
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
 					weapon->changeWeapon(1, true);
@@ -170,6 +173,9 @@ int main()
 			break;
 		case 5:	//score
 			gameUi->renderScoreState(window);
+			break;
+		case 6:	//paused
+			gameUi->renderPauseState(window);
 			break;
 		default:
 			break;

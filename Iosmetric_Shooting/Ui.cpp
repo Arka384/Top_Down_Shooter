@@ -158,6 +158,13 @@ Ui::Ui(sf::Vector2f windowSize)
 		scoreTexts[i].setCharacterSize(50);
 	}
 
+	pauseText.setFont(gravePartyFont);
+	pauseText.setCharacterSize(200);
+	pauseText.setFillColor(sf::Color(72, 37, 55, 255));
+	pauseText.setString("PAUSED");
+	pauseText.setPosition(windowSize.x / 2 - pauseText.getGlobalBounds().width / 2, windowSize.y / 2 - 220);
+
+
 	//loading sounds
 	buttonActiveBuffer.loadFromFile("Assets/Sounds/Ui/menu_active.wav");
 	buttonActive.setBuffer(buttonActiveBuffer);
@@ -353,6 +360,10 @@ void Ui::updatePlayState(sf::Vector2f viewSize, sf::Vector2f viewCenter, int pla
 		
 	rifelTimeBar.setPosition(x + 600, y);
 	shotgunTimeBar.setPosition(x + 600, y);
+
+	//pause text position
+	pauseText.setPosition(sf::Vector2f(viewCenter.x - pauseText.getGlobalBounds().width / 2,
+		viewCenter.y - pauseText.getGlobalBounds().height));
 }
 
 void Ui::loadScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, std::vector<int> scores)
@@ -503,4 +514,9 @@ void Ui::renderScoreState(sf::RenderWindow& window)
 	for (int i = 0; i < 6; i++)
 		window.draw(scoreTexts[i]);
 	window.draw(gotoMenuButton);
+}
+
+void Ui::renderPauseState(sf::RenderWindow& window)
+{
+	window.draw(pauseText);
 }

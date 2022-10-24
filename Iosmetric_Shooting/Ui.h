@@ -17,7 +17,7 @@ private:
 	//3 -> count down
 	//4 -> play 
 	//5 -> score
-	//6 -> game over
+	//6 -> pause
 
 	//textures
 	sf::Texture menuBackgroundTex, blankBackgroundTex, playButtonTex, arrowTex, startButtonTex;
@@ -35,7 +35,7 @@ private:
 	//fonts
 	sf::Font gravePartyFont;
 	//texts
-	sf::Text titleText, characterSelectText , countdownText, scoreTexts[6];
+	sf::Text titleText, characterSelectText, countdownText, scoreTexts[6], pauseText;
 	//sounds
 	sf::SoundBuffer buttonActiveBuffer, buttonSelectBuffer;
 	sf::SoundBuffer bgMusicBuf[5];
@@ -80,5 +80,6 @@ public:
 	void renderCountDown(sf::RenderWindow& window);
 	void renderPlayState(sf::RenderWindow& window, bool showTimeBar, int timebarType);
 	void renderScoreState(sf::RenderWindow& window);
+	void renderPauseState(sf::RenderWindow& window);
 };
 
