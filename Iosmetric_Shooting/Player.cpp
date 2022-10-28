@@ -34,6 +34,15 @@ void Player::load(void)
 	shadow.setTexture(shadowTex);
 	shadow.setScale(0.035, 0.035);
 
+	fireTex.loadFromFile("Assets/Extras/fireball.png");
+	fire.setTexture(fireTex);
+	fire.setTextureRect(sf::IntRect(0, 0, 500, 160));
+	fire.setScale(0.6, 0.8);
+	fire.setRotation(90.f);
+	fire.setOrigin(fire.getGlobalBounds().width / 2, fire.getGlobalBounds().height / 2);
+	fire.setColor(sf::Color(254, 227, 138, 200));
+
+
 	//loading sounds
 	deathSoundBuf.loadFromFile("Assets/Sounds/Player_sounds/death.wav");
 	deathSound.setBuffer(deathSoundBuf);
@@ -43,7 +52,7 @@ void Player::load(void)
 	resourceLoaded = true;
 }
 
-void Player::update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<Bullet> &enemyBullets, Weapons &weapon)
+void Player::update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<Bullet> &enemyBullets, Weapons &weapon, int totalScore)
 {
 	//keyboard movement
 	sf::Vector2f oldPos = position;
@@ -85,7 +94,6 @@ void Player::update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<
 		gunBehindPlayer = true;
 	else
 		gunBehindPlayer = false;
-		
 
 	this->setPosition(position);
 	weapon.gunSprite.setPosition(this->getPosition() + weapon.spritePosOffset);
@@ -94,6 +102,29 @@ void Player::update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<
 		weapon.gunSprite.setPosition(weapon.gunSprite.getPosition().x - 20, weapon.gunSprite.getPosition().y);
 	else
 		weapon.gunSprite.setPosition(weapon.gunSprite.getPosition().x + 20, weapon.gunSprite.getPosition().y);
+
+	if ((totalScore - lastChadToggleScore >= chadToggleScore) && !gigaChadMode && sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {
+		gigaChadMode = true;
+		weapon.changeWeapon(2, true);
+	}
+	if (gigaChadMode) {
+		chadModeTimer += dt;
+		if (chadModeTimer >= chadeModeTime - 5) {
+			blinkTimer += dt;
+			if (blinkTimer >= blinkTime) {
+				blinkTimer = 0;
+				playerBlink = (playerBlink) ? false : true;
+			}
+				
+		}
+		animateFire(dt);
+		if (chadModeTimer >= chadeModeTime) {
+			chadModeTimer = 0;
+			lastChadToggleScore = totalScore;
+			gigaChadMode = false;
+			playerBlink = false;
+		}
+	}
 
 	//animations
 	if (isDead && !deathAnimEnd) {
@@ -122,11 +153,13 @@ void Player::update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<
 	auto i = enemyBullets.begin();
 	while (i != enemyBullets.end()) {
 		if (this->isColliding(*i)) {
-			this->health -= 20;	//comment this line and you will be invincible
+			if (!gigaChadMode) {	//invincible in chad mode
+				this->health -= 20;	//comment this line and you will be invincible
+				playerSprite.setColor(sf::Color::Red);
+			}
 
 			if(!deathAnimEnd)
 				hurtSound.play();
-			playerSprite.setColor(sf::Color::Red);
 
 			if (this->health <= 0) {
 				isDead = true;
@@ -189,6 +222,12 @@ void Player::resetStates(void)
 	isDead = false;
 	deathAnimEnd = false;
 	deathSceneEnd = false;
+	playerBlink = false;
+}
+
+int Player::killsLeftToChadMode(int currentScore)
+{
+	return (lastChadToggleScore + chadToggleScore) - currentScore;
 }
 
 void Player::animateIdle(float dt, sf::Vector2f requiredScale)
@@ -253,8 +292,29 @@ void Player::animateDeath(float dt)
 	playerSprite = deathSprite;
 }
 
+void Player::animateFire(float dt)
+{
+	fireAnimTimer += dt;
+	if (fireAnimTimer > fireAnimTime) {
+		fireAnimTimer = 0;
+
+		rectY += 160;
+		if (rectY > 160 * 4)
+			rectY = 0;
+		fire.setTextureRect(sf::IntRect(0, rectY, 500, 160));
+	}
+	fire.setPosition(position.x - fire.getGlobalBounds().width / 2.6, position.y - fire.getGlobalBounds().height/1.45);
+}
+
 void Player::draw(sf::RenderWindow &window, Weapons wp, int gameState)
 {
+	if (playerBlink)
+		return;
+
+	if (gigaChadMode) {
+		window.draw(fire);
+	}
+
 	if (gunBehindPlayer) {
 		if (!isDead && gameState == 4) {
 			window.draw(wp.gunSprite);
@@ -270,6 +330,7 @@ void Player::draw(sf::RenderWindow &window, Weapons wp, int gameState)
 			if (wp.renderFlash)
 				window.draw(wp.muzzleFlash);
 		}
-			
 	}
+
+	
 }

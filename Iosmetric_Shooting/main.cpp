@@ -9,7 +9,7 @@ int main()
 	sf::Vector2f windowSize = sf::Vector2f(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height);
 	sf::RenderWindow window(sf::VideoMode(windowSize.x, windowSize.y), "No Way Out", sf::Style::Close);
 
-	window.setFramerateLimit(120);
+	window.setFramerateLimit(200);
 	sf::Time tm;
 	sf::Clock clk;
 	float dt = 0.f;
@@ -108,12 +108,13 @@ int main()
 			gameUi->updateCountDown(dt);
 			break;
 		case 4:	//if play state
-			player->update(dt, keyPressed, mousePos, enemyManager->enemyBullets, *weapon);
+			player->update(dt, keyPressed, mousePos, enemyManager->enemyBullets, *weapon, enemyManager->getScore());
 			weapon->update(mousePressed, mousePos, player->getPosition(), *player, dt, *playerCam, player->isDead);
-			enemyManager->update(dt, *weapon, player->getPosition(), *playerCam);
-			playerCam->update(player->getPosition(), window, dt);
+			enemyManager->update(dt, *weapon, player->getPosition(), *playerCam, player->gigaChadMode);
+			playerCam->update(player->getPosition(), window, dt, player->gigaChadMode);
 			map->update(*playerCam, keyPressed, player->getPosition());
-			gameUi->updatePlayState(playerCam->playerView.getSize(), playerCam->playerView.getCenter(), player->getHealth(), weapon->remainingGunTime);
+			gameUi->updatePlayState(playerCam->playerView.getSize(), playerCam->playerView.getCenter(), player->getHealth(), 
+				weapon->remainingGunTime, player->killsLeftToChadMode(enemyManager->getScore()), player->gigaChadMode);
 			
 			if (player->isDead && player->deathSceneEnd)
 				gameUi->setGameState(5);
@@ -168,7 +169,8 @@ int main()
 				weapon->draw(window);
 			player->draw(window, *weapon, gameUi->getGameState());
 			enemyManager->drawEnemies(window);
-			gameUi->renderPlayState(window, weapon->gunEquipped, weapon->spawndWeaponType);
+			gameUi->renderPlayState(window, weapon->gunEquipped, weapon->spawndWeaponType, player->gigaChadMode, 
+				player->killsLeftToChadMode(enemyManager->getScore()));
 			window.draw(weapon->crosshair);
 			break;
 		case 5:	//score

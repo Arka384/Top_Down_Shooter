@@ -13,7 +13,7 @@ public:
 	bool triggerShake = false;
 
 	Camera(sf::Vector2f windowSize);
-	void update(sf::Vector2f playerPos, sf::RenderWindow &window, float dt);
+	void update(sf::Vector2f playerPos, sf::RenderWindow &window, float dt, bool chadMode);
 	void cameraShake(float dt);
 };
 

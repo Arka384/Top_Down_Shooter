@@ -26,6 +26,7 @@ Ui::Ui(sf::Vector2f windowSize)
 		noWayOutPos = sf::Vector2f(windowSize.x - 540, windowSize.y - 260);
 		gotoMenuButtonScale = sf::Vector2f(0.8, 0.8);
 		gunTimerBarScale = sf::Vector2f(0.5, 0.5);
+		chadMeterScale = sf::Vector2f(0.5, 0.4);
 	}
 	else {
 		menuBackFileName.append(".png");
@@ -42,6 +43,7 @@ Ui::Ui(sf::Vector2f windowSize)
 		noWayOutPos = sf::Vector2f(windowSize.x - 660, windowSize.y - 340);
 		gotoMenuButtonScale = sf::Vector2f(1, 1);
 		gunTimerBarScale = sf::Vector2f(0.6, 0.6);
+		chadMeterScale = sf::Vector2f(0.5, 0.5);
 	}	
 
 	//loading textures and sprites
@@ -92,6 +94,7 @@ Ui::Ui(sf::Vector2f windowSize)
 	gotoMenuButton.setScale(gotoMenuButtonScale);
 	gotoMenuButton.setPosition(gotoMenuButtonPos);
 
+	//gun timer bar
 	rifelTimeBarTex.loadFromFile("Assets/Ui/rifel_outline.png");
 	rifelTimeBar.setTexture(rifelTimeBarTex);
 	rifelTimeBar.setScale(gunTimerBarScale);
@@ -105,6 +108,21 @@ Ui::Ui(sf::Vector2f windowSize)
 	timeBar.setTexture(timeBarTex);
 	timeBar.setScale(gunTimerBarScale);
 
+	//chad meter stuffs
+	chadMeterOutlineTex.loadFromFile("Assets/Ui/chad_meter_outline.png");
+	chadMeterOut.setTexture(chadMeterOutlineTex);
+	chadMeterOut.setScale(chadMeterScale);
+	chadMeterOutlineOnTex.loadFromFile("Assets/Ui/chad_meter_outline_on.png");
+	chadMeterOutOn.setTexture(chadMeterOutlineOnTex);
+	chadMeterOutOn.setScale(chadMeterScale);
+	chadMeterInline = timeBarInline;
+	chadMeterInline.setScale(chadMeterScale);
+	chadMeterInline.setRotation(90.f);
+	chadMeter = timeBar;
+	chadMeter.setScale(chadMeterScale);
+	chadMeter.setRotation(-90.f);
+
+	//score things
 	newHighScoreTex.loadFromFile("Assets/Ui/newHighScore.png");
 	newHighScore.setTexture(newHighScoreTex);
 	newHighScore.setScale(0.6, 0.6);
@@ -164,6 +182,11 @@ Ui::Ui(sf::Vector2f windowSize)
 	pauseText.setString("PAUSED");
 	pauseText.setPosition(windowSize.x / 2 - pauseText.getGlobalBounds().width / 2, windowSize.y / 2 - 220);
 
+	toggleChadModeText.setFont(gravePartyFont);
+	toggleChadModeText.setFillColor(sf::Color(72, 37, 55, 255));
+	toggleChadModeText.setString("PRESS 'E' TO TURN ON CHAD MODE");
+	toggleChadModeText.setCharacterSize(70);
+
 
 	//loading sounds
 	buttonActiveBuffer.loadFromFile("Assets/Sounds/Ui/menu_active.wav");
@@ -181,6 +204,9 @@ Ui::Ui(sf::Vector2f windowSize)
 		else
 			bgMusic[i].setVolume(bgMusicVolume);
 	}
+
+	gigaChadSoundBuf.loadFromFile("Assets/Sounds/Background_music/giga_chad_2.wav");
+	gigaChadSound.setBuffer(gigaChadSoundBuf);
 
 }
 
@@ -289,15 +315,17 @@ void Ui::updateHowToState(sf::Vector2f mousePos, bool mousePressed)
 
 void Ui::updateCountDown(float dt)
 {
-	if (bgMusic[0].getStatus() == sf::Sound::Playing) {
+	/*if (bgMusic[0].getStatus() == sf::Sound::Playing) {
 		if (bgMusic[0].getVolume() > 0)
 			bgMusic[0].setVolume(bgMusic[0].getVolume()-0.18);
 		if (static_cast<int>(bgMusic[0].getVolume()) <= 0) {
 			bgMusic[0].stop();
+			bgMusicPlaying = false;
 			bgMusic[0].setVolume(bgMusicVolume);
 		}
-	}
-	else if(!bgMusicPlaying) {
+	}*/
+	fadeOutSound(bgMusic[0], 0.18);
+	if(!bgMusicPlaying && bgMusic[0].getStatus() != sf::Sound::Playing){
 		musicType = std::rand() % 4 + 1;
 		bgMusic[musicType].play();
 		bgMusicPlaying = true;
@@ -323,14 +351,45 @@ void Ui::updateCountDown(float dt)
 	}
 }
 
-void Ui::updatePlayState(sf::Vector2f viewSize, sf::Vector2f viewCenter, int playerHealth, float remainingGunTime)
+void Ui::updatePlayState(sf::Vector2f viewSize, sf::Vector2f viewCenter, int playerHealth, float remainingGunTime, int killsLeftForChadMode, bool chadMode)
 {
-	if (bgMusic[musicType].getStatus() == sf::Sound::Stopped()) {
+	//std::cout << killsLeftForChadMode << "\n";
+	//offset for ui shake
+	float offset = 3 + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (8 - 3)));
+	if (killsLeftForChadMode > 0)
+		offset = 0;
+	float direction = rand() % 2;
+	offset = ((direction == 0) ? offset : -offset);
+
+	//music things
+	if (bgMusic[musicType].getStatus() == sf::Sound::Stopped && !chadMode && gigaChadSound.getStatus() == sf::Sound::Stopped) {
 		musicType = std::rand() % 4 + 1;
 		bgMusic[musicType].play();
 		bgMusicPlaying = true;
 	}
+	if (chadMode && gigaChadSound.getStatus() != sf::Sound::Playing) {
+		//stop the current playing background music
+		/*if (bgMusic[musicType].getStatus() == sf::Sound::Playing) {
+			if (bgMusic[musicType].getVolume() > 0)
+				bgMusic[musicType].setVolume(bgMusic[musicType].getVolume() - 0.2);
+			if (static_cast<int>(bgMusic[musicType].getVolume()) <= 0) {
+				bgMusic[musicType].stop();
+				bgMusicPlaying = false;
+				bgMusic[musicType].setVolume(bgMusicVolume);
+			}
+		}*/
+		fadeOutSound(bgMusic[musicType], 0.2);
+		if(bgMusic[musicType].getVolume() <= 20) {	//when background music have stopped play chad music
+			bgMusic[musicType].stop();
+			gigaChadSound.setVolume(100);
+			gigaChadSound.play();
+		}
+	}
+	if (gigaChadSound.getStatus() == sf::Sound::Playing && !chadMode) {
+		fadeOutSound(gigaChadSound, 0.1);
+	}
 
+	//player health bar and gun time bar updates
 	if (playerHealth >= 0) {
 		float healthBarFactor = healthStuffScale.x / 5;
 		float reduceScale = healthBarFactor * ((100 - playerHealth) / 20);
@@ -344,22 +403,39 @@ void Ui::updatePlayState(sf::Vector2f viewSize, sf::Vector2f viewCenter, int pla
 	
 	float x = viewCenter.x - viewSize.x / 2 + healthBarOutline.getGlobalBounds().width / 4;
 	float y = viewCenter.y - viewSize.y / 2 + healthBarOutline.getGlobalBounds().height / 2;
-	healthBarOutline.setPosition(x,y);
-	healthBarInline.setPosition(x + 12, y + 8);
-	healthBar.setPosition(x + 12, y + 8);
+	healthBarOutline.setPosition(x + offset,y + offset);
+	healthBarInline.setPosition(x + 12 + offset, y + 8 + offset);
+	healthBar.setPosition(x + 12 + offset, y + 8 + offset);
 	if (this->windowSize.x <= 1366 && this->windowSize.y <= 768) {
-		heart.setPosition(x - 30, y - 6);
-		timeBarInline.setPosition(x + 600 + 100, y + 10);
-		timeBar.setPosition(x + 600 + 100, y + 10);
+		heart.setPosition(x - 30 + offset, y - 6 + offset);
+		timeBarInline.setPosition(x + 600 + 100 + offset, y + 10 + offset);
+		timeBar.setPosition(x + 600 + 100 + offset, y + 10 + offset);
 	}
 	else {
-		heart.setPosition(x - 38, y - 10);
-		timeBarInline.setPosition(x + 600 + 120, y + 10);
-		timeBar.setPosition(x + 600 + 120, y + 10);
+		heart.setPosition(x - 38 + offset, y - 10 + offset);
+		timeBarInline.setPosition(x + 600 + 120 + offset, y + 10 + offset);
+		timeBar.setPosition(x + 600 + 120 + offset, y + 10 + offset);
 	}
 		
-	rifelTimeBar.setPosition(x + 600, y);
-	shotgunTimeBar.setPosition(x + 600, y);
+	rifelTimeBar.setPosition(x + 600 + offset, y + offset);
+	shotgunTimeBar.setPosition(x + 600 + offset, y + offset);
+
+	//updating chad meter
+	x = viewCenter.x + viewSize.x / 2 - chadMeterOut.getGlobalBounds().width;
+	if (chadMode) {
+		chadMeterOutOn.setPosition(x - 15 + offset, y - 20 + offset);
+	}
+	chadMeterOut.setPosition(x - 15 + offset, y - 20 + offset);
+	chadMeterInline.setPosition(x + 70 + offset, y + 80 + offset);
+	float chadMeterIncreaseFactor = chadMeterScale.x / chadModeKillsRequired;	//for 20 kills
+	float chadMeterCurrScale = (chadModeKillsRequired - killsLeftForChadMode) * chadMeterIncreaseFactor;
+	chadMeter.setScale(chadMeterCurrScale, chadMeterScale.y);
+	chadMeter.setPosition(x + 25 + offset, y + 375 + offset);
+
+	//text for chad mode toggle
+	x = viewCenter.x - toggleChadModeText.getGlobalBounds().width / 2;
+	y = viewCenter.y + viewSize.y / 2 - toggleChadModeText.getGlobalBounds().height * 3.5;
+	toggleChadModeText.setPosition(x, y);
 
 	//pause text position
 	pauseText.setPosition(sf::Vector2f(viewCenter.x - pauseText.getGlobalBounds().width / 2,
@@ -407,7 +483,7 @@ void Ui::loadScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, std::vec
 
 bool Ui::updateScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, sf::Vector2f mousePos, bool mousePressed)
 {
-	if (bgMusic[musicType].getStatus() == sf::Sound::Playing) {
+	/*if (bgMusic[musicType].getStatus() == sf::Sound::Playing) {
 		if (bgMusic[musicType].getVolume() > 0)
 			bgMusic[musicType].setVolume(bgMusic[musicType].getVolume() - 0.2);
 		if (static_cast<int>(bgMusic[musicType].getVolume()) <= 0) {
@@ -415,7 +491,8 @@ bool Ui::updateScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, sf::Ve
 			bgMusicPlaying = false;
 			bgMusic[musicType].setVolume(bgMusicVolume);
 		}
-	}
+	}*/
+	fadeOutSound(bgMusic[musicType], 0.2);
 
 	if (ifMouseIntersects(mousePos, gotoMenuButton.getPosition(),
 		sf::Vector2f(gotoMenuButton.getGlobalBounds().width, gotoMenuButton.getGlobalBounds().height), 4)) {
@@ -449,6 +526,19 @@ bool Ui::ifMouseIntersects(sf::Vector2f mousePos, sf::Vector2f buttonPos, sf::Ve
 	else {
 		playButtonActive = true;
 		return false;
+	}
+}
+
+void Ui::fadeOutSound(sf::Sound &sound, float volumeDownFactor)
+{
+	if (sound.getStatus() == sf::Sound::Playing) {
+		if (sound.getVolume() > 0)
+			sound.setVolume(sound.getVolume() - volumeDownFactor);
+		if (static_cast<int>(sound.getVolume()) <= 0) {
+			sound.stop();
+			bgMusicPlaying = false;
+			sound.setVolume(bgMusicVolume);
+		}
 	}
 }
 
@@ -489,12 +579,22 @@ void Ui::renderCountDown(sf::RenderWindow& window)
 	window.draw(countdownText);
 }
 
-void Ui::renderPlayState(sf::RenderWindow& window, bool showTimeBar, int timebarType)
+void Ui::renderPlayState(sf::RenderWindow& window, bool showTimeBar, int timebarType, bool chadMode, int killsLeftForChadMode)
 {
 	window.draw(healthBarInline);
 	window.draw(healthBar);
 	window.draw(healthBarOutline);
 	window.draw(heart);
+
+	window.draw(chadMeterInline);
+	window.draw(chadMeter);
+	if (chadMode)
+		window.draw(chadMeterOutOn);
+	else
+		window.draw(chadMeterOut);
+
+	if (killsLeftForChadMode <= 0 && !chadMode)
+		window.draw(toggleChadModeText);
 
 	if (showTimeBar) {
 		window.draw(timeBarInline);

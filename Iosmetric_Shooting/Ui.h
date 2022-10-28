@@ -25,28 +25,31 @@ private:
 	sf::Texture howToTex, noWayOutTex, scoreUiTex, gotoMenuButtonTex;
 	sf::Texture rifelTimeBarTex, shotgunTimeBarTex, timeBarInlineTex, timeBarTex;
 	sf::Texture newHighScoreTex;
+	sf::Texture chadMeterOutlineTex, chadMeterOutlineOnTex;
 	//sprites
 	sf::Sprite menuBackground, blankBackground, playButton, arrow, startButton;
 	sf::Sprite healthBarOutline, healthBarInline, healthBar, heart;
 	sf::Sprite howToInfo, noWayOut, scoreUi, gotoMenuButton;
 	sf::Sprite rifelTimeBar, shotgunTimeBar, timeBarInline, timeBar;
 	sf::Sprite newHighScore;
+	sf::Sprite chadMeterOut, chadMeterOutOn, chadMeterInline, chadMeter;
 
 	//fonts
 	sf::Font gravePartyFont;
 	//texts
-	sf::Text titleText, characterSelectText, countdownText, scoreTexts[6], pauseText;
+	sf::Text titleText, characterSelectText, countdownText, scoreTexts[6], pauseText, toggleChadModeText;
 	//sounds
 	sf::SoundBuffer buttonActiveBuffer, buttonSelectBuffer;
-	sf::SoundBuffer bgMusicBuf[5];
+	sf::SoundBuffer bgMusicBuf[5], gigaChadSoundBuf;
 	sf::Sound buttonActive, buttonSelect;
-	sf::Sound bgMusic[5];
+	sf::Sound bgMusic[5], gigaChadSound;
 
 	sf::Vector2f playButtonPos, startButtonPos, arrowPos, noWayOutPos, gotoMenuButtonPos;
 	sf::Vector2f playButtonScale, startButtonScale, healthStuffScale, noWayOutScale, gotoMenuButtonScale;
-	sf::Vector2f gunTimerBarScale;
+	sf::Vector2f gunTimerBarScale, chadMeterScale;
 	float countDownInterval = 1.2f, countDownTimer = 0.f;
 	int countNum = 3;
+	int chadModeKillsRequired = 20;
 
 	bool playButtonActive = true;
 	bool soundException1 = true, soundException2 = true;
@@ -67,18 +70,19 @@ public:
 	void updateCharacterSelect(sf::Vector2f mousePos, bool &mousePressed);
 	void updateHowToState(sf::Vector2f mousePos, bool mousePressed);
 	void updateCountDown(float dt);
-	void updatePlayState(sf::Vector2f viewSize, sf::Vector2f viewCenter, int playerHealth, float remainingGunTime);
+	void updatePlayState(sf::Vector2f viewSize, sf::Vector2f viewCenter, int playerHealth, float remainingGunTime, int killsLeftForChadMode, bool chadMode);
 	void loadScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, std::vector<int> scores);
 	bool updateScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, sf::Vector2f mousePos, bool mousePressed);
 
 	bool ifMouseIntersects(sf::Vector2f mousePos, sf::Vector2f buttonPos, sf::Vector2f buttonSize, int number);
+	void fadeOutSound(sf::Sound &sound, float volumeDownFactor);
 	void resetStates(void);
 
 	void renderMainMenu(sf::RenderWindow& window);
 	void renderCharacterSelect(sf::RenderWindow& window);
 	void renderHowToState(sf::RenderWindow& window);
 	void renderCountDown(sf::RenderWindow& window);
-	void renderPlayState(sf::RenderWindow& window, bool showTimeBar, int timebarType);
+	void renderPlayState(sf::RenderWindow& window, bool showTimeBar, int timebarType, bool chadMode, int killsLeftForChadMode);
 	void renderScoreState(sf::RenderWindow& window);
 	void renderPauseState(sf::RenderWindow& window);
 };

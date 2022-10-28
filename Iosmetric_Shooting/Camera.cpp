@@ -11,11 +11,14 @@ Camera::Camera(sf::Vector2f windowSize)
 
 }
 
-void Camera::update(sf::Vector2f playerPos, sf::RenderWindow &window, float dt)
+void Camera::update(sf::Vector2f playerPos, sf::RenderWindow &window, float dt, bool chadMode)
 {
 	playerView.setCenter(playerPos);
 
 	if (triggerShake)
+		cameraShake(dt);
+
+	if (chadMode)
 		cameraShake(dt);
 
 	window.setView(playerView);

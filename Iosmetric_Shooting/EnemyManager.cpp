@@ -78,14 +78,21 @@ void EnemyManager::spawnEnemies(sf::Vector2f playerPos, Camera view)
 	maxEnemySpawnd = (numberOfEnemy == maxNumberOfEnemy) ? true : false;
 }
 
-void EnemyManager::update(float dt, Weapons & w, sf::Vector2f playerPos, Camera &view)
+void EnemyManager::update(float dt, Weapons & w, sf::Vector2f playerPos, Camera &view, bool chadMode)
 {
+	if (chadMode) {
+		maxNumberOfEnemy = 10;
+	}
+	else
+		maxNumberOfEnemy = 5;
 	//spawn enemies
 	spawnnigTimer += dt;
 	if (spawnnigTimer >= spawnTime && maxEnemySpawnd == false) {
 		spawnnigTimer = 0;
 		spawnEnemies(playerPos, view);
 		spawnTime = 0.5 + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (2.0 - 0.5)));
+		if (chadMode)
+			spawnTime = 0.5;
 	}
 
 	//update enemies
@@ -201,6 +208,14 @@ bool EnemyManager::ifOutsizeView(Bullet b, Camera view)
 		return true;
 	else
 		return false;
+}
+
+int EnemyManager::getScore(void)
+{
+	int totalScore = 0;
+	for (int i = 0; i < 4; i++)
+		totalScore += killScores[i];
+	return totalScore;
 }
 
 void EnemyManager::resetStates(void)

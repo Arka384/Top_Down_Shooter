@@ -38,10 +38,11 @@ public:
 	void load(void);
 	void shoot(sf::Vector2f playerPos, Enemy enemy, float dt);
 	void spawnEnemies(sf::Vector2f playerPos, Camera view);
-	void update(float dt, Weapons &w, sf::Vector2f playerPos, Camera &view);
+	void update(float dt, Weapons &w, sf::Vector2f playerPos, Camera &view, bool chadMode);
 	void moveEnemy(float dt, sf::Vector2f playerPos, Enemy &e);
 	void animateWalk(float dt, Enemy &e);
 	bool ifOutsizeView(Bullet b, Camera view);
+	int getScore(void);
 	void resetStates(void);
 	void drawEnemies(sf::RenderWindow &window);
 };
