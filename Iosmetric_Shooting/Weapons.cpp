@@ -124,7 +124,7 @@ void Weapons::fire(sf::Vector2f mousePos)
 	renderFlash = true;
 }
 
-void Weapons::update(bool mousePressed, sf::Vector2f mousePos, sf::Vector2f playerPos, Entity player, float dt, Camera view, bool playerStatus)
+void Weapons::update(bool mousePressed, sf::Vector2f mousePos, sf::Vector2f playerPos, Entity player, float dt, Camera view, bool playerStatus, bool chadMode)
 {
 	flashTimer += dt;	//for muzzle flash
 	reloadTimer += dt;	//for firing delay
@@ -133,7 +133,28 @@ void Weapons::update(bool mousePressed, sf::Vector2f mousePos, sf::Vector2f play
 		gunEquippedTimer += dt;
 		remainingGunTime = gunEquippedTime - gunEquippedTimer;
 	}
-		
+	
+	//adjustments after chadmode ends
+	if (chadMode && !chadModeTriggered) {
+		//if chadmode triggered then stop spawning guns and stop timers
+		chadModeTriggered = true;
+		chadModeEnded = false;
+		gunEquipped = false;
+		gunSpawnned = false;
+		gunSpawnTimer = 0;
+	}
+	if (!chadMode && !chadModeEnded) {
+		//if chad mode ended then equip rifle and start timer
+		chadModeEnded = true;
+		chadModeTriggered = false;
+		gunSpawnTimer = 0;
+		gunEquippedTimer = 0;
+		spawndWeaponType = 0;
+		changeWeapon(spawndWeaponType + 2, true);
+		gunSpawnned = false;
+		gunEquipped = true;
+	}
+
 
 	if (gunType == 2 && mousePressed && !playerStatus) {
 		fire(mousePos);
@@ -160,23 +181,26 @@ void Weapons::update(bool mousePressed, sf::Vector2f mousePos, sf::Vector2f play
 	}
 
 	//spawn guns
-	if (gunSpawnTimer >= gunSpawnTimeDelay && gunSpawnned == false) {
-		gunSpawnTimer = 0;
-		gunSpawnTimeDelay = 10 + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (15 - 10)));
-		spawndWeaponType = spawnWeapon(playerPos, dt, view);
+	if (!chadMode) {
+		if (gunSpawnTimer >= gunSpawnTimeDelay && gunSpawnned == false) {
+			gunSpawnTimer = 0;
+			gunSpawnTimeDelay = 10 + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (15 - 10)));
+			spawndWeaponType = spawnWeapon(playerPos, dt, view);
+		}
+		if (gunSpawnned && gunSpawnTimer > 5) {
+			gunSpawnned = false;
+			gunSpawnTimer = 0;
+		}
+		//update spawned gun
+		if (gunSpawnned && spawnnedGun.getGlobalBounds().intersects(player.getGlobalBounds())) {
+			gunSpawnTimer = 0;
+			gunEquippedTimer = 0;
+			changeWeapon(spawndWeaponType + 2, true);
+			gunSpawnned = false;
+			gunEquipped = true;
+		}
 	}
-	if (gunSpawnned && gunSpawnTimer > 5) {
-		gunSpawnned = false;
-		gunSpawnTimer = 0;
-	}
-	//update spawned gun
-	if (gunSpawnned && spawnnedGun.getGlobalBounds().intersects(player.getGlobalBounds())) {
-		gunSpawnTimer = 0;
-		gunEquippedTimer = 0;
-		changeWeapon(spawndWeaponType + 2, true);
-		gunSpawnned = false;
-		gunEquipped = true;
-	}
+	
 	//update equipped gun time
 	if (gunEquipped && gunEquippedTimer >= gunEquippedTime) {
 		changeWeapon(1, true);	//reset weapon to pistol

@@ -103,7 +103,8 @@ void Player::update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<
 	else
 		weapon.gunSprite.setPosition(weapon.gunSprite.getPosition().x + 20, weapon.gunSprite.getPosition().y);
 
-	if ((totalScore - lastChadToggleScore >= chadToggleScore) && !gigaChadMode && sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {
+	if ((totalScore - lastChadToggleScore >= chadToggleScore) && !isDead 
+			&& !gigaChadMode && sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {
 		gigaChadMode = true;
 		weapon.changeWeapon(2, true);
 	}
@@ -119,10 +120,12 @@ void Player::update(float dt, bool keyPressed, sf::Vector2f mousePos, std::list<
 		}
 		animateFire(dt);
 		if (chadModeTimer >= chadeModeTime) {
-			chadModeTimer = 0;
-			lastChadToggleScore = totalScore;
 			gigaChadMode = false;
 			playerBlink = false;
+			chadModeTimer = 0;
+			lastChadToggleScore = totalScore;
+			if (!weapon.gunEquipped)
+				weapon.changeWeapon(1, true);
 		}
 	}
 
@@ -223,6 +226,8 @@ void Player::resetStates(void)
 	deathAnimEnd = false;
 	deathSceneEnd = false;
 	playerBlink = false;
+	gigaChadMode = false;
+	lastChadToggleScore = 0;
 }
 
 int Player::killsLeftToChadMode(int currentScore)

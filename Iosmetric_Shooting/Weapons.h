@@ -20,6 +20,8 @@ private:
 	float gunSpawnTimeDelay = 5.f, gunEquippedTime = 10.f;
 	float gunSpawnTimer = 0.f, gunEquippedTimer = 0.f;
 	bool gunSpawnned = false;
+	bool chadModeTriggered = false;
+	bool chadModeEnded = true;
 
 public:
 	std::list<Bullet> bullets;
@@ -35,7 +37,7 @@ public:
 	Weapons(sf::Vector2f windowSize);
 	void load(void);
 	void fire(sf::Vector2f mousePos);
-	void update(bool mousePressed, sf::Vector2f mousePos, sf::Vector2f playerPos, Entity player, float dt, Camera view, bool playerStatus);
+	void update(bool mousePressed, sf::Vector2f mousePos, sf::Vector2f playerPos, Entity player, float dt, Camera view, bool playerStatus, bool chadMode);
 	int spawnWeapon(sf::Vector2f playerPos, float dt, Camera view);
 	void changeWeapon(int type, bool playSound);
 	bool ifOutsideView(Bullet b, Camera view);

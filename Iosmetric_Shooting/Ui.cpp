@@ -551,6 +551,7 @@ void Ui::resetStates(void)
 	newHighScoreAchieved = false;
 	countdownText.setString("GET  READY");
 	countdownText.setPosition(windowSize.x / 2 - countdownText.getGlobalBounds().width / 2, windowSize.y / 2 - 220);
+	chadMeter.setScale(chadMeterScale);
 }
 
 void Ui::renderMainMenu(sf::RenderWindow& window)

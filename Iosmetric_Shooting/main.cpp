@@ -109,7 +109,7 @@ int main()
 			break;
 		case 4:	//if play state
 			player->update(dt, keyPressed, mousePos, enemyManager->enemyBullets, *weapon, enemyManager->getScore());
-			weapon->update(mousePressed, mousePos, player->getPosition(), *player, dt, *playerCam, player->isDead);
+			weapon->update(mousePressed, mousePos, player->getPosition(), *player, dt, *playerCam, player->isDead, player->gigaChadMode);
 			enemyManager->update(dt, *weapon, player->getPosition(), *playerCam, player->gigaChadMode);
 			playerCam->update(player->getPosition(), window, dt, player->gigaChadMode);
 			map->update(*playerCam, keyPressed, player->getPosition());
