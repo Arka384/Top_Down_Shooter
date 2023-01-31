@@ -47,6 +47,7 @@ void Weapons::load(void)
 	pistolSound.setVolume(40);
 	rifelSoundBuf.loadFromFile("Assets/Sounds/Weapon_sounds/ar-15-single-shot.wav");
 	rifelSound.setBuffer(rifelSoundBuf);
+	rifelSound.setVolume(60);
 	shotgunSoundBuf.loadFromFile("Assets/Sounds/Weapon_sounds/12-gauge-pump-action-shotgun.wav");
 	shotgunSound.setBuffer(shotgunSoundBuf);
 

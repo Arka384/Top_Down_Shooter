@@ -315,15 +315,6 @@ void Ui::updateHowToState(sf::Vector2f mousePos, bool mousePressed)
 
 void Ui::updateCountDown(float dt)
 {
-	/*if (bgMusic[0].getStatus() == sf::Sound::Playing) {
-		if (bgMusic[0].getVolume() > 0)
-			bgMusic[0].setVolume(bgMusic[0].getVolume()-0.18);
-		if (static_cast<int>(bgMusic[0].getVolume()) <= 0) {
-			bgMusic[0].stop();
-			bgMusicPlaying = false;
-			bgMusic[0].setVolume(bgMusicVolume);
-		}
-	}*/
 	fadeOutSound(bgMusic[0], 0.18);
 	if(!bgMusicPlaying && bgMusic[0].getStatus() != sf::Sound::Playing){
 		musicType = std::rand() % 4 + 1;
@@ -353,7 +344,6 @@ void Ui::updateCountDown(float dt)
 
 void Ui::updatePlayState(sf::Vector2f viewSize, sf::Vector2f viewCenter, int playerHealth, float remainingGunTime, int killsLeftForChadMode, bool chadMode)
 {
-	//std::cout << killsLeftForChadMode << "\n";
 	//offset for ui shake
 	float offset = 3 + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (8 - 3)));
 	if (killsLeftForChadMode > 0)
@@ -369,15 +359,6 @@ void Ui::updatePlayState(sf::Vector2f viewSize, sf::Vector2f viewCenter, int pla
 	}
 	if (chadMode && gigaChadSound.getStatus() != sf::Sound::Playing) {
 		//stop the current playing background music
-		/*if (bgMusic[musicType].getStatus() == sf::Sound::Playing) {
-			if (bgMusic[musicType].getVolume() > 0)
-				bgMusic[musicType].setVolume(bgMusic[musicType].getVolume() - 0.2);
-			if (static_cast<int>(bgMusic[musicType].getVolume()) <= 0) {
-				bgMusic[musicType].stop();
-				bgMusicPlaying = false;
-				bgMusic[musicType].setVolume(bgMusicVolume);
-			}
-		}*/
 		fadeOutSound(bgMusic[musicType], 0.2);
 		if(bgMusic[musicType].getVolume() <= 20) {	//when background music have stopped play chad music
 			bgMusic[musicType].stop();
@@ -483,15 +464,6 @@ void Ui::loadScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, std::vec
 
 bool Ui::updateScoreState(sf::Vector2f viewSize, sf::Vector2f viewCenter, sf::Vector2f mousePos, bool mousePressed)
 {
-	/*if (bgMusic[musicType].getStatus() == sf::Sound::Playing) {
-		if (bgMusic[musicType].getVolume() > 0)
-			bgMusic[musicType].setVolume(bgMusic[musicType].getVolume() - 0.2);
-		if (static_cast<int>(bgMusic[musicType].getVolume()) <= 0) {
-			bgMusic[musicType].stop();
-			bgMusicPlaying = false;
-			bgMusic[musicType].setVolume(bgMusicVolume);
-		}
-	}*/
 	fadeOutSound(bgMusic[musicType], 0.2);
 
 	if (ifMouseIntersects(mousePos, gotoMenuButton.getPosition(),

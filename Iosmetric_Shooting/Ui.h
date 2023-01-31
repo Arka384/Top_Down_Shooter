@@ -49,7 +49,7 @@ private:
 	sf::Vector2f gunTimerBarScale, chadMeterScale;
 	float countDownInterval = 1.2f, countDownTimer = 0.f;
 	int countNum = 3;
-	int chadModeKillsRequired = 20;
+	int chadModeKillsRequired = 50;
 
 	bool playButtonActive = true;
 	bool soundException1 = true, soundException2 = true;

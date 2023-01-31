@@ -10,7 +10,7 @@ private:
 	int health = 100;
 	int characterType = 0;
 	int lastChadToggleScore = 0;
-	int chadToggleScore = 20;
+	int chadToggleScore = 50;
 	int rectY = 0;
 
 	//sprites and textures
