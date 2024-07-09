@@ -1,72 +1,504 @@
-﻿  EnemyManager.cpp
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\Weapons.h(25,25): warning C4305: 'argument': truncation from 'double' to 'T'
-          with
-          [
-              T=float
-          ]
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.h(21,25): warning C4305: 'argument': truncation from 'double' to 'T'
-          with
-          [
-              T=float
-          ]
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(15,68): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(15,48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(28,40): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(41,19): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(45,19): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(48,19): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(52,19): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(63,26): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(63,23): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(77,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(140,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(155,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(155,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(172,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(172,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(183,15): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(184,16): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(185,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(186,15): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Iosmetric_Shooting\EnemyManager.cpp(215,25): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  Iosmetric_Shooting.vcxproj -> C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Iosmetric_Shooting\Debug\Iosmetric_Shooting.exe
+﻿  Bullet.cpp
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Bullet.cpp(25,32): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Bullet.cpp(25,25): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Bullet.cpp(41,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Camera.cpp
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Camera.cpp(8,19): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Camera.cpp(34,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  Enemy.cpp
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305:         ]
+  (compiling source file 'Enemy.cpp')
+  
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305:         ]
+  (compiling source file 'Enemy.cpp')
+  
+  EnemyManager.cpp
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305:         ]
+  (compiling source file 'EnemyManager.cpp')
+  
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305:         ]
+  (compiling source file 'EnemyManager.cpp')
+  
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,46): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,46): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,46): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,46): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,46): warning C4305:         ]
+  (compiling source file 'EnemyManager.cpp')
+  
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,40): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,40): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,40): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,40): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,40): warning C4305:         ]
+  (compiling source file 'EnemyManager.cpp')
+  
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(17,68): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(17,48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(29,36): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(29,30): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(33,25): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(33,18): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(52,19): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(52,19): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(52,19): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(52,19): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(52,19): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(56,19): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(56,19): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(56,19): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(56,19): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(56,19): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(59,19): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(59,19): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(59,19): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(59,19): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(59,19): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(63,19): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(63,19): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(63,19): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(63,19): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(63,19): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(74,39): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(74,39): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(74,39): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(74,39): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(74,39): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(74,36): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(74,36): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(74,36): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(74,36): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(74,36): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(88,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(152,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(167,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(167,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(183,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(183,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(194,15): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(194,15): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(194,15): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(194,15): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(194,15): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(195,16): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(195,16): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(195,16): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(195,16): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(195,16): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(196,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(196,13): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(196,13): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(196,13): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(196,13): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(197,15): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(197,15): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(197,15): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(197,15): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(197,15): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.cpp(226,25): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  main.cpp
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305:         ]
+  (compiling source file 'main.cpp')
+  
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305:         ]
+  (compiling source file 'main.cpp')
+  
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,46): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,46): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,46): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,46): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,46): warning C4305:         ]
+  (compiling source file 'main.cpp')
+  
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,40): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,40): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,40): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,40): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,40): warning C4305:         ]
+  (compiling source file 'main.cpp')
+  
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,46): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,46): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,46): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,46): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,46): warning C4305:         ]
+  (compiling source file 'main.cpp')
+  
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,40): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,40): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,40): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,40): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,40): warning C4305:         ]
+  (compiling source file 'main.cpp')
+  
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(9,111): warning C4244: 'argument': conversion from 'unsigned int' to 'T', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(9,111): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(9,111): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(9,111): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(9,111): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(9,72): warning C4244: 'argument': conversion from 'unsigned int' to 'T', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(9,72): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(9,72): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(9,72): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(9,72): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(10,64): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(10,64): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(10,64): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(10,64): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(10,64): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(10,50): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(10,50): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(10,50): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(10,50): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(10,50): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(116,123): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(129,49): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(129,49): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(129,49): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(129,49): warning C4244:             T=int
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(129,49): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(129,41): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(129,41): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(129,41): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(129,41): warning C4244:             T=int
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\main.cpp(129,41): warning C4244:         ]
+  Map.cpp
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305:         ]
+  (compiling source file 'Map.cpp')
+  
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305:         ]
+  (compiling source file 'Map.cpp')
+  
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,46): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,46): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,46): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,46): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,46): warning C4305:         ]
+  (compiling source file 'Map.cpp')
+  
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,40): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,40): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,40): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,40): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,40): warning C4305:         ]
+  (compiling source file 'Map.cpp')
+  
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,46): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,46): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,46): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,46): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,46): warning C4305:         ]
+  (compiling source file 'Map.cpp')
+  
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,40): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,40): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,40): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,40): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,40): warning C4305:         ]
+  (compiling source file 'Map.cpp')
+  
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(42,15): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(42,15): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(42,15): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(42,15): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(42,15): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(43,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(43,13): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(43,13): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(43,13): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(43,13): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(56,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(60,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(66,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(66,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(85,84): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(85,84): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(85,84): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(85,84): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(85,84): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(85,84): warning C4244:         and
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(85,84): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(85,84): warning C4244:             T=int
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(85,84): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(85,56): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(85,56): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(85,56): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(85,56): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(85,56): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(85,56): warning C4244:         and
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(85,56): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(85,56): warning C4244:             T=int
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(85,56): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(165,15): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(165,15): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(165,15): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(165,15): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(165,15): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(166,16): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(166,16): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(166,16): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(166,16): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(166,16): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(167,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(167,13): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(167,13): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(167,13): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(167,13): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(168,15): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(168,15): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(168,15): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(168,15): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Map.cpp(168,15): warning C4244:         ]
+  Player.cpp
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305:         ]
+  (compiling source file 'Player.cpp')
+  
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305:         ]
+  (compiling source file 'Player.cpp')
+  
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,46): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,46): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,46): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,46): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,46): warning C4305:         ]
+  (compiling source file 'Player.cpp')
+  
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,40): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,40): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,40): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,40): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\EnemyManager.h(21,40): warning C4305:         ]
+  (compiling source file 'Player.cpp')
+  
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,46): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,46): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,46): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,46): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,46): warning C4305:         ]
+  (compiling source file 'Player.cpp')
+  
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,40): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,40): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,40): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,40): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.h(27,40): warning C4305:         ]
+  (compiling source file 'Player.cpp')
+  
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.cpp(35,25): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.cpp(35,18): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.cpp(70,16): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.cpp(151,58): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.cpp(151,38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.cpp(157,58): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.cpp(157,38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.cpp(164,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.cpp(164,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.cpp(204,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.cpp(204,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.cpp(224,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.cpp(224,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.cpp(246,60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Player.cpp(246,40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Ui.cpp
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(20,39): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(20,39): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(20,39): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(20,39): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(20,39): warning C4305:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(20,34): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(20,34): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(20,34): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(20,34): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(20,34): warning C4305:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(23,40): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(23,40): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(23,40): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(23,40): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(23,40): warning C4305:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(23,35): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(23,35): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(23,35): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(23,35): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(23,35): warning C4305:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(24,40): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(24,40): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(24,40): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(24,40): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(24,40): warning C4305:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(25,37): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(25,37): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(25,37): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(25,37): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(25,37): warning C4305:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(25,32): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(25,32): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(25,32): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(25,32): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(25,32): warning C4305:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(27,43): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(27,43): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(27,43): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(27,43): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(27,43): warning C4305:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(27,38): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(27,38): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(27,38): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(27,38): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(27,38): warning C4305:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(39,40): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(39,40): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(39,40): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(39,40): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(39,40): warning C4305:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(39,35): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(39,35): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(39,35): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(39,35): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(39,35): warning C4305:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(40,40): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(40,40): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(40,40): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(40,40): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(40,40): warning C4305:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(40,35): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(40,35): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(40,35): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(40,35): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(40,35): warning C4305:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(44,40): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(44,40): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(44,40): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(44,40): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(44,40): warning C4305:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(44,35): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(44,35): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(44,35): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(44,35): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(44,35): warning C4305:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(110,29): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(110,24): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(129,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(136,29): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(140,30): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(143,39): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(147,40): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(180,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(182,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(207,66): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(207,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(228,69): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(228,43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(249,23): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(249,18): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(276,60): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(276,37): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(294,47): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(297,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(328,51): warning C4353: nonstandard extension used: constant 0 as function expression.  Use '__noop' function intrinsic instead
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(412,64): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(416,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(423,78): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(423,49): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Weapons.cpp
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,45): warning C4305:         ]
+  (compiling source file 'Weapons.cpp')
+  
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.h(28,40): warning C4305:         ]
+  (compiling source file 'Weapons.cpp')
+  
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(36,29): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(36,23): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(40,26): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(40,21): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(134,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(207,19): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(207,19): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(207,19): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(207,19): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(207,19): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(211,19): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(211,19): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(211,19): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(211,19): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(211,19): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(214,19): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(214,19): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(214,19): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(214,19): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(214,19): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(218,19): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(218,19): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(218,19): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(218,19): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(218,19): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(263,15): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(263,15): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(263,15): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(263,15): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(263,15): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(264,16): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(264,16): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(264,16): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(264,16): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(264,16): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(265,13): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(265,13): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(265,13): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(265,13): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(265,13): warning C4244:         ]
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(266,15): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(266,15): warning C4244:         with
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(266,15): warning C4244:         [
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(266,15): warning C4244:             T=float
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Weapons.cpp(266,15): warning C4244:         ]
+  Generating Code...
+C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Iosmetric_Shooting\Ui.cpp(436,1): warning C4715: 'Ui::updateScoreState': not all control paths return a value
+  Iosmetric_Shooting.vcxproj -> C:\Users\arkad\Documents\DEADSHOT FILES\C++ Programs\SFML\TESTS\Top_Down_Shooter\Debug\Iosmetric_Shooting.exe
